@@ -4,9 +4,9 @@
             <import addon="xbmc.addon" version="12.0.0"/>
         </requires>
         <extension point="xbmc.addon.repository" name="IM85288 Repository">
-            <info compressed="false">https://raw.githubusercontent.com/Guilouz/repository.guilouz/master/_repo/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Guilouz/repository.guilouz/master/_repo/addons.xml.md5</checksum>
-            <datadir zip="true">https://github.com/Guilouz/repository.guilouz/raw/master/_repo</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/im85288/repository.im85288/master/_repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/im85288/repository.im85288/master/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/im85288/repository.im85288/raw/master/_repo</datadir>
             <hashes>false</hashes>
         </extension>
         <extension point="xbmc.addon.metadata">
