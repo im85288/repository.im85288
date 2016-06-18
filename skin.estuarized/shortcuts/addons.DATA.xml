@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <label>10040</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/addon.png</icon>
+        <action>ActivateWindow(addonbrowser,root)</action>
+    </shortcut>
+    <shortcut>
+        <label>40161</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/settings.png</icon>
+        <action>ActivateWindow(systemsettings,addons)</action>
+    </shortcut>
+</shortcuts>

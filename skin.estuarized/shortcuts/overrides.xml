@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+
+<!-- Icons overrides -->
+	<useDefaultThumbAsIcon>True</useDefaultThumbAsIcon>
+	<icon image="DefaultShortcut.png">special://skin/extras/icons/addtile.png</icon>
+	<icon image="DefaultFolder.png">DefaultFolderSquare.png</icon>
+	<icon image="DefaultVideo.png">DefaultAddonVideo.png</icon>
+	<icon image="DefaultMovies.png">DefaultMoviesSquare.png</icon>
+	<icon image="DefaultTVShows.png">DefaultTVShowsSquare.png</icon>
+	<icon image="DefaultMusicVideos.png">DefaultMusicVideosSquare.png</icon>
+	<icon image="DefaultPicture.png">DefaultAddonPicture.png</icon>
+	<icon image="DefaultDVDFull.png">DefaultDVDFullSquare.png</icon>
+	<icon image="DefaultInProgressShows.png">DefaultInProgressShowsSquare.png</icon>
+	<icon image="DefaultRecentlyAddedMovies.png">DefaultRecentlyAddedMoviesSquare.png</icon>
+	<icon image="DefaultRecentlyAddedEpisodes.png">DefaultRecentlyAddedEpisodesSquare.png</icon>
+	<icon image="DefaultVideoPlaylists.png">DefaultMusicPlaylists.png</icon>
+	<icon image="DefaultPlaylist.png">DefaultMusicPlaylists.png</icon>
+	<icon labelID="livetv">DefaultTVGuide.png</icon>
+	<icon labelID="radio">DefaultRadioGuide.png</icon>
+
+<!-- Additionnal Widgets -->
+    <widget label="40008" icon="special://skin/media/icons/widgets/weather.png">WeatherWidget</widget>
+    <widget label="40009" icon="special://skin/media/icons/widgets/movies.png">MoviesWidget</widget>
+    <widget label="40010" icon="special://skin/media/icons/widgets/tvshows.png">TVShowsWidget</widget>
+    <widget label="40115" icon="special://skin/media/icons/widgets/musicvideo.png">MusicVideoWidget</widget>
+    <widget label="40011" icon="special://skin/media/icons/widgets/music.png">MusicWidget</widget>
+    <widget label="40012" icon="special://skin/media/icons/widgets/addons.png">AddonsWidget</widget>
+    <widget label="40013" icon="special://skin/media/icons/widgets/sources.png">SourcesWidget</widget>
+    <widget label="40014" icon="special://skin/media/icons/widgets/livetv.png">LiveTVWidget</widget>
+    <widget label="40015" icon="special://skin/media/icons/widgets/radios.png">RadioWidget</widget>
+    <widget label="40016" icon="special://skin/media/icons/widgets/pictures.png">PictureWidget</widget>
+	<widget label="40016" icon="special://skin/media/icons/widgets/home.png">HomeWidget</widget>
+
+	<!-- Default Widgets -->
+    <widgetdefault labelID="videos">SourcesWidget</widgetdefault>
+    <widgetdefault labelID="movies">MoviesWidget</widgetdefault>
+    <widgetdefault labelID="tvshows">TVShowsWidget</widgetdefault>
+    <widgetdefault labelID="musicvideo">MusicVideoWidget</widgetdefault>
+    <widgetdefault labelID="music">MusicWidget</widgetdefault>
+    <widgetdefault labelID="radio">RadioWidget</widgetdefault>
+    <widgetdefault labelID="livetv">LiveTVWidget</widgetdefault>
+    <widgetdefault labelID="pictures">PictureWidget</widgetdefault>
+    <widgetdefault labelID="addons">AddonsWidget</widgetdefault>
+    <widgetdefault labelID="weather">WeatherWidget</widgetdefault>
+	<widgetdefault labelID="home">HomeWidget</widgetdefault>
+
+<!-- Default Backgrounds -->        
+    <backgrounddefault labelID="videos">$INFO[Window(Home).Property(SkinHelper.AllVideosBackground)]</backgrounddefault>
+    <backgrounddefault labelID="movies">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</backgrounddefault>
+    <backgrounddefault labelID="tvshows">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</backgrounddefault>
+    <backgrounddefault labelID="musicvideo">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]</backgrounddefault>
+    <backgrounddefault labelID="music">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</backgrounddefault>
+    <backgrounddefault labelID="radio">$INFO[Window(Home).Property(SkinHelper.PvrBackground)]</backgrounddefault>
+    <backgrounddefault labelID="livetv">$INFO[Window(Home).Property(SkinHelper.PvrBackground)]</backgrounddefault>
+    <backgrounddefault labelID="pictures">$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]</backgrounddefault>
+    <backgrounddefault labelID="addons">special://skin/extras/home-images/addons.jpg</backgrounddefault>
+    <backgrounddefault labelID="weather">$VAR[WeatherFanart]$INFO[Window(Weather).Property(Current.FanartCode)]</backgrounddefault>
+	<backgrounddefault labelID="home">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</backgrounddefault>
+
+<!-- Widget Style -->
+    <propertySettings property="WidgetStyle.1" buttonID="3121" title="$LOCALIZE[40017] 1" showNone="False" />
+    <property property="WidgetStyle.1">$LOCALIZE[40020]</property>
+    <property property="WidgetStyle.1">$LOCALIZE[40021]</property>
+    <property property="WidgetStyle.1">$LOCALIZE[40022]</property>
+    
+    <propertySettings property="WidgetStyle.2" buttonID="3123" title="$LOCALIZE[40017] 2" showNone="False" />
+    <property property="WidgetStyle.2">$LOCALIZE[40020]</property>
+    <property property="WidgetStyle.2">$LOCALIZE[40021]</property>
+    <property property="WidgetStyle.2">$LOCALIZE[40022]</property>
+    
+    <propertySettings property="WidgetStyle.3" buttonID="3125" title="$LOCALIZE[40017] 3" showNone="False" />
+    <property property="WidgetStyle.3">$LOCALIZE[40020]</property>
+    <property property="WidgetStyle.3">$LOCALIZE[40021]</property>
+    <property property="WidgetStyle.3">$LOCALIZE[40022]</property>
+    
+    <propertySettings property="WidgetStyle.4" buttonID="3127" title="$LOCALIZE[40017] 4" showNone="False" />
+    <property property="WidgetStyle.4">$LOCALIZE[40020]</property>
+    <property property="WidgetStyle.4">$LOCALIZE[40021]</property>
+    <property property="WidgetStyle.4">$LOCALIZE[40022]</property>
+
+<!-- Widget Settings -->    
+    <propertySettings toggle="HideBannerWidget" buttonID="3129" templateonly="True" />
+    <propertySettings property="PictureWidget" buttonID="3128" title="Path" showNone="True" imageBrowse="True" />    
+
+<!-- Background -->
+	<!-- Browse for Backgrounds -->
+	<background label="::PLAYLIST::">playlistBackground</background>
+	<background label="smartshortcuts">||BROWSE||plugin://script.skin.helper.service/?action=backgrounds</background>
+	<background label="smartshortcuts">||BROWSE||special://skin/extras/backgrounds</background>
+	<backgroundBrowse default="protocol://">True</backgroundBrowse>
+
+
+	<!-- Icons Directory -->
+    <thumbnailBrowseDefault>special://skin/extras/icons/</thumbnailBrowseDefault>    
+
+<!-- Groupings -->    
+    <groupings>
+		<node label="32029">
+			<content>common</content>
+			<shortcut label="$ADDON[script.skin.helper.service 32062]" type="32010" icon="DefaultFolderSquare.png" condition="System.HasAddon(script.skin.helper.service)">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
+		</node>
+		<node label="32030">
+			<content>video</content>
+			<node label="32040">
+				<content>playlist-video</content>
+			</node>
+			<node label="32010">
+				<shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+				<content>addon-video</content>
+			</node>
+			<node label="32075">
+				<content>videosources</content>
+				<content>upnp-video</content>
+			</node>
+		</node>
+		<node label="32031">
+			<content>music</content>
+			<node label="32040">
+				<content>playlist-audio</content>
+			</node>
+			<node label="32011">
+				<shortcut label="1038" type="32019" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+				<content>addon-audio</content>
+			</node>
+			<node label="32075">
+				<content>musicsources</content>
+				<content>upnp-music</content>
+			</node>
+		</node>
+		<node label="32017" condition="System.GetBool(pvrmanager.enabled)" version="13">
+			<content>pvr</content>
+			<node label="19023">
+				<content>pvr-tv</content>
+			</node>
+			<node label="19024">
+				<content>pvr-radio</content>
+			</node>
+		</node>
+		<node label="32017" condition="PVR.HasTVChannels">
+			<content>pvr</content>
+			<node label="19023">
+				<content>pvr-tv</content>
+			</node>
+		</node>
+		<node label="32087" condition="PVR.HasRadioChannels">
+			<content>radio</content>
+			<node label="19024">
+				<content>pvr-radio</content>
+			</node>
+		</node>
+		<node label="32020">
+			<content>picturesources</content>
+		</node>
+		<node label="32007">
+			<node label="32009">
+				<shortcut label="10001" type="32021" icon="DefaultAddonProgram.png">ActivateWindow(Programs,Addons,return)</shortcut>
+				<shortcut label="20244" type="32021" icon="DefaultAddonProgram.png" condition="System.Platform.Android">ActivateWindow(Programs,androidapp://sources/apps,return)</shortcut>
+				<content>addon-program</content>
+			</node>
+			<node label="32010">
+				<shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+				<content>addon-video</content>
+			</node>
+			<node label="32011">
+				<shortcut label="1038" type="32019" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+				<content>addon-audio</content>
+			</node>
+			<node label="32012">
+				<shortcut label="1039" type="32020" icon="DefaultAddonPicture.png">ActivateWindow(Pictures,Addons,return)</shortcut>
+				<content>addon-image</content>
+			</node>
+		</node>
+		<node label="32006">
+			<content>favourite</content>
+		</node>
+		<node label="10004">
+			<content>settings</content>
+		</node>
+		<node label="32054">
+		        <shortcut label="20183" type="32054" icon="ReloadSkin.png">ReloadSkin()</shortcut>
+			<content>commands</content>
+		</node>
+	</groupings>
+	
+	<widget-groupings>
+        <shortcut label="40085" icon="DefaultFolderSquare.png" condition="System.HasAddon(script.skin.helper.service)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=skinplaylists,librarydataprovider,scriptwidgets,extendedinfo,smartshortcuts,pvr,smartishwidgets</shortcut>
+
+        <shortcut label="32107" type="32021" icon="DefaultAddon.png" condition="!System.HasAddon(script.skin.helper.service)">::INSTALL::script.skin.helper.service</shortcut>
+	
+	        <node label="40084">
+	                <content>widgets</content>
+	        </node> 
+		<node label="32030">
+			<content>video</content>
+			<node label="32040">
+				<content>playlist-video</content>
+			</node>
+			<node label="32010">
+				<content>addon-video</content>
+			</node>
+			<node label="32075">
+				<content>videosources</content>
+			</node>
+		</node>
+		<node label="32031">
+			<content>music</content>
+			<node label="32040">
+				<content>playlist-audio</content>
+			</node>
+			<node label="32011">
+				<content>addon-audio</content>
+			</node>
+			<node label="32075">
+				<content>musicsources</content>
+			</node>
+		</node>
+		<node label="32020">
+			<content>picturesources</content>
+		</node>
+		<node label="32007">
+			<node label="32009">
+				<content>addon-program-plugin</content>
+			</node>
+			<node label="32010">
+				<content>addon-video</content>
+			</node>
+			<node label="32011">
+				<content>addon-audio</content>
+			</node>
+			<node label="32012">
+				<content>addon-image</content>
+			</node>
+			<shortcut label="10001" type="32021" icon="DefaultAddonProgram.png" widget="addon" widgetType="program" widgetTarget="programs">addons://sources/executable</shortcut>
+			<shortcut label="20244" type="32021" icon="DefaultAddonProgram.png" widget="addon" widgetType="program" widgetTarget="programs" condition="System.Platform.Android">androidapp://sources/apps</shortcut>
+			<shortcut label="1037" type="32014" icon="DefaultAddonVideo.png" widget="addon" widgetType="video" widgetTarget="video">addons://sources/video</shortcut>
+			<shortcut label="1038" type="32019" icon="DefaultAddonMusic.png" widget="addon" widgetType="music" widgetTarget="music">addons://sources/audio</shortcut>
+			<shortcut label="1039" type="32020" icon="DefaultAddonPicture.png" widget="addon" widgetType="picture" widgetTarget="pictures">addons://sources/image</shortcut>
+		</node>
+	</widget-groupings>
+            
+</overrides>

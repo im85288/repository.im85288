@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <label>20390</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/recentlyadded.png</icon>
+        <action>ActivateWindow(Videos,videodb://recentlyaddedmusicvideos/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>133</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/actor.png</icon>
+        <action>ActivateWindow(Videos,videodb://musicvideos/artists/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>132</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/album.png</icon>
+        <action>ActivateWindow(Videos,videodb://musicvideos/albums/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>744</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/files.png</icon>
+        <action>ActivateWindow(Videos,sources://video/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>136</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/playlist.png</icon>
+        <action>ActivateWindow(Videos,special://videoplaylists/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>40114</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/media.png</icon>
+        <action>ActivateWindow(Videos,videodb://musicvideos/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>653</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/update.png</icon>
+        <action>UpdateLibrary(video)</action>
+    </shortcut>
+</shortcuts>

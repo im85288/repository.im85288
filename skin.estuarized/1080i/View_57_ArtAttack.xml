@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_57_ArtAttack">
+		<include content="UpDownArrows">
+			<param name="container_id" value="57" />
+			<param name="up_posy" value="144" />
+			<param name="down_posy" value="920" />
+			<param name="visible" value="!System.HasModalDialog" />
+		</include>
+		<control type="group">
+			<visible>Control.IsVisible(57)</visible>
+			<include>Visible_Right</include>
+			<include>OpenClose_Right</include>
+			<top>180</top>
+			<left>20</left>
+			<right>20</right>
+			<height>700</height>
+			<include content="View_ArtAttack">
+				<param name="id" value="57" />
+				<param name="condition" value="Container.Content(sets) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows) | Container.Content(movies)" />
+			</include>
+		</control>
+	</include>
+
+	<include name="View_ArtAttack">
+		<control type="group">
+			<control type="fixedlist" id="$PARAM[id]">
+				<top>0</top>
+				<left>50</left>
+				<width>2736</width>
+				<height>732</height>
+				<onup>$PARAM[id]</onup>
+				<ondown>$PARAM[id]</ondown>
+				<onright>531</onright>
+				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+				<pagecontrol>531</pagecontrol>
+				<focusposition>1</focusposition>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<viewtype label="$LOCALIZE[40179]">bigwide</viewtype>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<visible>$PARAM[condition]</visible>
+
+				<itemlayout width="1800" height="66">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<height>66</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" colordiffuse="3Fffffff">$VAR[RealFanartImage]</texture>
+						<fadetime>200</fadetime>
+					</control>
+					<control type="image">
+						<top>5</top>
+						<height>56</height>
+						<texture>$VAR[ClearLogo]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>50</fadetime>
+					</control>
+					<control type="group">
+						<top>6</top>
+						<control type="image">
+							<right>8</right>
+							<top>6</top>
+							<height>48</height>
+							<width>48</width>
+							<texture>$VAR[ListWatchedIconVar]</texture>>
+						</control>
+						<control type="image">
+							<left>8</left>
+							<top>6</top>
+							<height>48</height>
+							<width>48</width>
+							<texture>$INFO[ListItem.Year]</texture>
+							<visible>!IsEmpty(ListItem.Year)</visible>
+						</control>
+						<control type="label">
+							<left>51</left>
+							<top>16</top>
+							<width>70</width>
+							<height>32</height>
+							<align>center</align>
+							<font>font10</font>
+							<selectedcolor>white</selectedcolor>
+							<label fallback="">$INFO[ListItem.Year]</label>
+							<visible>!IsEmpty(ListItem.Year)</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="600" width="1800">
+					<include>View_ArtAttack_Focused</include>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+
+	<include name="View_ArtAttack_Focused">
+		<control type="button">
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+			<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+		</control>
+		<top>66</top>
+		<control type="group">
+			<animation type="Focus" reversible="false">
+				<effect type="fade" end="0" start="100" time="500" delay="1000" tween="quadratic" easing="out"/>
+			</animation>
+			<control type="image">
+				<texture>$VAR[ClearLogo]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<fadetime>50</fadetime>
+			</control>
+		</control>
+
+		<control type="group">
+			<animation type="Focus" reversible="false">
+				<effect type="fade" end="100" start="0" time="500" delay="1000" tween="quadratic" easing="out"/>
+			</animation>
+
+			<control type="image">
+				<height>90</height>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture colordiffuse="$VAR[ColourFocus]">colors/white.png</texture>
+			</control>
+
+			<control type="image">
+				<description>Landscape</description>
+				<top>90</top>
+				<width>894</width>
+				<height>510</height>
+				<texture background="true">$VAR[LandscapeImageOnly]</texture>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+
+			</control>
+			<control type="image">
+				<right>0</right>
+				<top>90</top>
+				<width>907</width>
+				<height>203</height>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture background="true">$VAR[BannerImage]</texture>
+
+			</control>
+			<control type="image">
+				<description>Landscape</description>
+				<top>293</top>
+				<left>894</left>
+				<width>535</width>
+				<height>307</height>
+				<texture background="true">$VAR[RealFanartImage]</texture>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+
+			</control>
+			<control type="image">
+				<left>1429</left>
+				<top>293</top>
+				<width>200</width>
+				<height>307</height>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture background="true">$VAR[PosterImage]</texture>
+			</control>
+			<control type="image">
+				<right>0</right>
+				<top>293</top>
+				<width>200</width>
+				<height>307</height>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture flipx="true" background="true">$VAR[PosterImage]</texture>
+			</control>
+			<control type="group">
+				<top>6</top>
+				<control type="image">
+					<right>8</right>
+					<top>6</top>
+					<height>48</height>
+					<width>48</width>
+					<texture>$VAR[ListWatchedIconVar]</texture>>
+				</control>
+			</control>
+			<control type="image">
+				<top>5</top>
+				<height>80</height>
+				<texture>$VAR[ClearLogo]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<fadetime>50</fadetime>
+			</control>
+
+		</control>
+	</include>
+</includes>
