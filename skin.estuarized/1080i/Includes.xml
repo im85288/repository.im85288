@@ -1556,15 +1556,6 @@
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Top250))</visible>
 							<animation effect="slide" end="-4,0" time="0" condition="true">Conditional</animation>
 						</control>
-
-						<control type="image">
-							<width>48</width>
-							<height>30</height>
-							<texture>$VAR[LanguageFlagsIcon]$INFO[Window(Home).Property(SkinHelper.ListItemAudioStreams.0.Language),,.png]</texture>
-							<aspectratio scalediffuse="false">keep</aspectratio>
-							<visible>!IsEmpty(Window(Home).Property(SkinHelper.ListItemAudioStreams.0.Language))</visible>
-							<animation effect="slide" end="0,1" time="0" condition="true">Conditional</animation>
-						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
@@ -1706,15 +1697,6 @@
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Top250),#,]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Top250))</visible>
 							<animation effect="slide" end="-4,0" time="0" condition="true">Conditional</animation>
-						</control>
-
-						<control type="image">
-							<width>48</width>
-							<height>30</height>
-							<texture>$VAR[LanguageFlagsIcon]$INFO[Window(Home).Property(SkinHelper.ListItemAudioStreams.0.Language),,.png]</texture>
-							<aspectratio scalediffuse="false">keep</aspectratio>
-							<visible>!IsEmpty(Window(Home).Property(SkinHelper.ListItemAudioStreams.0.Language))</visible>
-							<animation effect="slide" end="0,1" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
