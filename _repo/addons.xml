@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="repository.im85288" name="IM85288 Repository" version="1.0.0" provider-name="im85288">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="IM85288 Repository">
+            <info compressed="false">https://raw.githubusercontent.com/im85288/repository.im85288/master/_repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/im85288/repository.im85288/master/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/im85288/repository.im85288/raw/master/_repo</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">IM85288's addons repository</summary>
+            <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="skin.estuarized" version="1.0.1" name="Estuarized" provider-name="im85288">
+	<requires>
+		<import addon="xbmc.gui" version="5.12.0"/>
+		<import addon="script.skinshortcuts" version="0.6.0"/>
+		<import addon="script.skin.helper.service" version="0.0.1"/>
+		<import addon="resource.uisounds.fromashes" version="0.0.1"/>
+	</requires>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Estuarized is a modification of the default Kodi Estuary skin by im85288</summary>
+		<description lang="en_GB">Estuarized is a modification of the default Kodi Estuary skin by im85288</description>
+		<platform>all</platform>
+		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+		<forum>http://forum.kodi.tv/</forum>
+		<source>https://github.com/im85288/skin.estuarized</source>
+	</extension>
+</addon>
+</addons>
