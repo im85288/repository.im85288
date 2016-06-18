@@ -121,10 +121,10 @@
                             <label>$LOCALIZE[40033]</label>
                             <onclick>noop</onclick>
                         </item>
-                        <item id="7">
+                       <!-- <item id="7">
                             <label>$LOCALIZE[40044]</label>
                             <onclick>noop</onclick>
-                        </item>
+                        </item> -->
                         <item id="3">
                             <label>$LOCALIZE[40005]</label>
                             <onclick>noop</onclick>
@@ -206,14 +206,6 @@
                     <ondown>600</ondown>
                     <pagecontrol>61</pagecontrol>
                     <visible>Container(9000).HasFocus(1)</visible>
-                    <control type="button" id="653">
-                        <width>1256</width>
-                        <include>DefaultSettingButton</include>
-                        <label>40071</label>
-                        <label2>$VAR[Label_SkinSetting_HideBars]</label2>
-                        <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HideBars,header=$LOCALIZE[40071])</onclick>
-                        <onclick>ReloadSkin()</onclick>
-                    </control>
                     <control type="radiobutton" id="601">
                         <label>$LOCALIZE[31095]</label>
                         <width>1256</width>
@@ -252,7 +244,6 @@
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
                         <label>10041</label>
-                        <onclick>RunScript(script.skin.helper.service,action=reset,filter=HideBars)</onclick>
                         <onclick>Skin.Reset(no_slide_animations)</onclick>
                         <onclick>Skin.Reset(no_animations)</onclick>
                         <onclick>Skin.Reset(autoscroll)</onclick>
@@ -320,7 +311,7 @@
                         <label2>$VAR[Label_SkinSetting_WeatherFanart]</label2>
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
-                        <onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=WeatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+                        <onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherfanart&amp;type=resource.images.weatherfanart)</onclick>
                         <onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
                     </control>
                     <control type="button" id="652">
@@ -412,7 +403,7 @@
                         <onclick>Skin.Reset(show_disc)</onclick>
                     </control>
                 </control>
-                <control type="grouplist" id="660">
+               <!-- <control type="grouplist" id="660">
                     <left>442</left>
                     <top>160</top>
                     <width>1256</width>
@@ -460,7 +451,7 @@
                         <onclick>Skin.Reset(clearart_position)</onclick>
                         <onclick>Skin.Reset(enable_clearartnextup)</onclick>
                     </control>
-                </control>
+                </control> -->
                 <control type="grouplist" id="620">
                     <left>442</left>
                     <top>160</top>

@@ -501,8 +501,8 @@
                             <param name="widget_header" value="$LOCALIZE[19019]"/>
                             <param name="widget_target" value="pvr"/>
                             <param name="list_id" value="12200"/>
-                            <param name="onup_id" value="9000"/>
-                            <param name="ondown_id" value="9000"/>
+                            <param name="onup_id" value="12200"/>
+                            <param name="ondown_id" value="12200"/>
                             <param name="height" value="540"/>
                         </include>
                         <control type="grouplist">

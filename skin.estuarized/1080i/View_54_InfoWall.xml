@@ -68,7 +68,7 @@
 			<font>font12</font>
 			<align>center</align>
 			<aligny>center</aligny>
-			<label>[COLOR =$VAR[ColourFocus]]$INFO[ListItem.Year,, - [/COLOR]]$INFO[ListItem.Label]</label>
+			<label>[COLOR subwhite]$INFO[ListItem.Year,, - ][/COLOR]$INFO[ListItem.Label]</label>
 		</control>
 		<control type="group">
 			<left>230</left>

@@ -50,7 +50,7 @@
 					<height>121</height>
 					<font>font12</font>
 					<autoscroll delay="10000" time="4000" repeat="10000"/>
-					<label>$INFO[ListItem.Plot]</label>
+					<label>$VAR[Plot]</label>
 					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="!IntegerGreaterThan(Container(518995).NumItems,0)">Conditional</animation>
 					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="IntegerGreaterThan(Container(518995).NumItems,0) + !System.IdleTime(5)">Conditional</animation>
 

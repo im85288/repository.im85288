@@ -1158,11 +1158,11 @@ msgid "Lyrics source"
 msgstr ""
 
 msgctxt "#40119"
-msgid "Customize items and submenus of the home menu."
+msgid "Customize the home menu."
 msgstr ""
 
 msgctxt "#40120"
-msgid "Customize items of the power menu."
+msgid "Customize the items of the power menu."
 msgstr ""
 
 msgctxt "#40121"

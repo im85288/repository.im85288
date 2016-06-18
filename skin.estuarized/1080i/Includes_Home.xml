@@ -1239,7 +1239,7 @@
 		<param name="sortby"></param>
 		<param name="visible">True</param>
 		<param name="sortorder">ascending</param>
-		<param name="main_label">$INFO[ListItem.Year,[COLOR =$VAR[ColourFocus]], - [/COLOR]]$INFO[ListItem.Artist]$INFO[ListItem.AddonVersion,[COLOR =$VAR[ColourFocus]],[/COLOR]]</param>
+		<param name="main_label">$INFO[ListItem.Year,[COLOR =subwhite], - [/COLOR]]$INFO[ListItem.Artist]$INFO[ListItem.AddonVersion,[COLOR =subwhite],[/COLOR]]</param>
 		<definition>
 			<control type="group">
 				<include>Visible_Right_Delayed</include>
@@ -1550,7 +1550,7 @@
 		</definition>
 	</include>
 	<include name="WidgetListChannels">
-		<param name="height">600</param>
+		<param name="height">700</param>
 		<param name="arrow_posy">200</param>
 		<param name="item_limit">100</param>
 		<param name="icon">icons/defaulticons/$INFO[ListItem.Icon]</param>
@@ -1568,18 +1568,24 @@
 					<height>40</height>
 					<label>$PARAM[widget_header]</label>
 					<shadowcolor>text_shadow</shadowcolor>
+					<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
 				</control>
-				<include content="LeftRightArrows">
-					<param name="posy" value="300" />
-					<param name="list_id" value="$PARAM[list_id]" />
-				</include>
-				<control type="wraplist" id="$PARAM[list_id]">
+
+				<control type="image">
+					<left>460</left>
+					<top>35</top>
+					<width>510</width>
+					<height>740</height>
+					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
+				</control>
+				<control type="list" id="$PARAM[list_id]">
 					<left>480</left>
 					<top>55</top>
-					<width>1372</width>
-					<height>$PARAM[height]</height>
+					<width>470</width>
+					<height>700</height>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<orientation>horizontal</orientation>
+					<orientation>vertical</orientation>
 					<onleft>9000</onleft>
 					<onright>noop</onright>
 					<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
@@ -1590,102 +1596,203 @@
 					<onback>SetFocus(9000)</onback>
 					<preloaditems>1</preloaditems>
 					<autoscroll time="7000">!Control.HasFocus($PARAM[list_id])</autoscroll>
-					<itemlayout width="343" height="500">
+					<itemlayout height="70" width="470">
 						<control type="image">
-							<width>340</width>
-							<height>500</height>
-							<texture border="40">buttons/button-nofo.png</texture>
+							<left>0</left>
+							<top>0</top>
+							<width>470</width>
+							<height>70</height>
+							<texture border="40">lists/separator.png</texture>
 						</control>
 						<control type="image">
-							<top>43</top>
-							<left>42</left>
-							<width>260</width>
-							<height>200</height>
-							<texture fallback="DefaultTVShowsSquare.png">$PARAM[icon]</texture>
+							<width>60</width>
+							<height>60</height>
+							<left>405</left>
+							<top>4</top>
+							<texture border="2">$INFO[ListItem.Icon]</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>2</bordersize>
 							<aspectratio>keep</aspectratio>
 						</control>
-						<control type="textbox">
-							<left>42</left>
-							<top>247</top>
-							<width>260</width>
+						<control type="label">
+							<left>20</left>
+							<top>0</top>
+							<width>390</width>
 							<height>70</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>font12</font>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-							<aligny>top</aligny>
-						</control>
-						<control type="textbox">
-							<left>42</left>
-							<top>350</top>
-							<width>260</width>
-							<height>98</height>
-							<label>[COLOR =$VAR[ColourFocus]]$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime][/COLOR][CR]$INFO[ListItem.Title]</label>
-							<font>font12</font>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-							<aligny>top</aligny>
+							<aligny>center</aligny>
+							<font>fontContextMenu</font>
+							<textcolor>grey</textcolor>
+							<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout width="343" height="500">
+					<focusedlayout width="470" height="70">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
-						<control type="group">
-							<depth>DepthContentPopout</depth>
-							<animation type="Focus" condition="!Skin.HasSetting(no_animations)">
-								<effect type="zoom" start="100" end="108" time="200" tween="sine" easing="inout" center="150,70" />
-							</animation>
-							<animation type="Unfocus" condition="!Skin.HasSetting(no_animations)">
-								<effect type="zoom" start="108" end="100" time="200" tween="sine" easing="inout" center="150,70" />
-							</animation>
-							<control type="image">
-								<width>340</width>
-								<height>500</height>
-								<texture border="40">buttons/button-nofo.png</texture>
-							</control>
-							<control type="image">
-								<width>340</width>
-								<height>500</height>
-								<texture border="40" colordiffuse="$VAR[ColourFocus]">buttons/button-fo.png</texture>
-								<animation effect="fade" start="0" end="100" time="200">Focus</animation>
-								<animation effect="fade" start="100" end="0" time="0">Unfocus</animation>
-							</control>
-							<control type="image">
-								<top>43</top>
-								<left>42</left>
-								<width>260</width>
-								<height>200</height>
-								<texture fallback="DefaultTVShowsSquare.png">$PARAM[icon]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="textbox">
-								<left>42</left>
-								<top>247</top>
-								<width>260</width>
-								<height>70</height>
-								<label>$INFO[ListItem.Label]</label>
-								<font>font12</font>
-								<shadowcolor>text_shadow</shadowcolor>
-								<align>center</align>
-								<aligny>top</aligny>
-							</control>
-							<control type="textbox">
-								<left>42</left>
-								<top>350</top>
-								<width>260</width>
-								<height>98</height>
-								<label>[COLOR =$VAR[ColourFocus]]$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime][/COLOR][CR]$INFO[ListItem.Title]</label>
-								<font>font12</font>
-								<shadowcolor>text_shadow</shadowcolor>
-								<align>center</align>
-								<aligny>top</aligny>
-							</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>470</width>
+							<height>70</height>
+							<texture border="40">lists/separator.png</texture>
+							<visible>!Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>470</width>
+							<height>70</height>
+							<texture colordiffuse="$VAR[ColourFocus]">lists/focus.png</texture>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="image">
+							<width>60</width>
+							<height>60</height>
+							<left>405</left>
+							<top>4</top>
+							<texture border="2">$INFO[ListItem.Icon]</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>2</bordersize>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<top>0</top>
+							<width>390</width>
+							<height>70</height>
+							<font>fontContextMenu</font>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
 						</control>
 					</focusedlayout>
 					<content target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
+				</control>
+
+				<control type="image">
+					<left>970</left>
+					<top>35</top>
+					<width>900</width>
+					<height>740</height>
+					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
+				</control>
+
+				<control type="group">
+					<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
+					<top>60</top>
+					<left>1000</left>
+					<width>840</width>
+					<control type="group">
+						<height>473</height>
+						<control type="image">
+							<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+							<texture diffuse="dialog/white.png" background="true" fallback="DefaultTVShowsSquare.png">$INFO[Container($PARAM[list_id]).ListItem.Thumb]</texture>
+							<visible>IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) + IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) + IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) + IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
+						</control>
+						<control type="image">
+							<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+							<texture diffuse="dialog/white.png" background="true" fallback="DefaultTVShowsSquare.png">$VAR[PVRLandscape]</texture>
+							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
+						</control>
+						<control type="image">
+							<description>Title overlay</description>
+							<texture colordiffuse="44000000">common/white.png</texture>
+							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
+						</control>
+						<control type="image">
+							<bottom>35</bottom>
+							<right>0</right>
+							<height>130</height>
+							<width>130</width>
+							<aspectratio align="right" aligny="bottom" scalediffuse="false">keep</aspectratio>
+							<texture diffuse="dialog/white.png" background="true">$INFO[Container($PARAM[list_id]).ListItem.Thumb]</texture>
+							<visible>[!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))] + IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
+						</control>
+						<control type="image">
+							<bottom>35</bottom>
+							<left>0</left>
+							<height>130</height>
+							<width>130</width>
+							<aspectratio align="left" aligny="bottom" scalediffuse="false">keep</aspectratio>
+							<texture diffuse="dialog/white.png" background="true">$INFO[Window(home).Property(SkinHelper.PVR.CharacterArt)]</texture>
+							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.CharacterArt))</visible>
+						</control>
+						<control type="image">
+							<description>Title overlay</description>
+							<top>0</top>
+							<height>25</height>
+							<texture colordiffuse="$VAR[ColourFocus]">dialogs/white.png</texture>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="label">
+							<align>center</align>
+							<aligny>center</aligny>
+							<height>25</height>
+							<top>0</top>
+							<font>font9</font>
+							<textcolor>black</textcolor>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.Season,,x]$INFO[Container($PARAM[list_id]).ListItem.Episode,,. ]$INFO[Container($PARAM[list_id]).ListItem.Title]</label>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+					</control>
+					<control type="group">
+						<top>483</top>
+						<height>250</height>
+						<control type="label">
+							<top>2</top>
+							<aligny>center</aligny>
+							<align>left</align>
+							<height>38</height>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.StartTime(hh:mm)]</label>
+						</control>
+						<control type="label">
+							<top>2</top>
+							<aligny>center</aligny>
+							<align>right</align>
+							<height>38</height>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.EndTime(hh:mm)]</label>
+						</control>
+
+						<control type="progress">
+							<top>42</top>
+							<left>5</left>
+							<right>5</right>
+							<height>12</height>
+							<colordiffuse>88FFFFFF</colordiffuse>
+							<visible>Container($PARAM[list_id]).ListItem.HasEpg</visible>
+							<info>Container($PARAM[list_id]).ListItem.Progress</info>
+						</control>
+						<control type="textbox">
+							<top>55</top>
+							<width>830</width>
+							<height>90</height>
+							<align>left</align>
+							<font>font10</font>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.Plot]</label>
+							<autoscroll delay="10000" time="4000" repeat="10000"/>
+						</control>
+						<control type="label">
+							<top>170</top>
+							<aligny>center</aligny>
+							<align>left</align>
+							<height>38</height>
+							<font>font9</font>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.NextStartTime,Next @ , ]$INFO[Container($PARAM[list_id]).ListItem.NextTitle]</label>
+						</control>
+						<control type="label">
+							<top>170</top>
+							<height>38</height>
+							<aligny>center</aligny>
+							<align>right</align>
+							<font>font9</font>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.NextGenre]</label>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 			</control>
 		</definition>

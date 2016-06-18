@@ -740,18 +740,10 @@
         	<value condition="!String.IsEmpty(Skin.String(Opacity.label))">$INFO[Skin.String(Opacity.label)] %</value>
         	<value>$LOCALIZE[15109] - 21 %</value>
     </variable>
-    <variable name="Label_SkinSetting_HideBars">
-        	<value condition="!String.IsEmpty(Skin.String(HideBars.label))">$INFO[Skin.String(HideBars.label)]</value>
-        	<value>$LOCALIZE[40068]</value>
-    </variable>
     <variable name="Label_SkinSetting_Spinner">
     		<value condition="Skin.String(SkinHelper.SpinnerTexturePath,None)">$LOCALIZE[15109]</value>
         	<value condition="!String.IsEmpty(Skin.String(SkinHelper.SpinnerTexturePath)) | !String.IsEmpty(Skin.String(SkinHelper.SpinnerTexture))">$INFO[Skin.String(SkinHelper.SpinnerTexture)]</value>       	
         	<value>$LOCALIZE[15109]</value>
-    </variable>
-    <variable name="Label_SkinSetting_ClearArtPosition">
-    		<value condition="!String.IsEmpty(Skin.String(clearart_position))">$INFO[Skin.String(clearart_position)]</value>      	
-        	<value>$LOCALIZE[40088]</value>
     </variable>
     <variable name="Background_Opacity">
         <value condition="String.IsEmpty(Skin.String(Opacity.label)) + String.IsEqual(Skin.String(Opacity.label),Default)">35FFFFFF</value>
@@ -1431,4 +1423,11 @@
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.Title]</value>
 	</variable>
 
+	<variable name="PVRLandscape">
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape))">$INFO[Window(home).Property(SkinHelper.PVR.Landscape)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt))">$INFO[Window(home).Property(SkinHelper.PVR.FanArt)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))">$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.PVR.ChannelLogo)]</value>
+		<value>DefaultTVShowsSquare.png</value>
+	</variable>
 </includes>
