@@ -9,11 +9,11 @@
 	<color name="grey">FFA0A0A0</color>
 	<color name="blue">FF7ACAFE</color>
 	<color name="red">FFCE4421</color>
-	<color name="button_focus">FF12B2E7</color>
+	<color name="button_focus">d965ffff</color>
 	<color name="text_shadow">22000000</color>
 	<color name="border_alpha">60FFFFFF</color>
 	<color name="disabled">40FFFFFF</color>
-	<color name="selected">FF11E7B1</color>
+	<color name="selected">ff33ff00</color>
 	<color name="invalid">FFFF0000</color>
 
 	<color name="IMDB">fff5de50</color>

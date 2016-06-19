@@ -1688,11 +1688,6 @@
 						<height>473</height>
 						<control type="image">
 							<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
-							<texture diffuse="dialog/white.png" background="true" fallback="DefaultTVShowsSquare.png">$INFO[Container($PARAM[list_id]).ListItem.Thumb]</texture>
-							<visible>IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) + IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) + IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) + IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
-						</control>
-						<control type="image">
-							<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 							<texture diffuse="dialog/white.png" background="true" fallback="DefaultTVShowsSquare.png">$VAR[PVRLandscape]</texture>
 							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
 						</control>
@@ -1702,22 +1697,18 @@
 							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
 						</control>
 						<control type="image">
-							<bottom>35</bottom>
+							<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+							<texture diffuse="dialog/white.png" background="true" fallback="DefaultTVShowsSquare.png">$INFO[Container($PARAM[list_id]).ListItem.Thumb]</texture>
+							<visible>IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) + IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) + IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) + IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
+						</control>
+						<control type="image">
+							<bottom>0</bottom>
 							<right>0</right>
 							<height>130</height>
 							<width>130</width>
 							<aspectratio align="right" aligny="bottom" scalediffuse="false">keep</aspectratio>
 							<texture diffuse="dialog/white.png" background="true">$INFO[Container($PARAM[list_id]).ListItem.Thumb]</texture>
 							<visible>[!IsEmpty(Window(home).Property(SkinHelper.PVR.Landscape)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) | !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))] + IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))</visible>
-						</control>
-						<control type="image">
-							<bottom>35</bottom>
-							<left>0</left>
-							<height>130</height>
-							<width>130</width>
-							<aspectratio align="left" aligny="bottom" scalediffuse="false">keep</aspectratio>
-							<texture diffuse="dialog/white.png" background="true">$INFO[Window(home).Property(SkinHelper.PVR.CharacterArt)]</texture>
-							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.CharacterArt))</visible>
 						</control>
 					</control>
 					<control type="group">
@@ -1736,6 +1727,15 @@
 							<align>right</align>
 							<height>38</height>
 							<label>$INFO[Container($PARAM[list_id]).ListItem.EndTime(hh:mm)]</label>
+						</control>
+						<control type="label">
+							<align>center</align>
+							<aligny>center</aligny>
+							<height>33</height>
+							<top>3</top>
+							<font>font14</font>
+							<textcolor>$VAR[ColourFocus]</textcolor>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.Season,,x]$INFO[Container($PARAM[list_id]).ListItem.Episode,,. ]$INFO[Container($PARAM[list_id]).ListItem.Title]</label>
 						</control>
 
 						<control type="progress">
@@ -1762,7 +1762,7 @@
 							<align>left</align>
 							<height>38</height>
 							<font>font9</font>
-							<label>$INFO[Container($PARAM[list_id]).ListItem.NextStartTime,Next @ , ]$INFO[Container($PARAM[list_id]).ListItem.NextTitle]</label>
+							<label>$INFO[Container($PARAM[list_id]).ListItem.NextStartTime,Next @ , ][COLOR= $VAR[ColourFocus]]$INFO[Container($PARAM[list_id]).ListItem.NextTitle][/COLOR]</label>
 						</control>
 						<control type="label">
 							<top>170</top>
