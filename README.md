@@ -5,8 +5,14 @@
 ** Why should I use this skin?**
 
 - This version allows full customisation of the theme colours and home menu
+- Sub Menu is now in the same position as the main menu
 - Includes a re-designed Live TV widget
 - Uses the skin helper addon thoroughly to enhance the browsing experience
+- Extra Home section added for viewing recommended media
+- Trending Movies/Shows shown using the extended info script
+- Ratings from Rotten Tomatoes and Metacritic
+- ArtAttack and Stamps views added
+- Fanart View adapted to use banners and show the cast when available, colour effect added when colorbox script is installed
 
 
 **Installation in Kodi**
