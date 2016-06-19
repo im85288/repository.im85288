@@ -1201,6 +1201,7 @@
 					<top>0</top>
 					<centerleft>50%</centerleft>
 					<visible>Player.HasMedia + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+					<visible>!Window.IsVisible(MyVideoNav.xml) + !ControlGroup(2000).HasFocus</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<control type="grouplist">
 						<orientation>horizontal</orientation>
