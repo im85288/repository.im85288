@@ -928,10 +928,50 @@
                     </control>
                 </control>
             </control>
-            <include content="InfoDialogTopBarInfo">
+            <include content="InfoDialogTopBarDialogInfo">
                 <param name="main_label" value="$VAR[VideoInfoMainLabelVar]"/>
                 <param name="sub_label" value="$VAR[VideoInfoSubLabelVar]"/>
             </include>
+            <control type="group">
+                <depth>DepthBars</depth>
+                <animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
+                <animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
+
+                <control type="image">
+                    <left>0</left>
+                    <top>995</top>
+                    <width>2000</width>
+                    <height>85</height>
+                    <texture flipy="true">frame/InfoBar.png</texture>
+                    <visible>![String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40069]) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)] + !Container.Content(addons) + [Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | [Control.IsVisible(55) + !Container.Content(actors) + !Container.Content(directors) + ![Control.IsVisible(55) + Window.IsVisible(MyVideoNav.xml)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(59) | Control.IsVisible(60)]]</visible>
+                    <visible>!String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40070])</visible>
+                </control>
+                <!-- logos  etc -->
+
+                <control type="group">
+                    <animation effect="slide" end="0,20" time="400" condition="Control.HasFocus(80133)">Conditional</animation>
+                    <left>100</left>
+                    <top>258</top>
+                    <width>1854</width>
+                    <height>45</height>
+                    <control type="image" id="89122">
+                        <top>750</top>
+                        <left>-10</left>
+                        <width>361</width>
+                        <height>64</height>
+                        <texture fallback="E.png">$VAR[ClearLogo]</texture>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                    </control>
+                    <control type="image">
+                        <right>120</right>
+                        <top>750</top>
+                        <width>228</width>
+                        <height>64</height>
+                        <texture>$VAR[ColourStudio]</texture>
+                        <aspectratio aligny="center" align="right">keep</aspectratio>
+                    </control>
+                </control>
+            </control>
         </control>
     </controls>
 </window>

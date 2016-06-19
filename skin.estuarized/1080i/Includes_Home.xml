@@ -1719,23 +1719,6 @@
 							<texture diffuse="dialog/white.png" background="true">$INFO[Window(home).Property(SkinHelper.PVR.CharacterArt)]</texture>
 							<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.CharacterArt))</visible>
 						</control>
-						<control type="image">
-							<description>Title overlay</description>
-							<top>0</top>
-							<height>25</height>
-							<texture colordiffuse="$VAR[ColourFocus]">dialogs/white.png</texture>
-							<visible>Control.HasFocus($PARAM[list_id])</visible>
-						</control>
-						<control type="label">
-							<align>center</align>
-							<aligny>center</aligny>
-							<height>25</height>
-							<top>0</top>
-							<font>font9</font>
-							<textcolor>black</textcolor>
-							<label>$INFO[Container($PARAM[list_id]).ListItem.Season,,x]$INFO[Container($PARAM[list_id]).ListItem.Episode,,. ]$INFO[Container($PARAM[list_id]).ListItem.Title]</label>
-							<visible>Control.HasFocus($PARAM[list_id])</visible>
-						</control>
 					</control>
 					<control type="group">
 						<top>483</top>

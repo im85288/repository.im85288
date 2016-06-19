@@ -1125,6 +1125,9 @@
             <include content="TopBar">
                 <param name="breadcrumbs_label" value=""/>
                 <param name="breadcrumbs_icon" value=""/>
+                <param name="main_label" value="$VAR[WidgetLabelKarma]"/>
+                <param name="sub_label" value="$VAR[VideoInfoSubLabelVar]"/>
+
             </include>
 
             <control type="grouplist">

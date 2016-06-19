@@ -371,6 +371,8 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsVideoVar]" />
 				<param name="breadcrumbs_icon" value="icons/settings/video.png" />
+				<param name="main_label" value="$VAR[VideoInfoMainLabelVar]"/>
+				<param name="sub_label" value="$VAR[VideoInfoSubLabelVar]"/>
 				<param name="visible" value="![[String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40069]) | String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40070])] + !Container.Content(addons) + !Container.Content(actors) + !Container.Content(directors) + ![Control.IsVisible(55) + Window.IsVisible(MyVideoNav.xml)] + [Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(503)]]" />
 			</include>
 			<include content="BottomBar">
