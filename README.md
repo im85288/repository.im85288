@@ -4,6 +4,8 @@
 
 ** Why should I use this skin?**
 
+- Choose a Horizontal menu if you prefer
+- Live TV Guide changed, artwork retrieved for enhanced browsing
 - This version allows full customisation of the theme colours and home menu
 - Sub Menu is now in the same position as the main menu
 - Includes a re-designed Live TV widget

@@ -1400,3 +1400,17 @@ msgstr ""
 msgctxt "#40181"
 msgid "Gallery"
 msgstr ""
+
+msgctxt "#40182"
+msgid "Home"
+msgstr ""
+
+msgctxt "#40188"
+msgid "Home Style - Horizontal?"
+msgstr ""
+
+msgctxt "#40189"
+msgid "Show Genre background"
+msgstr ""
+
+

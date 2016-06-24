@@ -38,7 +38,8 @@
 					<progresstexture border="0,60,18,14" colordiffuse="$VAR[ColourFocus]">windows/pvr/epg_progress.png</progresstexture>
 					<rulerlayout height="45" width="1400">
 						<control type="label">
-							<width>500</width>
+							<left>-3</left>
+							<width>610</width>
 							<height>45</height>
 							<font>font12</font>
 							<label>$INFO[ListItem.Label]</label>
@@ -47,43 +48,62 @@
 						</control>
 					</rulerlayout>
 					<channellayout height="58" width="330">
+						<control type="image" id="2">
+							<width>330</width>
+							<height>58</height>
+							<texture colordiffuse="55000000" border="8">buttons/thumbnail_focused.png</texture>
+						</control>
 						<control type="label">
-							<left>2</left>
+							<right>2</right>
 							<top>-2</top>
-							<width>85</width>
+							<width>65</width>
 							<height>60</height>
-							<font>font24_title</font>
+							<font>font14</font>
 							<label>$INFO[ListItem.ChannelNumber]</label>
 							<align>center</align>
 							<aligny>center</aligny>
 						</control>
 						<control type="label" id="1">
-							<left>90</left>
+							<left>70</left>
 							<top>-2</top>
-							<width>280</width>
+							<width>190</width>
 							<height>60</height>
 							<font>font12</font>
 							<label>$INFO[ListItem.ChannelName]</label>
 							<aligny>center</aligny>
 							<textoffsetx>10</textoffsetx>
 						</control>
+						<control type="image">
+							<left>5</left>
+							<top>3</top>
+							<width>56</width>
+							<height>56</height>
+							<aspectratio>keep</aspectratio>
+							<fadetime>400</fadetime>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
 					</channellayout>
 					<focusedchannellayout height="58" width="330">
+						<control type="image" id="2">
+							<width>330</width>
+							<height>58</height>
+							<texture colordiffuse="55000000" border="8">buttons/thumbnail_focused.png</texture>
+						</control>
 						<control type="label">
-							<left>2</left>
+							<right>2</right>
 							<top>-2</top>
-							<width>85</width>
+							<width>65</width>
 							<height>60</height>
-							<font>font24_title</font>
+							<font>font14</font>
 							<label>$INFO[ListItem.ChannelNumber]</label>
 							<textcolor>$VAR[ColourFocus]</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 						</control>
 						<control type="label" id="1">
-							<left>90</left>
+							<left>70</left>
 							<top>-2</top>
-							<width>265</width>
+							<width>190</width>
 							<height>60</height>
 							<font>font12</font>
 							<label>$INFO[ListItem.ChannelName]</label>
@@ -92,12 +112,28 @@
 							<aligny>center</aligny>
 							<textoffsetx>10</textoffsetx>
 						</control>
+						<control type="image">
+							<left>5</left>
+							<top>3</top>
+							<width>56</width>
+							<height>56</height>
+							<aspectratio>keep</aspectratio>
+							<fadetime>400</fadetime>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
 					</focusedchannellayout>
 					<itemlayout height="58" width="60">
 						<control type="image" id="2">
 							<width>58</width>
 							<height>58</height>
 							<texture border="3" fallback="windows/pvr/epg-genres/0.png">$INFO[ListItem.Property(GenreType),windows/pvr/epg-genres/,.png]</texture>
+							<visible>Skin.HasSetting(epgshow.genres)</visible>
+						</control>
+						<control type="image" id="2">
+							<width>58</width>
+							<height>58</height>
+							<texture colordiffuse="99000000" border="8">buttons/thumbnail_focused.png</texture>
+							<visible>!Skin.HasSetting(epgshow.genres)</visible>
 						</control>
 						<control type="label" id="1">
 							<left>6</left>
@@ -105,7 +141,7 @@
 							<width>50</width>
 							<height>36</height>
 							<aligny>center</aligny>
-							<font>font10_title</font>
+							<font>font10</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
@@ -136,6 +172,15 @@
 							<top>0</top>
 							<texture border="3" fallback="windows/pvr/epg-genres/0.png">$INFO[ListItem.Property(GenreType),windows/pvr/epg-genres/,.png]</texture>
 							<visible>!Control.HasFocus(10)</visible>
+							<visible>Skin.HasSetting(epgshow.genres)</visible>
+						</control>
+						<control type="image" id="2">
+							<width>58</width>
+							<height>58</height>
+							<top>0</top>
+							<texture colordiffuse="99000000" border="8">buttons/thumbnail_focused.png</texture>
+							<visible>!Control.HasFocus(10)</visible>
+							<visible>!Skin.HasSetting(epgshow.genres)</visible>
 						</control>
 						<control type="label" id="1">
 							<left>6</left>
@@ -143,7 +188,7 @@
 							<width>50</width>
 							<height>36</height>
 							<aligny>center</aligny>
-							<font>font10_title</font>
+							<font>font10</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
@@ -158,6 +203,13 @@
 				<control type="group">
 					<top>540</top>
 					<left>-120</left>
+					<control type="image">
+						<top>-25</top>
+						<left>100</left>
+						<width>1840</width>
+						<height>250</height>
+						<texture border="22">dialogs/dialog-bg.png</texture>
+					</control>
 					<control type="image" id="82">
 						<width>450</width>
 						<height>240</height>
@@ -166,40 +218,51 @@
 						<texture>$INFO[ListItem.PlotOutline]</texture>
 						<visible>String.StartsWith(ListItem.PlotOutline,http://) | String.StartsWith(ListItem.PlotOutline,https://)</visible>
 					</control>
+					<control type="image" id="45678">
+						<left>125</left>
+						<width>312</width>
+						<height>200</height>
+						<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[ListItem.Title]&amp;channel=$INFO[ListItem.ChannelName]&amp;type=landscape,fanart,thumb,poster</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!Player.HasVideo</visible>
+					</control>
+					<control type="videowindow">
+						<left>125</left>
+						<width>312</width>
+						<height>200</height>
+						<visible>Player.HasVideo</visible>
+					</control>
 					<control type="image">
 						<left>125</left>
-						<width>200</width>
+						<width>312</width>
 						<height>200</height>
 						<aspectratio>keep</aspectratio>
 						<fadetime>400</fadetime>
 						<texture>$INFO[Container(10).ListItem.Icon]</texture>
-						<visible>!Control.IsVisible(82)</visible>
+						<visible>Substring(Control.GetLabel(45678),empty.png)</visible>
 					</control>
+
 					<control type="group">
-						<left>410</left>
+						<left>452</left>
 						<top>0</top>
-						<control type="image">
-							<top>-25</top>
-							<left>-50</left>
-							<width>1480</width>
-							<height>250</height>
-							<texture border="22">dialogs/dialog-bg.png</texture>
+						<control type="group">
+							<control type="label">
+								<width>1460</width>
+								<height>30</height>
+								<textcolor>$VAR[ColourFocus]</textcolor>
+								<font>font12</font>
+								<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label>
+							</control>
+							<control type="textbox">
+								<top>38</top>
+								<width>1460</width>
+								<height>153</height>
+								<font>font12</font>
+								<label>$INFO[ListItem.Plot]</label>
+								<autoscroll delay="10000" time="3000" repeat="10000"/>
+							</control>
 						</control>
-						<control type="label">
-							<width>1380</width>
-							<height>30</height>
-							<textcolor>$VAR[ColourFocus]</textcolor>
-							<font>font12</font>
-							<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label>
-						</control>
-						<control type="textbox">
-							<top>38</top>
-							<width>1380</width>
-							<height>153</height>
-							<font>font12</font>
-							<label>$INFO[ListItem.Plot]</label>
-							<autoscroll delay="10000" time="3000" repeat="10000"/>
-						</control>
+
 					</control>
 				</control>
 			</control>

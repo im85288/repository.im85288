@@ -106,7 +106,7 @@
                     </focusedlayout>
                     <content>
                         <item id="2">
-                            <label>$LOCALIZE[40002]</label>
+                            <label>$LOCALIZE[40182]</label>
                             <onclick>noop</onclick>
                         </item>
                         <item id="1">
@@ -171,6 +171,18 @@
                     <ondown>610</ondown>
                     <visible>Container(9000).HasFocus(2)</visible>
                     <visible>!Window.IsActive(script-skinshortcuts.xml)</visible>
+                    <control type="radiobutton" id="9211" description="Home Style">
+                        <label>$LOCALIZE[40188]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <selected>Skin.HasSetting(horizontal.menu)</selected>
+                        <onclick>Skin.ToggleSetting(horizontal.menu)</onclick>
+                    </control>
+                    <control type="image" id="11">
+                        <description>separator image</description>
+                        <height>3</height>
+                        <texture colordiffuse="AAAAAAAA" border="3">dialogs/separator-grey.png</texture>
+                    </control>
                     <control type="button" id="611">
                         <label>$ADDON[script.skinshortcuts 32071]</label>
                         <width>1256</width>
@@ -194,6 +206,7 @@
                         <include>DefaultSettingButton</include>
                         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
                     </control>
+
                 </control>
                 <control type="grouplist" id="600">
                     <left>442</left>

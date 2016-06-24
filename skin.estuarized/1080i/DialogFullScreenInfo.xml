@@ -35,6 +35,15 @@
 				<aspectratio aligny="center">keep</aspectratio>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
+			<control type="image" id="456788">
+				<right>48</right>
+				<top>-205</top>
+				<width>200</width>
+				<height>300</height>
+				<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[VideoPlayer.Title]&amp;channel=$INFO[VideoPlayer.ChannelName]&amp;type=poster,landscape,fanart,thumb</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
+			</control>
 			<control type="image">
 				<description>TV Cover</description>
 				<right>48</right>
@@ -43,7 +52,7 @@
 				<height>300</height>
 				<texture fallback="DefaultVideoCover.png">$VAR[NowPlayingPosterVar]</texture>
 				<aspectratio aligny="center">keep</aspectratio>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<visible>VideoPlayer.Content(LiveTV) + SubString(Control.GetLabel(456788),empty.png)</visible>
 			</control>
 			<control type="textbox">
 				<left>52</left>

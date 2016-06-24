@@ -67,19 +67,19 @@
 				<ondown>11</ondown>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<focusedlayout height="77" width="1000">
+				<focusedlayout height="80" width="1000">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>1000</width>
-						<height>77</height>
+						<height>80</height>
 						<texture border="90,3,90,3">lists/separator.png</texture>
 					</control>
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>1000</width>
-						<height>77</height>
+						<height>80</height>
 						<texture colordiffuse="$VAR[ColourFocus]">lists/focus.png</texture>
 						<visible>Control.hasFocus(11)</visible>
 					</control>
@@ -110,7 +110,7 @@
 					<control type="label">
 						<left>105</left>
 						<top>0</top>
-						<height>77</height>
+						<height>80</height>
 						<width>600</width>
 						<aligny>top</aligny>
 						<animation effect="slide" start="0,0" end="0,18" time="0" condition="String.IsEmpty(ListItem.Title)">Conditional</animation>
@@ -120,7 +120,7 @@
 					<control type="label">
 						<left>165</left>
 						<top>36</top>
-						<height>77</height>
+						<height>80</height>
 						<width>580</width>
 						<aligny>top</aligny>
 						<align>left</align>
@@ -131,7 +131,7 @@
 					<control type="label">
 						<left>12</left>
 						<top>0</top>
-						<height>77</height>
+						<height>80</height>
 						<width>70</width>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -140,12 +140,12 @@
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 				</focusedlayout>
-				<itemlayout height="77">
+				<itemlayout height="80">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>1000</width>
-						<height>77</height>
+						<height>80</height>
 						<texture border="90,3,90,3">lists/separator.png</texture>
 					</control>
 					<control type="image">
@@ -175,7 +175,7 @@
 					<control type="label">
 						<left>105</left>
 						<top>0</top>
-						<height>77</height>
+						<height>80</height>
 						<width>640</width>
 						<aligny>top</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -185,7 +185,7 @@
 					<control type="label">
 						<left>165</left>
 						<top>36</top>
-						<height>77</height>
+						<height>80</height>
 						<width>580</width>
 						<aligny>top</aligny>
 						<align>left</align>
@@ -197,7 +197,7 @@
 					<control type="label">
 						<left>12</left>
 						<top>0</top>
-						<height>77</height>
+						<height>80</height>
 						<width>70</width>
 						<align>center</align>
 						<aligny>center</aligny>

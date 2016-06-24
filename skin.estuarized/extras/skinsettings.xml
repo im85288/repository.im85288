@@ -28,4 +28,8 @@
     <setting id="HideBars" value="Library" label="$LOCALIZE[40069]" condition="" icon="special://skin/media/DefaultAddon.png" description="$LOCALIZE[40072]"/>
     <setting id="HideBars" value="Everywhere" label="$LOCALIZE[40070]" condition="" icon="special://skin/media/DefaultAddon.png" description="$LOCALIZE[40073]"/>
 
+    <!-- Home Style -->
+    <setting id="HomeStyle" value="Vertical" label="$LOCALIZE[40184]" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40186]"/>
+    <setting id="HomeStyle" value="Horizontal" label="$LOCALIZE[40185]" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40187]"/>
+
 </settings>

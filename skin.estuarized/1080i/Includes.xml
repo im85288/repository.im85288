@@ -937,7 +937,7 @@
 						<animation effect="fade" time="300">Visible</animation>
 						<animation effect="fade" time="150">Hidden</animation>
 						<aspectratio>keep</aspectratio>
-						<visible>!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)</visible>
+						<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]</visible>
 					</control>
 					<control type="image">
 						<right>-12</right>
@@ -1341,7 +1341,7 @@
 							<animation effect="fade" time="300">Visible</animation>
 							<animation effect="fade" time="150">Hidden</animation>
 							<aspectratio>keep</aspectratio>
-							<visible>!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)</visible>
+							<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]</visible>
 						</control>
 						<control type="image">
 							<right>-12</right>
@@ -1613,6 +1613,7 @@
 						<texture>$INFO[Window(home).Property(SkinHelper.PVR.CharacterArt)]</texture>
 						<aspectratio aligny="center" align="right">keep</aspectratio>
 						<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.CharacterArt))</visible>
+						<visible>Control.HasFocus(12200)</visible>
 					</control>
 					<control type="grouplist">
 						<left>750</left>

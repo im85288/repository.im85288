@@ -68,7 +68,7 @@
                     <animation effect="fade" time="300">Visible</animation>
                     <animation effect="fade" time="150">Hidden</animation>
                     <aspectratio>keep</aspectratio>
-                    <visible>!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)</visible>
+                    <visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]</visible>
                 </control>
                 <control type="image">
                     <right>-12</right>
