@@ -4,6 +4,24 @@
 	<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 	<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 	<controls>
+		<control type="image">
+			<right>29</right>
+			<bottom>389</bottom>
+			<width>500</width>
+			<height>281</height>
+			<texture>$VAR[PlayerClearArt]</texture>
+			<aspectratio align="center" aligny="bottom">keep</aspectratio>
+			<visible>Skin.HasSetting(osd.showclearart) + !Skin.HasSetting(osd.preferclearlogo)</visible>
+		</control>
+		<control type="image">
+			<right>29</right>
+			<bottom>389</bottom>
+			<width>500</width>
+			<height>281</height>
+			<texture>$VAR[PlayerClearLogo]</texture>
+			<aspectratio align="center" aligny="bottom">keep</aspectratio>
+			<visible>Skin.HasSetting(osd.showclearart) + Skin.HasSetting(osd.preferclearlogo)</visible>
+		</control>
 		<control type="button" id="22001">
 			<description>background close area</description>
 			<left>0</left>

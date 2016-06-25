@@ -2,6 +2,13 @@
 <window>
         <onload condition="Skin.String(SplashScreen)">RunScript(script.skin.helper.service,action=splashscreen,file=$INFO[Skin.String(SplashScreen)],duration=5)</onload>
     	<onload condition="!Skin.String(SplashScreen)">ReplaceWindow($INFO[System.StartupWindow])</onload>
+	<onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True,pixels=10,bits=1,radius=10,delta_x=40,delta_y=90)</onload>
+	<onload>SetProperty(cfa_daemon_set,$INFO[Skin.String(background_fx)],home)</onload>
+	<onload>SetProperty(cpa_daemon_set,$INFO[Skin.String(focus_fx)],home)</onload>
+	<onload>SetProperty(cpa_daemon_fallback,special://skin/extras/misc/empty.jpg,home)</onload>
+	<onload condition="String.IsEmpty(Skin.String(background_fx))">SetProperty(cfa_daemon_set,None,home)</onload>
+	<onload condition="String.IsEmpty(Skin.String(focus_fx))">SetProperty(cpa_daemon_set,None,home)</onload>
+
 	<controls>
 	<!-- video control for splash -->
 	<control type="videowindow">

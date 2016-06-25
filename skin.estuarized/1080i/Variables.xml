@@ -35,12 +35,21 @@
         	<value condition="String.Contains(Player.Filenameandpath,DTSX)">dts-x</value>
         	<value>$INFO[VideoPlayer.AudioCodec]</value>
         </variable>
-        <variable name="PlayerClearArt">
-        	<value condition="!String.IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
-        	<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
-        	<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
-        	<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
-          </variable>
+
+	<variable name="PlayerClearArt">
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
+		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[Player.Title]&amp;type=characterart,clearart</value>
+	</variable>
+	<variable name="PlayerClearLogo">
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
+		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[Player.Title]&amp;type=clearlogo,clearart,characterart</value>
+	</variable>
           <variable name="ClearArtTop">
         	<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearart))">$INFO[ListItem.Art(tvshow.clearart)]</value>
         	<value condition="!String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
@@ -592,6 +601,9 @@
 
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.PVR.ExtraFanArt)) + Control.HasFocus(12200)">$INFO[Window(home).Property(SkinHelper.PVR.ExtraFanArt)]</value>
 
+		<value condition="Skin.HasSetting(home.twotone) + String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget)">special://skin/extras/home-images/weather.jpg</value>
+		<value condition="Skin.HasSetting(home.twotone) + String.IsEqual(Container(9000).ListItem.Property(widget),MusicWidget)">special://skin/extras/home-images/music.jpg</value>
+		<value condition="Skin.HasSetting(home.twotone) + String.IsEqual(Container(9000).ListItem.Property(widget),LiveTVWidget)">special://skin/extras/home-images/livetv.jpg</value>
 
 
 		<value condition="!String.IsEmpty(Skin.String(WeatherFanart.path)) + !String.IsEmpty(Container(15100).ListItem.Property(FanartCode)) + Control.HasFocus(15100)">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container(15100).ListItem.Property(FanartCode)]</value>
@@ -782,6 +794,34 @@
         <value condition="String.IsEqual(Skin.String(Opacity.label),100)">FFFFFFFF</value>
         <value>35FFFFFF</value>
     </variable>
+	<variable name="BlurLevel">
+		<value condition="!String.IsEmpty(Skin.String(HomeBlur.label))">$INFO[Skin.String(HomeBlur.label)]</value>
+		<value>1</value>
+	</variable>
+	<variable name="Label_SkinSetting_HomeBlur">
+		<value condition="!String.IsEmpty(Skin.String(HomeBlur.label))">$INFO[Skin.String(HomeBlur.label)] %</value>
+		<value>1 %</value>
+	</variable>
+
+	<variable name="Label_SkinSetting_HomeTwoTone">
+		<value condition="!String.IsEmpty(Skin.String(HomeTwoTone.label))">$INFO[Skin.String(HomeTwoTone.label)]</value>
+		<value>teal</value>
+	</variable>
+
+	<variable name="Label_SkinSetting_HomeTwoTone2">
+		<value condition="!String.IsEmpty(Skin.String(HomeTwoTone2.label))">$INFO[Skin.String(HomeTwoTone2.label)]</value>
+		<value>black</value>
+	</variable>
+
+	<variable name="ColourTwoTone1">
+		<value condition="!IsEmpty(Skin.String(HomeTwoTone))">$INFO[Skin.String(HomeTwoTone)]</value>
+		<value>#65ffff</value>
+	</variable>
+
+	<variable name="ColourTwoTone2">
+		<value condition="!IsEmpty(Skin.String(HomeTwoTone2))">$INFO[Skin.String(HomeTwoTone2)]</value>
+		<value>#000000</value>
+	</variable>
 
 	<variable name="WidgetLabelKarma">
 		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.Label][COLOR= subwhite]$INFO[Container(17100).ListItem.Year, (,)][/COLOR]</value>
@@ -1447,5 +1487,58 @@
 	<variable name="LabelHomeStyle">
 		<value condition="String.IsEqual(Skin.String(HomeStyle.label),Horizontal))">$LOCALIZE[40185]</value>
 		<value>$LOCALIZE[40184]</value>
+	</variable>
+
+	<variable name="ColorboxPowerModeImage">
+		<value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[Window(home).Property(VideoInfo.ImageFilter)]</value>
+		<value condition="Window.IsVisible(DialogAlbumInfo.xml)">$INFO[Window(home).Property(MusicInfo.ImageFilter)]</value>
+		<value condition="Window.IsVisible(Home.xml)">$INFO[Window(home).Property(HomeInfo.ImageFilter)]</value>
+
+		<value condition="Control.IsVisible(50) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(VideoInfo.ImageFilter)]</value>
+		<value condition="Control.IsVisible(50) + Skin.HasSetting(low.power)">$VAR[PosterImage]</value>
+		<value condition="Control.IsVisible(57) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(VideoInfoExtra.ImageFilter)]</value>
+		<value condition="Control.IsVisible(57) + Skin.HasSetting(low.power)">$VAR[LandscapeImage]</value>
+		<value condition="Control.IsVisible(53) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(BigListInfoExtra.ImageFilter)]</value>
+		<value condition="Control.IsVisible(53) + Skin.HasSetting(low.power)">$VAR[LandscapeImage]</value>
+		<value condition="Control.IsVisible(518) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Blur)">$INFO[Window(home).Property(ImageFiltercfa1)]</value>
+		<value condition="Control.IsVisible(518) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Pixelate)">$INFO[Window(home).Property(ImageFiltercfa2)]</value>
+		<value condition="Control.IsVisible(518) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Posterize)">$INFO[Window(home).Property(ImageFiltercfa3)]</value>
+		<value condition="Control.IsVisible(518) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Distort)">$INFO[Window(home).Property(ImageFiltercfa4)]</value>
+		<value condition="Control.IsVisible(56) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Blur)">$INFO[Window(home).Property(ImageFiltercfa1)]</value>
+		<value condition="Control.IsVisible(56) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Pixelate)">$INFO[Window(home).Property(ImageFiltercfa2)]</value>
+		<value condition="Control.IsVisible(56) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Posterize)">$INFO[Window(home).Property(ImageFiltercfa3)]</value>
+		<value condition="Control.IsVisible(56) + !Skin.HasSetting(low.power) + Skin.String(background.effect,Distort)">$INFO[Window(home).Property(ImageFiltercfa4)]</value>
+
+		<value condition="Control.IsVisible(516) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(ImageFiltercfa3)]</value>
+	</variable>
+
+	<variable name="ColorboxPowerModeColor">
+		<value condition="Window.IsVisible(Home.xml) + !Skin.HasSetting(home.twotone)">$INFO[Window(home).Property(HomeInfo.ImageColor)]</value>
+		<value condition="Window.IsVisible(Home.xml) + Skin.HasSetting(home.twotone)">$VAR[ColourFocus]</value>
+		<value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[Window(home).Property(VideoPosterInfo.ImageColor)]</value>
+		<value condition="Window.IsVisible(DialogAlbumInfo.xml)">$INFO[Window(home).Property(MusicPosterInfo.ImageColor)]</value>
+
+		<value condition="Window.IsVisible(DialogPVRInfo.xml)">$INFO[Window(home).Property(PVRInfo.ImageColor)]</value>
+
+		<value condition="Control.IsVisible(518) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(ImageColorcfa1)]</value>
+		<value condition="Control.IsVisible(53) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(BigListInfoExtra.ImageColor)]</value>
+		<value condition="Control.IsVisible(53) + Skin.HasSetting(low.power)">$VAR[ColourFlags]</value>
+		<value condition="Control.IsVisible(50) + !Skin.HasSetting(low.power)">-</value>
+		<value condition="!Control.IsVisible(50) + !Skin.HasSetting(low.power)">$INFO[Window(home).Property(ImageColorcfa1)]</value>
+		<value>$VAR[ColourFlags]</value>
+	</variable>
+
+	<variable name="FocusImage">
+		<value condition="!String.IsEqual(Window(home).Property(cpa_daemon_set),None) + !String.IsEmpty(Window(home).Property(ImageFiltercpa))">$INFO[Window(home).Property(ImageFiltercpa)]</value>
+		<value>listselect_fo.png</value>
+	</variable>
+	<variable name="ColorboxImage">
+		<value condition="String.IsEqual(Window(home).Property(cfa_daemon_set),None)">$INFO[ListItem.Art(fanart)]</value>
+		<value>$INFO[Window(home).Property(ImageFiltercfa)]</value>
+	</variable>
+
+	<variable name="ColorBackgroundVar">
+		<value condition="!String.IsEqual(Window(home).Property(cpa_daemon_set),None) + !String.IsEmpty(Window(home).Property(ImageColorcpa))">$INFO[Window(home).Property(ImageColorcpa)]</value>
+		<value>$VAR[ColourBackground]</value>
 	</variable>
 </includes>

@@ -222,6 +222,8 @@
 					<focusedlayout width="277" height="400">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -333,6 +335,8 @@
 				<focusedlayout width="277" height="400">
 					<control type="button">
 						<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+						<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+						<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 						<texturenofocus>-</texturenofocus>
 						<texturefocus>-</texturefocus>
 					</control>
@@ -464,6 +468,8 @@
 				<focusedlayout width="277" height="400">
 					<control type="button">
 						<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+						<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+						<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 						<texturenofocus>-</texturenofocus>
 						<texturefocus>-</texturefocus>
 					</control>
@@ -1005,6 +1011,8 @@
 					<focusedlayout width="341" height="400">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -1164,6 +1172,8 @@
 					<focusedlayout width="341" height="400">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -1339,6 +1349,8 @@
 					<focusedlayout width="343" height="400">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -1507,6 +1519,8 @@
 					<focusedlayout width="343" height="400">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -1677,6 +1691,8 @@
 					<focusedlayout width="343" height="340">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -1813,6 +1829,8 @@
 					<focusedlayout width="470" height="70">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -2044,6 +2062,8 @@
 					<focusedlayout width="500" height="70">
 						<control type="button">
 							<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[list_id])</onfocus>
+							<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+							<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
 						</control>
@@ -3950,6 +3970,13 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="74">
+							<control type="button">
+								<onfocus>ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+								<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+								<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
+								<texturenofocus>-</texturenofocus>
+								<texturefocus>-</texturefocus>
+							</control>
 							<control type="image">
 								<left>0</left>
 								<top>0</top>
@@ -4068,23 +4095,8 @@
 						<width>382</width>
 						<height>666</height>
 						<orientation>vertical</orientation>
-						<onleft>9000</onleft>
-						<onright
-								condition="!String.IsEqual(Container(9000).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),MusicWidget)  + !String.IsEqual(Container(9000).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(9000).ListItem.Property(widget),MoviesWidget)">
-							5100
-						</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),AddonsWidget)">8100</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget)">15001</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),SourcesWidget)">11100</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),LiveTVWidget)">12200</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),RadioWidget)">13200</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),TVShowsWidget)">6100</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),MusicWidget)">7100</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),MusicVideoWidget)">10100</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),MoviesWidget)">17100</onright>
-						<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),HomeWidget)">19888</onright>
-
-
+						<onright>9000</onright>
+						<onleft>700</onleft>
 						<onback>9000</onback>
 						<onup>900</onup>
 						<ondown>700</ondown>
@@ -4187,11 +4199,11 @@
 					</control>
 
 					<control type="image">
-						<left>-40</left>
+						<left>700</left>
 						<top>190</top>
-						<width>28</width>
-						<height>28</height>
-						<texture flipx="true" colordiffuse="$VAR[ColourFocus]">overlays/arrowright.png</texture>
+						<width>280</width>
+						<height>280</height>
+						<texture colordiffuse="$VAR[ColourFocus]">overlays/arrowright.png</texture>
 						<animation effect="zoom" start="0,100" end="100,100" center="auto" time="200">VisibleChange</animation>
 						<animation effect="zoom" start="0,100" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
 						<animation effect="zoom" start="100,100" end="0,100" center="auto" time="200">WindowClose</animation>
@@ -5189,7 +5201,7 @@
 						<orientation>vertical</orientation>
 						<include content="ImageWidgetHeader">
 							<param name="widget_header" value="$LOCALIZE[138]"/>
-							<param name="visible" value="true"/>
+							<param name="visible" value="false"/>
 						</include>
 					</control>
 					<control type="image">
@@ -5503,6 +5515,13 @@
 						</itemlayout>
 
 						<focusedlayout height="110" width="200">
+							<control type="button">
+								<onfocus>ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+								<onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
+								<onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
+								<texturenofocus>-</texturenofocus>
+								<texturefocus>-</texturefocus>
+							</control>
 							<control type="image">
 								<width>230</width>
 								<height>108</height>

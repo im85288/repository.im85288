@@ -1413,4 +1413,38 @@ msgctxt "#40189"
 msgid "Show Genre background"
 msgstr ""
 
+msgctxt "#40190"
+msgid "Show ClearArt"
+msgstr ""
 
+msgctxt "#40191"
+msgid "  - prefer ClearLogo?"
+msgstr ""
+
+msgctxt "#40192"
+msgid "Blur Home background"
+msgstr ""
+
+msgctxt "#40194"
+msgid "Blur Level "
+msgstr ""
+
+msgctxt "#40195"
+msgid "TwoTone Home background"
+msgstr ""
+
+msgctxt "#40196"
+msgid "Set twotone 1 colour"
+msgstr ""
+
+msgctxt "#40197"
+msgid "Set twotone 2 colour"
+msgstr ""
+
+msgctxt "#40198"
+msgid "TwoTone Colour1"
+msgstr ""
+
+msgctxt "#40199"
+msgid "TwoTone Colour2"
+msgstr ""

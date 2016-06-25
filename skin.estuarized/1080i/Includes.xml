@@ -1172,30 +1172,18 @@
 					<height>83</height>
 					<texture>frame/InfoBar.png</texture>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
-					<visible>!String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40070])</visible>
+					<visible>!Window.IsVisible(Home) | [Window.IsVisible(Home) + !Skin.HasSetting(home.blur) + !Skin.HasSetting(home.twotone)] | [Window.IsVisible(Home) + Skin.HasSetting(home.blur) + !ControlGroup(2000).HasFocus] | [Window.IsVisible(Home) + Skin.HasSetting(home.twotone) + !ControlGroup(2000).HasFocus]</visible>
 				</control>
-				<!-- <control type="image">
-            				<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
-            				<visible>Skin.HasSetting(show_clearlogos)</visible>
-            				<top>0</top>
-            				<centerleft>50%</centerleft>
-            				<width>178</width>             
-            				<height>80</height>
-            				<aspectratio align="center">keep</aspectratio>
-            				<texture background="true">$VAR[ClearLogoTop]</texture>
-					<visible>Window.IsVisible(MyVideoNav.xml)</visible>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>2000</width>
+					<height>83</height>
+					<texture colordiffuse="$VAR[ColorboxPowerModeColor]">dialogs/white.png</texture>
+					<animation effect="fade" start="100" end="30" time="300" condition="true">Conditional</animation>
+					<visible>Window.IsVisible(Home) + [Skin.HasSetting(home.blur) | Skin.HasSetting(home.twotone)] + ControlGroup(2000).HasFocus</visible>
 				</control>
-				<control type="image">   
-            				<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
-            				<visible>Skin.HasSetting(show_musicclearlogos)</visible>
-            				<top>0</top>
-            				<centerleft>50%</centerleft>
-            				<width>178</width>             
-            				<height>80</height>
-            				<aspectratio align="center">keep</aspectratio>
-            				<texture background="true">$VAR[ClearLogoMusicTop]</texture>
-					<visible>Window.IsVisible(MyMusicNav.xml)</visible>
-				</control> -->
+
 				<control type="group">
 					<left>400</left>
 					<top>0</top>
@@ -1455,7 +1443,8 @@
  					<animation effect="fade" start="100" end="bg_alpha" time="0" condition="Player.HasMedia + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))">Conditional</animation>
  					<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup)">WindowOpen</animation>
  					<texture colordiffuse="$VAR[ColourBackground]" fallback="special://skin/extras/backgrounds/SKINDEFAULT.png">$VAR[GlobalFanartVar]</texture>
- 				</control>
+					<visible>!Window.IsVisible(Home) | [Window.IsVisible(Home) + !Skin.HasSetting(home.blur) + !Skin.HasSetting(home.twotone)] | [Window.IsVisible(Home) + Skin.HasSetting(home.blur) + Player.HasVideo + Skin.HasSetting(background_showvideo)] | [Window.IsVisible(Home) + Skin.HasSetting(home.twotone) + Player.HasVideo + Skin.HasSetting(background_showvideo)]</visible>
+				</control>
  				<control type="image">
  					<depth>DepthBackground</depth>
  					<include>FullScreenDimensions</include>
@@ -1504,7 +1493,17 @@
 					<height>85</height>
 					<texture flipy="true">frame/InfoBar.png</texture>
 					<visible>![String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40069]) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)] + !Container.Content(addons) + [Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | [Control.IsVisible(55) + !Container.Content(actors) + !Container.Content(directors) + ![Control.IsVisible(55) + Window.IsVisible(MyVideoNav.xml)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(59) | Control.IsVisible(60)]]</visible>
-					<visible>!String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40070])</visible>
+					<visible>[Window.IsVisible(Home) + !Skin.HasSetting(home.blur) + !Skin.HasSetting(home.twotone)] | [Window.IsVisible(Home) + Skin.HasSetting(home.blur) + !ControlGroup(2000).HasFocus] | [Window.IsVisible(Home) + Skin.HasSetting(home.twotone) + !ControlGroup(2000).HasFocus]</visible>
+				</control>
+
+				<control type="image">
+					<left>0</left>
+					<top>995</top>
+					<width>2000</width>
+					<height>85</height>
+					<texture colordiffuse="$VAR[ColorboxPowerModeColor]">dialogs/white.png</texture>
+					<animation effect="fade" start="100" end="30" time="300" condition="true">Conditional</animation>
+					<visible>Window.IsVisible(Home) + [Skin.HasSetting(home.blur) | Skin.HasSetting(home.twotone)] + ControlGroup(2000).HasFocus</visible>
 				</control>
 				<control type="group">
 					<visible>$PARAM[info_visible]</visible>

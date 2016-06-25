@@ -121,10 +121,10 @@
                             <label>$LOCALIZE[40033]</label>
                             <onclick>noop</onclick>
                         </item>
-                       <!-- <item id="7">
+                       <item id="7">
                             <label>$LOCALIZE[40044]</label>
                             <onclick>noop</onclick>
-                        </item> -->
+                        </item>
                         <item id="3">
                             <label>$LOCALIZE[40005]</label>
                             <onclick>noop</onclick>
@@ -177,6 +177,51 @@
                         <include>DefaultSettingButton</include>
                         <selected>Skin.HasSetting(horizontal.menu)</selected>
                         <onclick>Skin.ToggleSetting(horizontal.menu)</onclick>
+                    </control>
+                    <control type="radiobutton" id="92121">
+                        <label>$LOCALIZE[40192]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <selected>Skin.HasSetting(home.blur)</selected>
+                        <onclick condition="!System.HasAddon(script.colorbox)">InstallAddon(script.colorbox)</onclick>
+                        <onclick>Skin.Reset(home.twotone)</onclick>
+                        <onclick>Skin.ToggleSetting(home.blur)</onclick>
+                    </control>
+                    <control type="button" id="92122">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$LOCALIZE[40194,   -  ,]</label>
+                        <label2>$VAR[Label_SkinSetting_HomeBlur]</label2>
+                        <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeBlur,header=$LOCALIZE[40194])</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>Skin.HasSetting(home.blur)</visible>
+                    </control>
+                    <control type="radiobutton" id="92123">
+                        <label>$LOCALIZE[40195]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <selected>Skin.HasSetting(home.twotone)</selected>
+                        <onclick condition="!System.HasAddon(script.colorbox)">InstallAddon(script.colorbox)</onclick>
+                        <onclick>Skin.Reset(home.blur)</onclick>
+                        <onclick>Skin.ToggleSetting(home.twotone)</onclick>
+                    </control>
+                    <control type="button" id="92124">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$LOCALIZE[40198,   -  ,]</label>
+                        <label2>$VAR[Label_SkinSetting_HomeTwoTone]</label2>
+                        <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeTwoTone,header=$LOCALIZE[40198])</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>Skin.HasSetting(home.twotone)</visible>
+                    </control>
+                    <control type="button" id="92125">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$LOCALIZE[40199,   -  ,]</label>
+                        <label2>$VAR[Label_SkinSetting_HomeTwoTone2]</label2>
+                        <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeTwoTone2,header=$LOCALIZE[40199])</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>Skin.HasSetting(home.twotone)</visible>
                     </control>
                     <control type="image" id="11">
                         <description>separator image</description>
@@ -416,7 +461,7 @@
                         <onclick>Skin.Reset(show_disc)</onclick>
                     </control>
                 </control>
-               <!-- <control type="grouplist" id="660">
+               <control type="grouplist" id="660">
                     <left>442</left>
                     <top>160</top>
                     <width>1256</width>
@@ -429,21 +474,18 @@
                     <control type="radiobutton" id="628">
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
-                        <label>40045</label>
-                        <selected>Skin.HasSetting(enable_playerclearart)</selected>
-                        <onclick>Skin.ToggleSetting(enable_playerclearart)</onclick>
+                        <label>40190</label>
+                        <selected>Skin.HasSetting(osd.showclearart)</selected>
+                        <onclick>Skin.ToggleSetting(osd.showclearart)</onclick>
                     </control>
-                    <control type="button" id="656">
-                        <width>1256</width>
-                        <include>DefaultSettingButton</include>
-                        <label>- $LOCALIZE[40087]</label>
-                        <label2>$VAR[Label_SkinSetting_ClearArtPosition]</label2>
-                        <visible>Skin.HasSetting(enable_playerclearart)</visible>
-                        <onclick condition="String.IsEmpty(Skin.String(clearart_position))">Skin.SetString(clearart_position,$LOCALIZE[40088])</onclick>
-                        <onclick condition="String.IsEqual(Skin.String(clearart_position),$LOCALIZE[40088])">Skin.SetString(clearart_position,$LOCALIZE[40089])</onclick>
-                        <onclick condition="String.IsEqual(Skin.String(clearart_position),$LOCALIZE[40089])">Skin.SetString(clearart_position,$LOCALIZE[40090])</onclick>
-                        <onclick condition="String.IsEqual(Skin.String(clearart_position),$LOCALIZE[40090])">Skin.SetString(clearart_position,$LOCALIZE[40088])</onclick>
-                    </control>
+                   <control type="radiobutton" id="6282">
+                       <width>1256</width>
+                       <include>DefaultSettingButton</include>
+                       <label>40191</label>
+                       <selected>Skin.HasSetting(osd.preferclearlogo)</selected>
+                       <onclick>Skin.ToggleSetting(osd.preferclearlogo)</onclick>
+                       <visible>Skin.HasSetting(osd.showclearart)</visible>
+                   </control>
                     <control type="radiobutton" id="642">
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
@@ -460,11 +502,10 @@
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
                         <label>10041</label>
-                        <onclick>Skin.Reset(enable_playerclearart)</onclick>
-                        <onclick>Skin.Reset(clearart_position)</onclick>
+                        <onclick>Skin.Reset(osd.showclearartt)</onclick>
                         <onclick>Skin.Reset(enable_clearartnextup)</onclick>
                     </control>
-                </control> -->
+                </control>
                 <control type="grouplist" id="620">
                     <left>442</left>
                     <top>160</top>

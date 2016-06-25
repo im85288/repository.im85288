@@ -4,6 +4,26 @@
     <onload>SetProperty(infobackground,$INFO[ListItem.Art(fanart)],home)</onload>
     <onunload>ClearProperty(infobackground,home)</onunload>
     <controls>
+        <control type="image">
+            <texture>$VAR[ColorboxImage]</texture>
+            <width>1920</width>
+            <height>1080</height>
+            <aspectratio align="center">scale</aspectratio>
+            <animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+            <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+            <visible>false</visible>
+        </control>
+        <control type="image">
+            <texture>background.png</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            <width>1920</width>
+            <height>1080</height>
+            <aspectratio align="center">scale</aspectratio>
+            <animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+             <visible>false</visible>
+        </control>
         <control type="group">
             <animation effect="fade" start="100" end="0" time="200" tween="sine" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">Conditional</animation>
             <control type="group">
@@ -28,6 +48,16 @@
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png">$VAR[PosterVar]</texture>
                 </control>
+                <control type="image">
+                    <left>4</left>
+                    <top>4</top>
+                    <width>469</width>
+                    <height>668</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true" diffuse="diffuse/colorbox_poster_mask.png" colordiffuse="$VAR[ColourFocus]">$VAR[FocusImage]</texture>
+                    <visible>false</visible>
+                </control>
+
                 <control type="group">
                     <visible>String.IsEqual(ListItem.DBType,episode)</visible>
                     <visible>!String.IsEmpty(ListItem.Thumb) + !String.IsEqual(ListItem.Thumb,ListItem.Art(poster))</visible>

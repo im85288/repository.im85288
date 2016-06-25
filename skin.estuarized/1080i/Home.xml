@@ -7,9 +7,12 @@
     <onload>Skin.SetBool(SkinHelper.EnableExtraFanart)</onload>
     <onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
     <onload>Skin.SetBool(SkinHelper.EnableAddonsLookups)</onload>
+    <onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=firstrun)</onload>
+    <onload condition="System.HasAddon(script.colorbox) + Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onload>
+    <onload condition="System.HasAddon(script.colorbox) + Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     <!--<menucontrol>9000</menucontrol>-->
-    <defaultcontrol>9000</defaultcontrol>
+    <defaultcontrol always="true">9000</defaultcontrol>
     <!-- 	<onload condition="ControlGroup(700).HasFocus">SetFocus(9000,0)</onload>
      -->
     <backgroundcolor>background</backgroundcolor>
@@ -18,6 +21,7 @@
             <include>HiddenObject</include>
             <animation effect="fade" time="300" start="100" end="0">Focus</animation>
             <onfocus>SetFocus(2000)</onfocus>
+            <onfocus>Action(Back)</onfocus>
             <onclick>noop</onclick>
             <visible allowhiddenfocus="true">Control.HasFocus(20000)</visible>
         </control>
@@ -29,6 +33,48 @@
             <visible allowhiddenfocus="true">Control.HasFocus(20001)</visible>
         </control>
         <include>DefaultBackground</include>
+        <control type="image">
+            <depth>DepthBackground</depth>
+            <include>FullScreenDimensions</include>
+            <aspectratio>scale</aspectratio>
+            <fadetime>600</fadetime>
+            <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+            <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+            <animation effect="fade" time="400">VisibleChange</animation>
+            <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+            <texture background="true">$VAR[ColorboxPowerModeImage]</texture>
+            <visible>Skin.HasSetting(home.blur) | Skin.HasSetting(home.twotone)</visible>
+            <visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)]</visible>
+        </control>
+        <control type="image">
+            <depth>DepthBackground</depth>
+            <include>FullScreenDimensions</include>
+            <aspectratio>scale</aspectratio>
+            <fadetime>600</fadetime>
+            <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+            <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+            <animation effect="fade" time="400">VisibleChange</animation>
+            <texture colordiffuse="$VAR[ColorboxPowerModeColor]">diffuse/screen-overlay-shard.png</texture>
+            <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+            <visible>Skin.HasSetting(home.twotone)</visible>
+            <visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)]</visible>
+        </control>
+        <control type="image">
+            <depth>DepthBackground</depth>
+            <include>FullScreenDimensions</include>
+            <aspectratio>scale</aspectratio>
+            <fadetime>600</fadetime>
+            <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+            <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+            <animation effect="fade" time="400">VisibleChange</animation>
+            <texture colordiffuse="$VAR[ColorboxPowerModeColor]">special://skin/extras/backgrounds/SKINDEFAULT.png</texture>
+            <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+            <visible>Skin.HasSetting(home.blur)</visible>
+            <visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)]</visible>
+        </control>
         <control type="multiimage">
             <depth>DepthBackground</depth>
             <include>FullScreenDimensions</include>
@@ -40,6 +86,7 @@
             <animation effect="fade" time="400">VisibleChange</animation>
             <imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$VAR[HomeFanartVar]</imagepath>
             <visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)]</visible>
+            <visible>!Skin.HasSetting(home.blur) + !Skin.HasSetting(home.twotone)</visible>
         </control>
 
         <include condition="!Skin.HasSetting(horizontal.menu)">VerticalMenu</include>

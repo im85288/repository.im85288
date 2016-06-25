@@ -29,7 +29,48 @@
     <setting id="HideBars" value="Everywhere" label="$LOCALIZE[40070]" condition="" icon="special://skin/media/DefaultAddon.png" description="$LOCALIZE[40073]"/>
 
     <!-- Home Style -->
-    <setting id="HomeStyle" value="Vertical" label="$LOCALIZE[40184]" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40186]"/>
-    <setting id="HomeStyle" value="Horizontal" label="$LOCALIZE[40185]" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40187]"/>
+    <setting id="HomeBlur" value="2" label="2" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 2%"/>
+    <setting id="HomeBlur" value="4" label="4" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 4%"/>
+    <setting id="HomeBlur" value="6" label="6" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 6%"/>
+    <setting id="HomeBlur" value="8" label="8" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 8%"/>
+    <setting id="HomeBlur" value="10" label="10" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 10%"/>
+    <setting id="HomeBlur" value="12" label="12" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 12%"/>
+    <setting id="HomeBlur" value="14" label="14" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 14%"/>
+    <setting id="HomeBlur" value="16" label="16" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 16%"/>
+    <setting id="HomeBlur" value="18" label="18" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 18%"/>
+    <setting id="HomeBlur" value="20" label="20" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 20%"/>
+    <setting id="HomeBlur" value="30" label="30" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 30%"/>
+    <setting id="HomeBlur" value="50" label="50" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 50%"/>
+    <setting id="HomeBlur" value="100" label="100" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="$LOCALIZE[40194] 100%"/>
+
+    <setting id="HomeTwoTone" value="#ff0000" label="red" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Red"/>
+    <setting id="HomeTwoTone" value="#ff8000" label="orange" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Orange"/>
+    <setting id="HomeTwoTone" value="#ffff00" label="yellow" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Yellow"/>
+    <setting id="HomeTwoTone" value="#bfff00" label="lime" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Lime"/>
+    <setting id="HomeTwoTone" value="#00ff00" label="green" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Green"/>
+    <setting id="HomeTwoTone" value="#00ffbf" label="turquoise" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Turquoise"/>
+    <setting id="HomeTwoTone" value="#65ffff" label="teal" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Teal"/>
+    <setting id="HomeTwoTone" value="#00ffff" label="cyan" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Cyan"/>
+    <setting id="HomeTwoTone" value="#00bfff" label="lightblue" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Light Blue"/>
+    <setting id="HomeTwoTone" value="#0000ff" label="blue" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Blue"/>
+    <setting id="HomeTwoTone" value="#bf00ff" label="purple" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Purple"/>
+    <setting id="HomeTwoTone" value="#ff00ff" label="pink" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Pink"/>
+    <setting id="HomeTwoTone" value="#000000" label="black" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Black"/>
+    <setting id="HomeTwoTone" value="#ffffff" label="white" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="White"/>
+
+    <setting id="HomeTwoTone2" value="#ff0000" label="red" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Red"/>
+    <setting id="HomeTwoTone2" value="#ff8000" label="orange" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Orange"/>
+    <setting id="HomeTwoTone2" value="#ffff00" label="yellow" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Yellow"/>
+    <setting id="HomeTwoTone2" value="#bfff00" label="lime" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Lime"/>
+    <setting id="HomeTwoTone2" value="#00ff00" label="green" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Green"/>
+    <setting id="HomeTwoTone2" value="#00ffbf" label="turquoise" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Turquoise"/>
+    <setting id="HomeTwoTone2" value="#65ffff" label="teal" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Teal"/>
+    <setting id="HomeTwoTone2" value="#00ffff" label="cyan" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Cyan"/>
+    <setting id="HomeTwoTone2" value="#00bfff" label="lightblue" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Light Blue"/>
+    <setting id="HomeTwoTone2" value="#0000ff" label="blue" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Blue"/>
+    <setting id="HomeTwoTone2" value="#bf00ff" label="purple" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Purple"/>
+    <setting id="HomeTwoTone2" value="#ff00ff" label="pink" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Pink"/>
+    <setting id="HomeTwoTone2" value="#000000" label="black" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Black"/>
+    <setting id="HomeTwoTone2" value="#ffffff" label="white" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="White"/>
 
 </settings>
