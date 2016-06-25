@@ -1999,4 +1999,114 @@
 		<height>1080</height>
 	</include>
 
+	<include name="Furniture_Cast">
+		<control type="group">
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Control.IsVisible(500) + !Control.IsVisible(54) + !Control.IsVisible(52) + !Control.IsVisible(53) + !Control.IsVisible(56) + !Control.IsVisible(58) + !Control.IsVisible(515) + !Control.IsVisible(517)</visible>
+			<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>Skin.HasSetting(show.cast)</visible>
+			<visible>!StringCompare(ListItem.Label,..)</visible>
+			<top>82</top>
+			<left>100</left>
+			<control id="508923" type="wraplist">
+				<top>-1</top>
+				<left>10</left>
+				<width>1700</width>
+				<height>90</height>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>7000</onleft>
+				<onright>noop</onright>
+				<onback>50</onback>
+				<preloaditems>8</preloaditems>
+				<focusposition>13</focusposition>
+				<autoscroll time="3000">!Control.HasFocus(508923)</autoscroll>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime easing="inout" tween="sine">300</scrolltime>
+				<animation effect="fade" end="100" start="0" time="300">Visible</animation>
+				<animation effect="fade" end="0" start="100" time="300">Hidden</animation>
+				<itemlayout height="90" width="62.962963">
+					<control type="group">
+						<animation effect="zoom" end="85" start="100" time="200" center="auto" condition="Control.HasFocus(508923)">Conditional</animation>
+						<control type="label">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<bottom>0</bottom>
+							<height>90</height>
+							<aligny>center</aligny>
+							<align>center</align>
+							<font>symbolbiggest</font>
+							<label></label>
+							<fadetime>300</fadetime>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<bottom>0</bottom>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+							<texture background="true">$VAR[PosterImage]</texture>
+							<fadetime>200</fadetime>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<bottom>0</bottom>
+							<texture colordiffuse="eeffffff">dialogs/white.png</texture>
+							<animation effect="fade" end="45" start="45" time="0" condition="true">Conditional</animation>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="90" width="62.962963">
+					<control type="group">
+						<control type="label">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<bottom>0</bottom>
+							<height>90</height>
+							<aligny>center</aligny>
+							<align>center</align>
+							<font>symbolbiggest</font>
+							<label></label>
+							<fadetime>300</fadetime>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<bottom>0</bottom>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<fadetime>00</fadetime>
+						</control>
+					</control>
+				</focusedlayout>
+				<content target="video">$VAR[DefWidgetCast]</content>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>80</top>
+				<width>1700</width>
+				<height>21</height>
+				<texture colordiffuse="$VAR[CommunityRatingColour1]">dialogs/white.png</texture>
+				<visible>IntegerGreaterThan(Container(508923).NumItems,0)</visible>
+			</control>
+			<control type="label">
+				<left>10</left>
+				<top>76</top>
+				<width>1700</width>
+				<height>21</height>
+				<font>font9</font>
+				<textcolor>black</textcolor>
+				<align>center</align>
+				<scroll>true</scroll>
+				<label>$INFO[Container(508923).ListItem(0).Label]$INFO[Container(508923).ListItem(0).Label2, $LOCALIZE[20347] ]</label>
+			</control>
+		</control>
+	</include>
+
 </includes>

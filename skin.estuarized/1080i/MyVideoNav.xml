@@ -24,6 +24,8 @@
 			<include>View_500_SmallThumb</include>
 			<include>View_501_Banner</include>
 			<include>View_502_FanArt</include>
+			<include>Furniture_Cast</include>
+
 			<control type="group">
 				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
@@ -295,9 +297,17 @@
 					</control>
 					<control type="radiobutton" id="626">
 						<include>MediaMenuItemsCommon</include>
-						<label>Extrafanarts</label>
+						<label>Extra Fanart</label>
 						<selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
 						<onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+						<visible>!String.StartsWith(Container.FolderPath,plugin://)</visible>
+						<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.content(seasons) | Container.Content(episodes)</visible>
+					</control>
+					<control type="radiobutton" id="6261">
+						<include>MediaMenuItemsCommon</include>
+						<label>Show Cast</label>
+						<selected>Skin.HasSetting(show.cast)</selected>
+						<onclick>Skin.ToggleSetting(show.cast)</onclick>
 						<visible>!String.StartsWith(Container.FolderPath,plugin://)</visible>
 						<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.content(seasons) | Container.Content(episodes)</visible>
 					</control>
