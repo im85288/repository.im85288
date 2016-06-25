@@ -4199,10 +4199,10 @@
 					</control>
 
 					<control type="image">
-						<left>700</left>
-						<top>190</top>
-						<width>280</width>
-						<height>280</height>
+						<left>400</left>
+						<top>220</top>
+						<width>28</width>
+						<height>28</height>
 						<texture colordiffuse="$VAR[ColourFocus]">overlays/arrowright.png</texture>
 						<animation effect="zoom" start="0,100" end="100,100" center="auto" time="200">VisibleChange</animation>
 						<animation effect="zoom" start="0,100" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
