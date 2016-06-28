@@ -1238,7 +1238,7 @@ msgid "Show visualisation effects as background when a song is playing."
 msgstr ""
 
 msgctxt "#40139"
-msgid "Replace default background by custom background."
+msgid "Replace the default background with a custom background."
 msgstr ""
 
 msgctxt "#40140"
@@ -1277,24 +1277,16 @@ msgctxt "#40148"
 msgid "Show ClearArt on video OSD."
 msgstr ""
 
-msgctxt "#40149"
-msgid "Set ClearArt position on video OSD."
-msgstr ""
-
-msgctxt "#40150"
-msgid "Show TV Show ClearArt with [B]NextUp Notification[/B] addon."
-msgstr ""
-
 msgctxt "#40151"
-msgid "Activate Kiosk mode. It allow to turn off sliding menu that provides access to various skin settings. Ideal for children or if Kodi is on free service."
+msgid "Activate Kiosk mode (prevents certain options from being shown)"
 msgstr ""
 
 msgctxt "#40152"
-msgid "Select a photo, a video or a music to run when Kodi starting."
+msgid "Select what to show when Kodi starts up."
 msgstr ""
 
 msgctxt "#40153"
-msgid "Download automatically all necessary artworks. [B]Artwork Downloader[/B] addon is needed."
+msgid "Download artwork automatically. [B]Artwork Downloader[/B] addon is needed."
 msgstr ""
 
 msgctxt "#40154"
@@ -1302,7 +1294,7 @@ msgid "Select weather icons addon."
 msgstr ""
 
 msgctxt "#40155"
-msgid "Replace default busy spinner by custom busy spinner."
+msgid "Replace the default spinner with your chosen one"
 msgstr ""
 
 msgctxt "#40156"
