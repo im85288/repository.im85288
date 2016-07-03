@@ -25,7 +25,7 @@
 				<height>567</height>
 				<aspectratio aligny="top">scale</aspectratio>
 				<fadetime>300</fadetime>
-				<texture background="true" fallback="DefaultFolderSquare.png">$INFO[ListItem.Art(thumb)]</texture>
+				<texture background="true" fallback="DefaultFolderSquare.png">$VAR[PosterImage]</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -40,7 +40,8 @@
 					<left>586</left>
 					<width>1190</width>
 					<height>610</height>
-					<onup>50</onup>
+					<onup condition="Container.Content(albums)">50</onup>
+					<onup condition="Container.Content(artists)">502</onup>
 					<ondown>9000</ondown>
 					<label>-</label>
 				</control>
@@ -79,7 +80,8 @@
 				<visible>!Integer.IsEqual(Container(50).NumItems,0) | !String.IsEmpty(Control.GetLabel(400))</visible>
 				<top>454</top>
 				<control type="button" id="130">
-					<onup>50</onup>
+					<onup condition="Container.Content(albums)">50</onup>
+					<onup condition="Container.Content(artists)">502</onup>
 					<ondown>9000</ondown>
 					<left>586</left>
 					<top>-295</top>
@@ -89,7 +91,8 @@
 					<visible>Integer.IsEqual(Container(50).NumItems,0)</visible>
 				</control>
 				<control type="button" id="130">
-					<onup>50</onup>
+					<onup condition="Container.Content(albums)">50</onup>
+					<onup condition="Container.Content(artists)">502</onup>
 					<ondown>9000</ondown>
 					<left>586</left>
 					<width>1190</width>
@@ -101,7 +104,7 @@
 				</control>
 				<control type="group">
 					<animation effect="slide" start="0,0" end="0,-295" time="0" condition="Integer.IsEqual(Container(50).NumItems,0)">Conditional</animation>
-					<visible>[!Integer.IsEqual(Container(50).NumItems,0) + String.IsEmpty(Control.GetLabel(400))] | [Integer.IsEqual(Container(50).NumItems,0) + !String.IsEmpty(Control.GetLabel(400))]</visible>
+					<visible>String.IsEmpty(Control.GetLabel(400))</visible>
 					<control type="image">
 						<left>614</left>
 						<top>30</top>
@@ -133,15 +136,14 @@
 					</control>
 				</control>
 			</control>
-			<control type="label" id="400">
+			<control type="textbox" id="400">
 				<left>620</left>
 				<top>480</top>
 				<width>1100</width>
-				<height>240</height>
-				<wrapmultiline>true</wrapmultiline>
+				<height>260</height>
 				<font>font_textbox</font>
-				<label>$VAR[MusicInfoTextboxVar]</label>
-				<textcolor>$VAR[ColourFocus]</textcolor>
+				<label fallback="19055">$VAR[MusicInfoTextboxVar]</label>
+				<autoscroll delay="10000" time="4000" repeat="10000"/>
 			</control>
 			<control type="panel" id="50">
 				<left>585</left>
@@ -151,6 +153,7 @@
 				<ondown>130</ondown>
 				<onup>9000</onup>
 				<orientation>horizontal</orientation>
+				<visible>Container.Content(albums)</visible>
 				<itemlayout height="72.5" width="595" condition="Container.Content(albums)">
 					<control type="image">
 						<top>-10</top>
@@ -165,7 +168,7 @@
 						<height>60</height>
 						<font>font12</font>
 						<aligny>center</aligny>
-						<label>$INFO[ListItem.TrackNumber,[COLOR = $VAR[ColourFocus]], - [/COLOR]]$INFO[ListItem.Label]</label>
+						<label>$INFO[ListItem.TrackNumber,[COLOR = subwhite], - [/COLOR]]$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
 						<right>40</right>
@@ -199,7 +202,7 @@
 							<font>font12</font>
 							<aligny>center</aligny>
 							<scroll>yes</scroll>
-							<label>$INFO[ListItem.TrackNumber,[COLOR = $VAR[ColourFocus]], - [/COLOR]]$INFO[ListItem.Label]</label>
+							<label>$INFO[ListItem.TrackNumber,[COLOR = subwhite], - [/COLOR]]$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
 							<right>40</right>
@@ -218,7 +221,18 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout height="360" width="236" condition="Container.Content(artists)">
+			</control>
+
+			<control type="panel" id="502">
+				<left>585</left>
+				<top>170</top>
+				<width>1190</width>
+				<height>360</height>
+				<ondown>130</ondown>
+				<onup>9000</onup>
+				<orientation>horizontal</orientation>
+				<visible>Container.Content(artists)</visible>
+				<itemlayout height="360" width="236">
 					<control type="image">
 						<top>-10</top>
 						<width>250</width>
@@ -230,7 +244,7 @@
 						<top>21</top>
 						<width>190</width>
 						<height>190</height>
-						<texture border="2" fallback="DefaultFolderSquare.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture border="2" fallback="DefaultFolderSquare.png" background="true">$VAR[PosterImage]</texture>
 						<aspectratio>keep</aspectratio>
 						<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
 						<bordersize>4</bordersize>
@@ -251,7 +265,7 @@
 						<include>UserRatingCircle</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="360" width="236" condition="Container.Content(artists)">
+				<focusedlayout height="360" width="236">
 					<control type="group">
 						<animation effect="zoom" start="100" end="105" time="200" tween="sine" easing="inout" center="160,180">Focus</animation>
 						<animation effect="zoom" start="105" end="100" time="200" tween="sine" easing="inout" center="160,180">UnFocus</animation>
@@ -266,7 +280,7 @@
 							<top>21</top>
 							<width>190</width>
 							<height>190</height>
-							<texture border="2" fallback="DefaultFolderSquare.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<texture border="2" fallback="DefaultFolderSquare.png" background="true">$VAR[PosterImage]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
 							<bordersize>4</bordersize>
@@ -296,6 +310,7 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<content target="video">plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$VAR[ArtistLabel]</content>
 			</control>
 			<control type="grouplist" id="9000">
 				<left>10</left>
@@ -412,7 +427,7 @@
 		<control type="group">
 			<visible>String.IsEqual(ListItem.DBType,album)</visible>
 			<include content="InfoDialogTopBarInfo">
-				<param name="main_label" value="$INFO[ListItem.Album]$INFO[ListItem.Year, ([COLOR = $VAR[ColourFocus]],[/COLOR])]" />
+				<param name="main_label" value="$INFO[ListItem.Album]$INFO[ListItem.Year, ([COLOR = subwhite],[/COLOR])]" />
 				<param name="sub_label" value="$INFO[ListItem.Artist]" />
 				<param name="id" value="33334" />
 			</include>
@@ -420,10 +435,71 @@
 		<control type="group">
 			<visible>String.IsEqual(ListItem.DBType,song) + !Window.IsActive(musicinformation)</visible>
 			<include content="InfoDialogTopBarInfo">
-				<param name="main_label" value="[COLOR = $VAR[ColourFocus]]$INFO[ListItem.TrackNumber]. [/COLOR]$INFO[ListItem.Title]" />
-				<param name="sub_label" value="$INFO[ListItem.Artist,, - ]$INFO[ListItem.Album]$INFO[ListItem.Year, ([COLOR = $VAR[ColourFocus]],[/COLOR])]" />
+				<param name="main_label" value="[COLOR = subwhite]$INFO[ListItem.TrackNumber]. [/COLOR]$INFO[ListItem.Title]" />
+				<param name="sub_label" value="$INFO[ListItem.Artist,, - ]$INFO[ListItem.Album]$INFO[ListItem.Year, ([COLOR = subwhite],[/COLOR])]" />
 				<param name="id" value="33335" />
 			</include>
+		</control>
+		<control type="image">
+			<left>600</left>
+			<width>703</width>
+			<top>27</top>
+			<height>130</height>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture  border="2" fallback="DefaultVideo.png" background="true">$INFO[Window(Home).Property(SkinHelper.Music.Banner)]</texture>
+			<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+			<bordersize>4</bordersize>
+			<visible>!IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))</visible>
+			<visible>Container.Content(artists)</visible>
+		</control>
+		<control type="group">
+			<depth>DepthBars</depth>
+			<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
+
+			<control type="image">
+				<left>0</left>
+				<top>995</top>
+				<width>2000</width>
+				<height>85</height>
+				<texture flipy="true">frame/InfoBar.png</texture>
+				<visible>![String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40069]) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)] + !Container.Content(addons) + [Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | [Control.IsVisible(55) + !Container.Content(actors) + !Container.Content(directors) + ![Control.IsVisible(55) + Window.IsVisible(MyVideoNav.xml)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(59) | Control.IsVisible(60)]]</visible>
+				<visible>!String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40070])</visible>
+			</control>
+			<!-- logos  etc -->
+
+			<control type="group">
+				<animation effect="slide" end="0,20" time="400" condition="Control.HasFocus(80133)">Conditional</animation>
+				<left>100</left>
+				<top>258</top>
+				<width>1854</width>
+				<height>45</height>
+				<control type="image" id="89122">
+					<top>750</top>
+					<left>-10</left>
+					<width>361</width>
+					<height>64</height>
+					<texture fallback="E.png">$VAR[ClearLogo]</texture>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+				</control>
+				<control type="image" id="89123">
+					<right>120</right>
+					<top>750</top>
+					<width>228</width>
+					<height>64</height>
+					<texture>$VAR[MusicViewRecordLabelIcon]</texture>
+					<aspectratio aligny="center" align="right">keep</aspectratio>
+				</control>
+				<control type="image">
+					<right>120</right>
+					<top>750</top>
+					<width>228</width>
+					<height>64</height>
+					<texture>$VAR[MusicDisc]</texture>
+					<aspectratio aligny="center" align="right">keep</aspectratio>
+					<visible>IsEmpty(Control.GetLabel(89123))</visible>
+				</control>
+			</control>
 		</control>
 	</controls>
 </window>

@@ -288,20 +288,20 @@
             <ondown>$PARAM[list_id]</ondown>
             <viewtype label="$PARAM[viewtype_label]">list</viewtype>
             <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-            <focusedlayout height="87">
+            <focusedlayout height="141">
                 <control type="button">
                     <texturefocus>-</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
                     <onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
-                    <onfocus condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=blur,id='"$VAR[PosterImage]"',radius=6,prefix=ArtInfo)</onfocus>
+                <!--    <onfocus condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=blur,id='"$VAR[PosterImage]"',radius=6,prefix=ArtInfo)</onfocus> -->
                 </control>
 
                 <control type="image">
                     <left>0</left>
                     <top>0</top>
                     <width>710</width>
-                    <height>75</height>
+                    <height>132</height>
                     <aspectratio scalediffuse="false">stretch</aspectratio>
                     <texture  border="2" fallback="DefaultVideo.png" background="true">$VAR[BannerImage]</texture>
                     <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
@@ -311,7 +311,7 @@
                     <left>0</left>
                     <top>0</top>
                     <width>710</width>
-                    <height>78</height>
+                    <height>135</height>
                     <texture border="8" colordiffuse="$VAR[ColourFocus]">buttons/thumbnail_focused.png</texture>
                 </control>
 
@@ -320,6 +320,7 @@
                         <effect type="fade" start="0" end="100" time="300" />
                     </animation>
                     <animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+                    <top>57</top>
                     <control type="image">
                         <left>5</left>
                         <top>45</top>
@@ -364,24 +365,31 @@
                         <label>$VAR[ListLabel2Var]</label>
                     </control>
                 </control>
+                <control type="group">
+                    <left>3</left>
+                    <top>2</top>
+                    <include content="UnwatchedEpisodes">
+                        <param name="animation" value="True" />
+                    </include>
+                </control>
             </focusedlayout>
-            <itemlayout height="87">
+            <itemlayout height="141">
                 <control type="image">
                     <left>0</left>
                     <top>0</top>
                     <width>710</width>
-                    <height>75</height>
+                    <height>132</height>
                     <aspectratio scalediffuse="false">stretch</aspectratio>
                     <texture  border="2" fallback="DefaultVideo.png" background="true">$VAR[BannerImage]</texture>
                     <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
                     <bordersize>4</bordersize>
                 </control>
-                <control type="image">
-                    <left>15</left>
-                    <top>45</top>
-                    <width>40</width>
-                    <height>30</height>
-                    <texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
+                <control type="group">
+                    <left>3</left>
+                    <top>2</top>
+                    <include content="UnwatchedEpisodes">
+                        <param name="animation" value="True" />
+                    </include>
                 </control>
             </itemlayout>
         </control>

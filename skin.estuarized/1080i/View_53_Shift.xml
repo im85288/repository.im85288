@@ -81,6 +81,13 @@
 								<top>383</top>
 								<include>UserRatingCircle</include>
 							</control>
+							<control type="group">
+								<left>33</left>
+								<top>23</top>
+								<include content="UnwatchedEpisodes">
+									<param name="animation" value="True" />
+								</include>
+							</control>
 						</control>
 					</itemlayout>
 					<focusedlayout width="340">
@@ -115,6 +122,13 @@
 							<left>143</left>
 							<top>386</top>
 							<include>UserRatingCircle</include>
+						</control>
+						<control type="group">
+							<left>33</left>
+							<top>23</top>
+							<include content="UnwatchedEpisodes">
+								<param name="animation" value="True" />
+							</include>
 						</control>
 					</focusedlayout>
 				</control>

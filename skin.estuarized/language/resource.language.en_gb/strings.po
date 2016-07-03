@@ -1440,3 +1440,7 @@ msgstr ""
 msgctxt "#40199"
 msgid "TwoTone Colour2"
 msgstr ""
+
+msgctxt "#40200"
+msgid "Do not show unwatched episodes count"
+msgstr ""

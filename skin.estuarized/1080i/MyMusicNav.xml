@@ -53,14 +53,15 @@
 					<label>$LOCALIZE[19055]</label>
 					<visible>String.IsEmpty(Listitem.Property(artist_description)) + String.IsEmpty(Listitem.Property(album_description)) + !ListItem.IsParentFolder</visible>
 				</control>
-				<control type="image">
+				<control type="multiimage">
 					<right>113</right>
 					<top>607</top>
 					<width>463</width>
 					<height>270</height>
 					<aspectratio aligny="top">scale</aspectratio>
-					<fadetime>300</fadetime>
-					<texture background="true" fallback="DefaultFolder.png">$VAR[ListInfoBoxImageVar]</texture>
+					<timeperimage>9000</timeperimage>
+					<fadetime>900</fadetime>
+					<imagepath background="true" fallback="DefaultFolder.png">$VAR[ListInfoBoxImageVar]</imagepath>
 				</control>
 			</control>
 			<include>MediaMenuMouseOverlay</include>

@@ -56,6 +56,13 @@
 							<top>30</top>
 							<include>UserRatingCircle</include>
 						</control>
+						<control type="group">
+							<left>35</left>
+							<top>30</top>
+							<include content="UnwatchedEpisodes">
+								<param name="animation" value="True" />
+							</include>
+						</control>
 					</itemlayout>
 					<focusedlayout width="317">
 						<control type="button">
@@ -82,6 +89,14 @@
 							<left>230</left>
 							<top>30</top>
 							<include>UserRatingCircle</include>
+						</control>
+						<control type="group">
+							<left>35</left>
+							<top>30</top>
+							<include content="UnwatchedEpisodes">
+								<param name="animation" value="True" />
+							</include>
+							<visible>Control.IsVisible(20000)</visible>
 						</control>
 					</focusedlayout>
 				</control>

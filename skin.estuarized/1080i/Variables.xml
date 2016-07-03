@@ -115,6 +115,7 @@
 	<variable name="MusicInfoTextboxVar">
 		<value condition="Container.Content(songs)">$INFO[ListItem.ContributorAndRole,[B]$LOCALIZE[31128][/B][CR][COLOR=white],[/COLOR]]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description),[B]$LOCALIZE[183][/B][CR][COLOR=white],[/COLOR]]</value>
+		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.Music.Info))">$INFO[Window(Home).Property(SkinHelper.Music.Info)]</value>
 		<value>$INFO[ListItem.Property(Artist_Description),[B]$LOCALIZE[21887][/B][CR][COLOR=white],[/COLOR]]</value>
 	</variable>
 	<variable name="NowPlayingSublabelVar">
@@ -238,8 +239,12 @@
 	</variable>
 	<variable name="ListInfoBoxImageVar">
 		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(home).Property(SkinHelper.ExtraFanArtPath)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.Music.ExtraFanArt))">$INFO[Window(home).Property(SkinHelper.Music.ExtraFanArt)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.Music.FanArt))">$INFO[Window(home).Property(SkinHelper.Music.FanArt)]</value>
 
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
 
@@ -1394,6 +1399,16 @@
 		<value>resource://resource.images.studios.coloured/$INFO[Window(home).Property(SkinHelper.ListItemStudio),,.png]</value>
 	</variable>
 
+	<variable name="MusicViewRecordLabelIcon">
+		<value condition="!IsEmpty(MusicPlayer.Property(Album_Label))">resource://resource.images.recordlabels.white/$INFO[MusicPlayer.Property(Album_Label),,.png]</value>
+		<value>resource://resource.images.recordlabels.white/$INFO[ListItem.Property(Album_Label),,.png]</value>
+	</variable>
+
+	<variable name="MusicDisc">
+		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt))">$INFO[Window(Home).Property(SkinHelper.Music.DiscArt)]</value>
+		<value>http://localhost:52307/getmusicart&amp;artist=$INFO[Listitem.Artist]&amp;track=$INFO[Listitem.Title]&amp;album=$INFO[Listitem.Album]&amp;type=discart</value>
+	</variable>
+
 	<variable name="GenreFormatted">
 		<value condition="IsEmpty(Window(Home).Property(SkinHelper.ListItemGenre.1))">$INFO[Window(Home).Property(SkinHelper.ListItemGenre.0)]</value>
 		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.ListItemGenre.1)) + IsEmpty(Window(Home).Property(SkinHelper.ListItemGenre.2))">$INFO[Window(Home).Property(SkinHelper.ListItemGenre.0)][COLOR=$VAR[ColourFocus]] · [/COLOR]$INFO[Window(Home).Property(SkinHelper.ListItemGenre.1)]</value>
@@ -1450,6 +1465,8 @@
 		<value condition="!IsEmpty(Container.Art(artist.thumb))">$INFO[Container.Art(artist.thumb)]</value>
 		<value condition="!IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
 		<value condition="IsEmpty(ListItem.Icon) | SubString(ListItem.Icon,Default,left) + SubString(ListItem.Icon,.png,right)">http://localhost:52307/getthumb&amp;title=$INFO[Listitem.Label]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.Art(season.poster))">$INFO[Container.Art(season.poster)]</value>
+
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 
@@ -1547,5 +1564,40 @@
 	<variable name="ColorBackgroundVar">
 		<value condition="!String.IsEqual(Window(home).Property(cpa_daemon_set),None) + !String.IsEmpty(Window(home).Property(ImageColorcpa))">$INFO[Window(home).Property(ImageColorcpa)]</value>
 		<value>$VAR[ColourBackground]</value>
+	</variable>
+
+	<variable name="ContainerUnwatched">
+		<value condition="Control.IsVisible(50)">$INFO[Container(50).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(51)">$INFO[Container(51).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(52)">$INFO[Container(52).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(53)">$INFO[Container(53).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(54)">$INFO[Container(54).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(55)">$INFO[Container(55).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(57)">$INFO[Container(57).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(58)">$INFO[Container(58).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(60)">$INFO[Container(60).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(500)">$INFO[Container(500).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(501)">$INFO[Container(501).TotalUnWatched]</value>
+		<value condition="Control.IsVisible(502)">$INFO[Container(502).TotalUnWatched]</value>
+	</variable>
+
+	<variable name="ContainerWatched">
+		<value condition="Control.IsVisible(50)">$INFO[Container(50).TotalWatched]</value>
+		<value condition="Control.IsVisible(51)">$INFO[Container(51).TotalWatched]</value>
+		<value condition="Control.IsVisible(52)">$INFO[Container(52).TotalWatched]</value>
+		<value condition="Control.IsVisible(53)">$INFO[Container(53).TotalWatched]</value>
+		<value condition="Control.IsVisible(54)">$INFO[Container(54).TotalWatched]</value>
+		<value condition="Control.IsVisible(55)">$INFO[Container(55).TotalWatched]</value>
+		<value condition="Control.IsVisible(57)">$INFO[Container(57).TotalWatched]</value>
+		<value condition="Control.IsVisible(58)">$INFO[Container(58).TotalWatched]</value>
+		<value condition="Control.IsVisible(60)">$INFO[Container(60).TotalWatched]</value>
+		<value condition="Control.IsVisible(500)">$INFO[Container(500).TotalWatched]</value>
+		<value condition="Control.IsVisible(501)">$INFO[Container(501).TotalWatched]</value>
+		<value condition="Control.IsVisible(502)">$INFO[Container(502).TotalWatched]</value>
+	</variable>
+
+	<variable name="ArtistLabel">
+		<value condition="Container.Content(albums) + !IsEmpty(ListItem.AlbumArtist)">$INFO[ListItem.AlbumArtist]</value>
+		<value>$INFO[ListItem.Artist]</value>
 	</variable>
 </includes>

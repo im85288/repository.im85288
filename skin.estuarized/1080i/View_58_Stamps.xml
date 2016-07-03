@@ -66,6 +66,14 @@
 						<top>20</top>
 						<include>UserRatingCircle</include>
 					</control>
+					<control type="group">
+						<left>-20</left>
+						<top>-6</top>
+						<include content="UnwatchedEpisodes">
+							<param name="animation" value="True" />
+						</include>
+						<animation effect="zoom" start="100" end="75" time="0" center="auto" condition="true">Conditional</animation>
+					</control>
 				</itemlayout>
 				<focusedlayout height="180" width="150" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)">
 					<control type="button">
@@ -90,6 +98,14 @@
 							<left>65</left>
 							<top>10</top>
 							<include>UserRatingCircle</include>
+						</control>
+						<control type="group">
+							<left>-20</left>
+							<top>-6</top>
+							<include content="UnwatchedEpisodes">
+								<param name="animation" value="True" />
+							</include>
+							<animation effect="zoom" start="100" end="75" time="0" center="auto" condition="true">Conditional</animation>
 						</control>
 					</control>
 					<control type="group">

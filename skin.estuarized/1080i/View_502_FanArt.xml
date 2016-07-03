@@ -39,9 +39,10 @@
 					<top>445</top>
 					<width>992</width>
 					<height>121</height>
-					<texture colordiffuse="$INFO[Window(home).Property(ArtInfo.ImageColor)]" background="true" flipy="true">$INFO[Window(home).Property(ArtInfo.ImageFilter)]</texture>
+					<!-- <texture colordiffuse="$INFO[Window(home).Property(ArtInfo.ImageColor)]" background="true" flipy="true">$INFO[Window(home).Property(ArtInfo.ImageFilter)]</texture> -->
+					<texture>dialogs/back.png</texture>
 					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="!IntegerGreaterThan(Container(518995).NumItems,0)">Conditional</animation>
-					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="IntegerGreaterThan(Container(518995).NumItems,0) + !System.IdleTime(5)">Conditional</animation>
+					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="IntegerGreaterThan(Container(518995).NumItems,0) + !Skin.HasSetting(show.cast)">Conditional</animation>
 				</control>
 				<control type="textbox">
 					<left>757</left>
@@ -52,7 +53,7 @@
 					<autoscroll delay="10000" time="4000" repeat="10000"/>
 					<label>$VAR[Plot]</label>
 					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="!IntegerGreaterThan(Container(518995).NumItems,0)">Conditional</animation>
-					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="IntegerGreaterThan(Container(518995).NumItems,0) + !System.IdleTime(5)">Conditional</animation>
+					<animation effect="slide" end="0,140" time="0" tween="cubic" easing="out" condition="IntegerGreaterThan(Container(518995).NumItems,0) + !Skin.HasSetting(show.cast)">Conditional</animation>
 
 				</control>
 
@@ -70,7 +71,7 @@
 					<viewtype label="osdcast2">list</viewtype>
 					<orientation>horizontal</orientation>
 					<scrolltime easing="inout" tween="sine">300</scrolltime>
-					<visible>System.IdleTime(5)</visible>
+					<visible>Skin.HasSetting(show.cast)</visible>
 					<itemlayout height="110" width="90.18">
 						<control type="group">
 							<animation effect="zoom" end="85" start="100" time="200" center="auto" condition="Control.HasFocus(518995)">Conditional</animation>
@@ -138,7 +139,7 @@
 					<height>31</height>
 					<texture colordiffuse="$VAR[ColourFocus]">dialogs/white.png</texture>
 					<visible>IntegerGreaterThan(Container(518995).NumItems,0)</visible>
-					<visible>System.IdleTime(5)</visible>
+					<visible>Skin.HasSetting(show.cast)</visible>
 				</control>
 				<control type="label">
 					<left>747</left>
@@ -151,7 +152,7 @@
 					<scroll>true</scroll>
 					<label>$INFO[Container(518995).ListItem.Label]$INFO[Container(518995).ListItem.Label2, $LOCALIZE[20347] ]</label>
 					<visible>IntegerGreaterThan(Container(518995).NumItems,0)</visible>
-					<visible>System.IdleTime(5)</visible>
+					<visible>Skin.HasSetting(show.cast)</visible>
 				</control>
 			</control>
 			<control type="group">

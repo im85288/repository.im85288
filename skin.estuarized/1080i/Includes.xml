@@ -133,6 +133,47 @@
 			</control>
 		</definition>
 	</include>
+
+	<include name="UnwatchedEpisodes">
+		<param name="animation">False</param>
+		<definition>
+			<control type="group">
+				<visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + stringcompare(ListItem.Overlay,OverlayUnwatched.png)</visible>
+				<visible>!Skin.HasSetting(hide.unwatched)</visible>
+				<animation effect="fade" time="200" condition="$PARAM[animation]">VisibleChange</animation>
+				<control type="image">
+					<left>8</left>
+					<top>2</top>
+					<width>40</width>
+					<height>40</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="$VAR[ColourFocus]">overlays/circle.png</texture>
+				</control>
+				<control type="label">
+					<top>10</top>
+					<left>1</left>
+					<align>center</align>
+					<width>53</width>
+					<height>32</height>
+					<font>font9_title</font>
+					<textcolor>black</textcolor>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				</control>
+				<control type="label">
+					<top>10</top>
+					<left>1</left>
+					<align>center</align>
+					<width>53</width>
+					<height>32</height>
+					<font>font9_title</font>
+					<textcolor>black</textcolor>
+					<label>$VAR[ContainerUnwatched]</label>
+					<visible>!Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
 	<include name="InfoList">
 		<param name="item_label">[COLOR =$VAR[ColourFocus]]$INFO[ListItem.Year,,  -  ][/COLOR]$INFO[ListItem.Label]</param>
 		<param name="path">$INFO[ListItem.Path]</param>
@@ -1474,6 +1515,22 @@
 					<visible>!Window.IsVisible(Home)</visible>
             		<visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)] | !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
             	</control>
+				<control type="multiimage">
+					<depth>DepthBackground</depth>
+					<include>FullScreenDimensions</include>
+					<aspectratio>scale</aspectratio>
+					<fadetime>400</fadetime>
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$INFO[Window(Home).Property(SkinHelper.Music.ExtraFanArt)]</imagepath>
+					<timeperimage>3000</timeperimage>
+					<randomize>true</randomize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Music.ExtraFanArt))</visible>
+					<visible>!String.StartsWith(Container.FolderPath,plugin://)</visible>
+					<visible>!Window.IsVisible(Home)</visible>
+					<visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)] | !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+				</control>
 			</control>
 		</definition>
 	</include>
@@ -1606,6 +1663,15 @@
 					</control>
 					<control type="image">
 						<right>120</right>
+						<top>750</top>
+						<width>228</width>
+						<height>64</height>
+						<texture>$VAR[MusicViewRecordLabelIcon]</texture>
+						<aspectratio aligny="center" align="right">keep</aspectratio>
+					</control>
+
+					<control type="image">
+						<right>120</right>
 						<top>740</top>
 						<width>80</width>
 						<height>80</height>
@@ -1615,7 +1681,7 @@
 						<visible>Control.HasFocus(12200)</visible>
 					</control>
 					<control type="grouplist">
-						<left>750</left>
+						<left>730</left>
 						<top>767</top>
 						<width>1500</width>
 						<height>30</height>
@@ -1624,45 +1690,48 @@
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>
-							<font>symbol24</font>
+							<font>symbol34</font>
 							<textcolor>IMDB</textcolor>
-							<height>23</height>
+							<height>33</height>
 							<width>auto</width>
 							<label></label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating))</visible>
-							<animation effect="slide" end="0,1" time="0" condition="true">Conditional</animation>
+							<animation effect="zoom" start="100" end="91" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Rating)]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating))</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="image">
-							<height>23</height>
+							<height>33</height>
 							<width>30</width>
 							<texture>$VAR[RottenTomatoesIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<aligny>bottom</aligny>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),n/a)</visible>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),)</visible>
-							<animation effect="slide" end="0,5" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="2,5" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesMeter),,% ]</label>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),n/a)</visible>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),)</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="image">
-							<height>23</height>
+							<height>31</height>
 							<width>30</width>
 							<texture>$VAR[RottenAudienceIcon]</texture>
 							<aspectratio>keep</aspectratio>
@@ -1674,17 +1743,18 @@
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter),,% ]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter))</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>
-							<font>symbol24</font>
+							<font>symbol34</font>
 							<label>$VAR[LabelUserRatingKarma, ]</label>
-							<height>24</height>
+							<height>34</height>
 							<width>auto</width>
 							<visible>!IsEmpty(Control.GetLabel(912162))</visible>
 						</control>
@@ -1692,34 +1762,35 @@
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$VAR[WidgetUserRatingLabelKarma]</label>
 							<visible>!IsEmpty(Control.GetLabel(912162))</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 
 						<control type="button">
 							<width>30</width>
-							<height>21</height>
+							<height>23</height>
 							<textcolor>black</textcolor>
 							<textoffsetx>0</textoffsetx>
 							<label>$INFO[Window(Home).Property(SkinHelper.MetaCritic.Rating)]</label>
-							<font>font8_title</font>
+							<font>font9_title</font>
 							<aligny>bottom</aligny>
 							<align>center</align>
 							<texturefocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturefocus>
 							<texturenofocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturenofocus>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.MetaCritic.Rating))</visible>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.MetaCritic.Rating),n/a)</visible>
-							<animation effect="slide" end="0,7" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="0,9" time="0" condition="true">Conditional</animation>
 						</control>
 
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>
-							<font>symbol24</font>
+							<font>symbol34</font>
 							<textcolor>IMDB</textcolor>
-							<height>23</height>
+							<height>33</height>
 							<width>auto</width>
 							<label></label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Top250))</visible>
@@ -1730,11 +1801,11 @@
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Top250),#,]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Top250))</visible>
-							<animation effect="slide" end="-4,0" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="-4,4" time="0" condition="true">Conditional</animation>
 						</control>
 					</control>
 				</control>
@@ -1763,7 +1834,7 @@
 						<aspectratio aligny="center" align="right">keep</aspectratio>
 					</control>
 					<control type="grouplist">
-						<left>750</left>
+						<left>730</left>
 						<top>767</top>
 						<width>1500</width>
 						<height>30</height>
@@ -1773,45 +1844,48 @@
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>
-							<font>symbol24</font>
+							<font>symbol34</font>
 							<textcolor>IMDB</textcolor>
-							<height>23</height>
+							<height>33</height>
 							<width>auto</width>
 							<label></label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating))</visible>
-							<animation effect="slide" end="0,1" time="0" condition="true">Conditional</animation>
+							<animation effect="zoom" start="100" end="91" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Rating)]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating))</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="image">
-							<height>23</height>
+							<height>33</height>
 							<width>30</width>
 							<texture>$VAR[RottenTomatoesIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<aligny>bottom</aligny>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),n/a)</visible>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),)</visible>
-							<animation effect="slide" end="0,5" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="2,5" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesMeter),,% ]</label>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),n/a)</visible>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesMeter),)</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="image">
-							<height>23</height>
+							<height>31</height>
 							<width>30</width>
 							<texture>$VAR[RottenAudienceIcon]</texture>
 							<aspectratio>keep</aspectratio>
@@ -1823,34 +1897,54 @@
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter),,% ]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter))</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
+						</control>
+						<control type="label">
+							<aligny>center</aligny>
+							<align>left</align>
+							<font>symbol34</font>
+							<label>$VAR[LabelUserRatingKarma, ]</label>
+							<height>34</height>
+							<width>auto</width>
+							<visible>!IsEmpty(Control.GetLabel(912162))</visible>
+						</control>
+						<control type="label">
+							<aligny>bottom</aligny>
+							<align>left</align>
+							<font>font10</font>
+							<height>27</height>
+							<width>auto</width>
+							<label>$VAR[WidgetUserRatingLabelKarma]</label>
+							<visible>!IsEmpty(Control.GetLabel(912162))</visible>
+							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 
 						<control type="button">
 							<width>30</width>
-							<height>21</height>
+							<height>23</height>
 							<textcolor>black</textcolor>
 							<textoffsetx>0</textoffsetx>
 							<label>$INFO[Window(Home).Property(SkinHelper.MetaCritic.Rating)]</label>
-							<font>font8_title</font>
+							<font>font9_title</font>
 							<aligny>bottom</aligny>
 							<align>center</align>
 							<texturefocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturefocus>
 							<texturenofocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturenofocus>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.MetaCritic.Rating))</visible>
 							<visible>!StringCompare(Window(Home).Property(SkinHelper.MetaCritic.Rating),n/a)</visible>
-							<animation effect="slide" end="0,7" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="0,9" time="0" condition="true">Conditional</animation>
 						</control>
 
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>
-							<font>symbol24</font>
+							<font>symbol34</font>
 							<textcolor>IMDB</textcolor>
-							<height>23</height>
+							<height>33</height>
 							<width>auto</width>
 							<label></label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Top250))</visible>
@@ -1861,12 +1955,37 @@
 							<aligny>bottom</aligny>
 							<align>left</align>
 							<font>font10</font>
-							<height>24</height>
+							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Top250),#,]</label>
 							<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Top250))</visible>
-							<animation effect="slide" end="-4,0" time="0" condition="true">Conditional</animation>
+							<animation effect="slide" end="-4,4" time="0" condition="true">Conditional</animation>
 						</control>
+					</control>
+				</control>
+
+				<control type="group">
+					<visible>Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(DialogMusicInfo.xml) </visible>
+					<animation effect="slide" end="0,20" time="400" condition="Control.HasFocus(80133)">Conditional</animation>
+					<left>100</left>
+					<top>258</top>
+					<width>1854</width>
+					<height>45</height>
+					<control type="image" id="89122">
+						<top>677</top>
+						<left>-85</left>
+						<width>361</width>
+						<height>64</height>
+						<texture fallback="E.png">$VAR[ClearLogo]</texture>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+					</control>
+					<control type="image">
+						<right>44</right>
+						<top>684</top>
+						<width>228</width>
+						<height>64</height>
+						<texture>$VAR[MusicViewRecordLabelIcon]</texture>
+						<aspectratio aligny="center" align="right">keep</aspectratio>
 					</control>
 				</control>
 
@@ -2004,6 +2123,7 @@
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Control.IsVisible(500) + !Control.IsVisible(54) + !Control.IsVisible(52) + !Control.IsVisible(53) + !Control.IsVisible(56) + !Control.IsVisible(58) + !Control.IsVisible(515) + !Control.IsVisible(517)</visible>
 			<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<visible>Skin.HasSetting(show.cast)</visible>
+			<visible>!Control.IsVisible(502)</visible>
 			<visible>!StringCompare(ListItem.Label,..)</visible>
 			<top>82</top>
 			<left>100</left>

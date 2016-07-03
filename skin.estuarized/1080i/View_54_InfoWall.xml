@@ -125,6 +125,13 @@
 						<top>30</top>
 						<include>UserRatingCircle</include>
 					</control>
+					<control type="group">
+						<left>8</left>
+						<top>19</top>
+						<include content="UnwatchedEpisodes">
+							<param name="animation" value="True" />
+						</include>
+					</control>
 				</itemlayout>
 				<focusedlayout height="360" width="240" condition="Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 					<control type="button">
@@ -149,6 +156,13 @@
 							<left>179</left>
 							<top>30</top>
 							<include>UserRatingCircle</include>
+						</control>
+						<control type="group">
+							<left>8</left>
+							<top>19</top>
+							<include content="UnwatchedEpisodes">
+								<param name="animation" value="True" />
+							</include>
 						</control>
 						<control type="image">
 							<left>15</left>

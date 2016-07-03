@@ -260,7 +260,7 @@
 					<height>691</height>
 					<fadetime>200</fadetime>
 					<aspectratio aligny="center">scale</aspectratio>
-					<texture fallback="DefaultVideo.png" background="true">$VAR[PosterVar]</texture>
+					<texture fallback="DefaultVideo.png" background="true">$VAR[PosterImage]</texture>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -275,6 +275,16 @@
 					<left>415</left>
 					<top>10</top>
 					<include content="UserRatingCircle">
+						<param name="animation" value="True" />
+					</include>
+					<visible>Control.IsVisible(51) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
+					<animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				</control>
+				<control type="group">
+					<left>5</left>
+					<top>10</top>
+					<include content="UnwatchedEpisodes">
 						<param name="animation" value="True" />
 					</include>
 					<visible>Control.IsVisible(51) | Control.IsVisible(50) | Control.IsVisible(55)</visible>

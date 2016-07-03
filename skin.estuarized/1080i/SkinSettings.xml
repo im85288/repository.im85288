@@ -292,7 +292,13 @@
                         <onclick>Skin.ToggleSetting(Skin_EnableAnimatedPosters)</onclick>
                         <selected>Skin.HasSetting(Skin_EnableAnimatedPosters)</selected>
                     </control>
-
+                    <control type="radiobutton" id="6427">
+                        <label>40200</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>Skin.ToggleSetting(hide.unwatched)</onclick>
+                        <selected>Skin.HasSetting(hide.unwatched)</selected>
+                    </control>
                     <control type="image" id="11">
                         <description>separator image</description>
                         <height>3</height>

@@ -186,7 +186,13 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<fadetime>50</fadetime>
 			</control>
-
+			<control type="group">
+				<left>5</left>
+				<top>10</top>
+				<include content="UnwatchedEpisodes">
+					<param name="animation" value="True" />
+				</include>
+			</control>
 		</control>
 	</include>
 </includes>

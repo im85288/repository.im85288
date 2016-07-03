@@ -109,6 +109,13 @@
 				<texture background="true" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
 				<visible>Container.Content(episodes)</visible>
 			</control>
+			<control type="group">
+				<left>15</left>
+				<top>20</top>
+				<include content="UnwatchedEpisodes">
+					<param name="animation" value="True" />
+				</include>
+			</control>
 		</control>
 	</include>
 

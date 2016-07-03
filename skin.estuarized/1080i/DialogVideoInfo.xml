@@ -46,7 +46,7 @@
                     <width>469</width>
                     <height>668</height>
                     <aspectratio>stretch</aspectratio>
-                    <texture fallback="DefaultVideo.png">$VAR[PosterVar]</texture>
+                    <texture fallback="DefaultVideo.png">$VAR[PosterImage]</texture>
                 </control>
                 <control type="image">
                     <left>4</left>
@@ -915,7 +915,6 @@
                 <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
                 <top>980</top>
                 <align>center</align>
-                <include>MediaFlagsVideoInfos</include>
                 <control type="group">
                     <visible>Control.HasFocus(50)</visible>
                     <animation effect="fade" time="200">VisibleChange</animation>
