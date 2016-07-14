@@ -177,6 +177,20 @@
 			<size>112</size>
 			<style />
 		</font>
+
+		<!-- Gotham -->
+		<font>
+			<name>gotham24</name>
+			<filename>Gotham-Light.ttf</filename>
+			<style>bold</style>
+			<size>26</size>
+		</font>
+		<font>
+			<name>gotham30</name>
+			<filename>Gotham-Light.ttf</filename>
+			<style>bold</style>
+			<size>30</size>
+		</font>
 	</fontset>
 	<fontset id="Arial" idloc="31053">
 		<!-- Arial Font better for non English -->

@@ -112,7 +112,7 @@
 		<param name="animation">False</param>
 		<definition>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.UserRating)</visible>
+				<visible>false</visible>
 				<animation effect="fade" time="200" condition="$PARAM[animation]">VisibleChange</animation>
 				<control type="image">
 					<left>8</left>
@@ -957,7 +957,7 @@
 				<control type="grouplist">
 					<description>Right side of top bar</description>
 					<right>85</right>
-					<width>500</width>
+					<width>700</width>
 					<height>100</height>
 					<align>right</align>
 					<orientation>horizontal</orientation>
@@ -978,7 +978,7 @@
 						<animation effect="fade" time="300">Visible</animation>
 						<animation effect="fade" time="150">Hidden</animation>
 						<aspectratio>keep</aspectratio>
-						<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]</visible>
+						<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched] + String.IsEmpty(ListItem.Mpaa)</visible>
 					</control>
 					<control type="image">
 						<right>-12</right>
@@ -988,7 +988,17 @@
 						<aspectratio>keep</aspectratio>
 						<texture colordiffuse="$VAR[ColourFocus]">weather/small/$INFO[Weather.FanartCode].png</texture>
 						<visible>!Window.IsActive(volumebar)</visible>
-						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)]</visible>
+						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)] + String.IsEmpty(ListItem.Mpaa)</visible>
+					</control>
+					<control type="image">
+						<right>-12</right>
+						<top>-2</top>
+						<height>90</height>
+						<width>100</width>
+						<aspectratio>stretch</aspectratio>
+						<texture colordiffuse="$VAR[ColourFocus]">$VAR[RatingFlagVar]</texture>
+						<aspectratio aligny="center" align="right">keep</aspectratio>
+						<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 					</control>
 					<control type="label">
 						<top>40</top>
@@ -1349,7 +1359,7 @@
 					<control type="grouplist">
 						<description>Right side of top bar</description>
 						<right>85</right>
-						<width>500</width>
+						<width>700</width>
 						<height>100</height>
 						<align>right</align>
 						<orientation>horizontal</orientation>
@@ -1370,7 +1380,7 @@
 							<animation effect="fade" time="300">Visible</animation>
 							<animation effect="fade" time="150">Hidden</animation>
 							<aspectratio>keep</aspectratio>
-							<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]</visible>
+							<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched] + IsEmpty(ListItem.mpaa)</visible>
 						</control>
 						<control type="image">
 							<right>-12</right>
@@ -1380,12 +1390,22 @@
 							<aspectratio>keep</aspectratio>
 							<texture colordiffuse="$VAR[ColourFocus]">weather/small/$INFO[Weather.FanartCode].png</texture>
 							<visible>!Window.IsActive(volumebar)</visible>
-							<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)]</visible>
+							<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)] + IsEmpty(ListItem.mpaa)</visible>
+						</control>
+						<control type="image">
+							<right>-12</right>
+							<top>-2</top>
+							<height>90</height>
+							<width>100</width>
+							<aspectratio>stretch</aspectratio>
+							<texture colordiffuse="$VAR[ColourFocus]">$VAR[RatingFlagVar]</texture>
+							<aspectratio aligny="center" align="right">keep</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 						</control>
 						<control type="label">
-							<top>40</top>
+							<top>47</top>
 							<label>$PARAM[time_sublabel]</label>
-							<font>font10</font>
+							<font>gotham24</font>
 							<left>1331</left>
 							<shadowcolor>text_shadow</shadowcolor>
 							<height>100</height>
@@ -1647,25 +1667,25 @@
 					<control type="image" id="89122">
 						<top>750</top>
 						<left>-40</left>
-						<width>361</width>
-						<height>64</height>
+						<width>380</width>
+						<height>69</height>
 						<texture fallback="E.png">$VAR[WidgetLogoKarma]</texture>
-						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<aspectratio align="left" aligny="top">keep</aspectratio>
 						<visible>!IsEmpty(Control.GetLabel(91211))</visible>
 					</control>
 					<control type="image">
 						<right>120</right>
 						<top>750</top>
-						<width>228</width>
-						<height>64</height>
+						<width>240</width>
+						<height>69</height>
 						<texture>$VAR[ColourStudio]</texture>
 						<aspectratio aligny="center" align="right">keep</aspectratio>
 					</control>
 					<control type="image">
 						<right>120</right>
 						<top>750</top>
-						<width>228</width>
-						<height>64</height>
+						<width>240</width>
+						<height>69</height>
 						<texture>$VAR[MusicViewRecordLabelIcon]</texture>
 						<aspectratio aligny="center" align="right">keep</aspectratio>
 					</control>
@@ -1681,10 +1701,11 @@
 						<visible>Control.HasFocus(12200)</visible>
 					</control>
 					<control type="grouplist">
-						<left>730</left>
-						<top>767</top>
+						<animation effect="zoom" start="100" end="120" time="0" condition="true">Conditional</animation>
+						<left>724</left>
+						<top>756</top>
 						<width>1500</width>
-						<height>30</height>
+						<height>35</height>
 						<orientation>horizontal</orientation>
 						<itemgap>6</itemgap>
 						<control type="label">
@@ -1820,22 +1841,23 @@
 					<control type="image" id="89122">
 						<top>677</top>
 						<left>-85</left>
-						<width>361</width>
-						<height>64</height>
+						<width>380</width>
+						<height>69</height>
 						<texture fallback="E.png">$VAR[ClearLogo]</texture>
 						<aspectratio align="left" aligny="center">keep</aspectratio>
 					</control>
 					<control type="image">
 						<right>44</right>
 						<top>684</top>
-						<width>228</width>
-						<height>64</height>
+						<width>240</width>
+						<height>69</height>
 						<texture>$VAR[ColourStudio]</texture>
 						<aspectratio aligny="center" align="right">keep</aspectratio>
 					</control>
 					<control type="grouplist">
-						<left>730</left>
-						<top>767</top>
+						<animation effect="zoom" start="100" end="120" time="0" condition="true">Conditional</animation>
+						<left>724</left>
+						<top>756</top>
 						<width>1500</width>
 						<height>30</height>
 						<orientation>horizontal</orientation>
@@ -1907,10 +1929,10 @@
 							<aligny>center</aligny>
 							<align>left</align>
 							<font>symbol34</font>
-							<label>$VAR[LabelUserRatingKarma, ]</label>
+							<label>$VAR[LabelUserRatingKarmaListItem, ]</label>
 							<height>34</height>
 							<width>auto</width>
-							<visible>!IsEmpty(Control.GetLabel(912162))</visible>
+							<visible>!IsEmpty(ListItem.UserRating)</visible>
 						</control>
 						<control type="label">
 							<aligny>bottom</aligny>
@@ -1918,8 +1940,8 @@
 							<font>font10</font>
 							<height>27</height>
 							<width>auto</width>
-							<label>$VAR[WidgetUserRatingLabelKarma]</label>
-							<visible>!IsEmpty(Control.GetLabel(912162))</visible>
+							<label>$INFO[ListItem.UserRating]</label>
+							<visible>!IsEmpty(ListItem.UserRating)</visible>
 							<animation effect="slide" end="0,4" time="0" condition="true">Conditional</animation>
 						</control>
 

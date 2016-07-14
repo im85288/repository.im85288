@@ -278,7 +278,7 @@
             <left>2</left>
             <top>3</top>
             <width>710</width>
-            <height>693</height>
+            <height>705</height>
             <scrolltime tween="cubic" easing="out">500</scrolltime>
             <orientation>vertical</orientation>
             <pagecontrol>$PARAM[list_id]600</pagecontrol>

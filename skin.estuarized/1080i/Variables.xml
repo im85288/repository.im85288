@@ -5,10 +5,6 @@
 		<value>$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes)]</value>
 	</variable>
 	<variable name="RatingStringVar">
-		<value condition="String.Contains(ListItem.mpaa,U) + String.Contains(System.Language,French)">Tout public</value>
-		<value condition="String.Contains(ListItem.mpaa,10) + String.Contains(System.Language,French)">Interdit au moins de 10 ans</value>
-		<value condition="String.Contains(ListItem.mpaa,12) + String.Contains(System.Language,French)">Interdit au moins de 12 ans</value>
-		<value condition="String.Contains(ListItem.mpaa,18) + String.Contains(System.Language,French)">Interdit au moins de 18 ans</value>
 		<value>$INFO[ListItem.mpaa]</value>
 	</variable>
 	<variable name="MediaFlagsColorVar">
@@ -119,8 +115,8 @@
 		<value>$INFO[ListItem.Property(Artist_Description),[B]$LOCALIZE[21887][/B][CR][COLOR=white],[/COLOR]]</value>
 	</variable>
 	<variable name="NowPlayingSublabelVar">
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TvShowTitle]</value>
-		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, - ]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,[COLOR subwhite]x[/COLOR], : ]$INFO[VideoPlayer.TvShowTitle]</value>
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.Artist]</value>
 	</variable>
@@ -519,8 +515,8 @@
 		<value>$INFO[ListItem.Year]</value>
 	</variable>
 	<variable name="VideoInfoMainLabelVar">
-		<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]$INFO[ListItem.Year, ([COLOR subwhite],[/COLOR])]</value>
- 		<value>$INFO[ListItem.Label]$INFO[ListItem.Year, ([COLOR subwhite],[/COLOR])]</value>
+		<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]$INFO[ListItem.Year, (,)]</value>
+ 		<value>$INFO[ListItem.Label]$INFO[ListItem.Year, (,)]</value>
 	</variable>
 	<variable name="VideoInfoSubLabelVar">
 		<value condition="Control.HasFocus(6100)">$INFO[Container(6100).ListItem.Season]$INFO[Container(6100).ListItem.Episode,[COLOR subwhite]x[/COLOR], : ]$INFO[Container(6100).ListItem.Title]</value>
@@ -540,7 +536,7 @@
 		<value>$INFO[ListItem.Genre]</value>
 	</variable>
 	<variable name="OSDSubLabelVar">
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,[COLOR subwhite]S,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR subwhite]E, : [/COLOR]]$INFO[VideoPlayer.TVShowTitle]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,[COLOR subwhite]x[/COLOR], : ]$INFO[VideoPlayer.TVShowTitle]</value>
 		<value>$INFO[VideoPlayer.Genre]</value>
 	</variable>
 	<variable name="AddonsFanartVar">
@@ -959,32 +955,35 @@
 	</variable>
 
 	<variable name="KarmaEndTimeLabel">
-		<value condition="!IsEmpty(Container(17100).ListItem.EndTime) + Control.HasFocus(17100)">$INFO[Container(17100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(17200).ListItem.EndTime) + Control.HasFocus(17200)">$INFO[Container(17200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(17300).ListItem.EndTime) + Control.HasFocus(17300)">$INFO[Container(17300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(17400).ListItem.EndTime) + Control.HasFocus(17400)">$INFO[Container(17400).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(19100).ListItem.EndTime) + Control.HasFocus(19100)">$INFO[Container(19100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(19200).ListItem.EndTime) + Control.HasFocus(19200)">$INFO[Container(19200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(19300).ListItem.EndTime) + Control.HasFocus(19300)">$INFO[Container(19300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(19400).ListItem.EndTime) + Control.HasFocus(19400)">$INFO[Container(19400).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(11100).ListItem.EndTime) + Control.HasFocus(11100)">$INFO[Container(11100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(11200).ListItem.EndTime) + Control.HasFocus(11200)">$INFO[Container(11200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(11300).ListItem.EndTime) + Control.HasFocus(11300)">$INFO[Container(11300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(6100).ListItem.EndTime) + Control.HasFocus(6100)">$INFO[Container(6100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(6200).ListItem.EndTime) + Control.HasFocus(6200)">$INFO[Container(6200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(6300).ListItem.EndTime) + Control.HasFocus(6300)">$INFO[Container(6300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(7100).ListItem.EndTime) + Control.HasFocus(7100)">$INFO[Container(7100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(7200).ListItem.EndTime) + Control.HasFocus(7200)">$INFO[Container(7200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(7300).ListItem.EndTime) + Control.HasFocus(7300)">$INFO[Container(7300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(7400).ListItem.EndTime) + Control.HasFocus(7400)">$INFO[Container(7400).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(7500).ListItem.EndTime) + Control.HasFocus(7500)">$INFO[Container(7500).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(7600).ListItem.EndTime) + Control.HasFocus(7600)">$INFO[Container(7600).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-		<value condition="!IsEmpty(Container(12200).ListItem.EndTime) + Control.HasFocus(12200)">$INFO[Container(12200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-        <value condition="!IsEmpty(ListItem.EndTime)">$INFO[ListItem.EndTime(hh:mm),$LOCALIZE[31080] ]</value>
-        <value condition="Player.HasMedia">$INFO[Player.FinishTime,$LOCALIZE[31080] ]</value>
+		<value condition="!IsEmpty(Container(17100).ListItem.EndTime) + Control.HasFocus(17100)">$INFO[Container(17100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(17200).ListItem.EndTime) + Control.HasFocus(17200)">$INFO[Container(17200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(17300).ListItem.EndTime) + Control.HasFocus(17300)">$INFO[Container(17300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(17400).ListItem.EndTime) + Control.HasFocus(17400)">$INFO[Container(17400).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(19100).ListItem.EndTime) + Control.HasFocus(19100)">$INFO[Container(19100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(19200).ListItem.EndTime) + Control.HasFocus(19200)">$INFO[Container(19200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(19300).ListItem.EndTime) + Control.HasFocus(19300)">$INFO[Container(19300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(19400).ListItem.EndTime) + Control.HasFocus(19400)">$INFO[Container(19400).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(11100).ListItem.EndTime) + Control.HasFocus(11100)">$INFO[Container(11100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(11200).ListItem.EndTime) + Control.HasFocus(11200)">$INFO[Container(11200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(11300).ListItem.EndTime) + Control.HasFocus(11300)">$INFO[Container(11300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(6100).ListItem.EndTime) + Control.HasFocus(6100)">$INFO[Container(6100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(6200).ListItem.EndTime) + Control.HasFocus(6200)">$INFO[Container(6200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(6300).ListItem.EndTime) + Control.HasFocus(6300)">$INFO[Container(6300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(7100).ListItem.EndTime) + Control.HasFocus(7100)">$INFO[Container(7100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(7200).ListItem.EndTime) + Control.HasFocus(7200)">$INFO[Container(7200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(7300).ListItem.EndTime) + Control.HasFocus(7300)">$INFO[Container(7300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(7400).ListItem.EndTime) + Control.HasFocus(7400)">$INFO[Container(7400).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(7500).ListItem.EndTime) + Control.HasFocus(7500)">$INFO[Container(7500).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(7600).ListItem.EndTime) + Control.HasFocus(7600)">$INFO[Container(7600).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(12200).ListItem.EndTime) + Control.HasFocus(12200)">$INFO[Container(12200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+        <value condition="!IsEmpty(ListItem.EndTime)">$INFO[ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+        <value condition="Player.HasMedia">$INFO[Player.FinishTime,$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
 		<value>$INFO[System.Date]</value>
 	</variable>
-
+	<variable name="LabelUserRatingKarmaListItem">
+		<value condition="IntegerGreaterThan(ListItem.Userrating,5)"></value>
+		<value condition="!IntegerGreaterThan(ListItem.Userrating,5)"></value>
+		</variable>
 
 	<variable name="LabelUserRatingKarma">
 		<value condition="Control.HasFocus(17100) + IntegerGreaterThan(Container(17100).ListItem.Userrating,5)"></value>
@@ -1599,5 +1598,149 @@
 	<variable name="ArtistLabel">
 		<value condition="Container.Content(albums) + !IsEmpty(ListItem.AlbumArtist)">$INFO[ListItem.AlbumArtist]</value>
 		<value>$INFO[ListItem.Artist]</value>
+	</variable>
+
+	<variable name="RatingFlagVar">
+		<value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
+		<value condition="String.Contains(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.Mpaa,PG)">flags/mpaa/PG.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.mpaa,R)">flags/mpaa/R.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:NC-17)| String.Contains(ListItem.mpaa,USA:NC-17)| String.Contains(ListItem.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:16) | String.Contains(ListItem.mpaa,ab 16) | String.IsEqual(ListItem.mpaa,16) | String.Contains(ListItem.mpaa,FSK 16) | String.Contains(ListItem.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:6)| String.Contains(ListItem.mpaa,ab 6) | String.IsEqual(ListItem.mpaa,6) | String.Contains(ListItem.mpaa,FSK 16) | String.Contains(ListItem.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:12) | String.Contains(ListItem.mpaa,ab 12) | String.IsEqual(ListItem.mpaa,12) | String.Contains(ListItem.mpaa,FSK 12) | String.Contains(ListItem.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:18) | String.Contains(ListItem.mpaa,ab 18) | String.IsEqual(ListItem.mpaa,18) | String.Contains(ListItem.mpaa,FSK 18) | String.Contains(ListItem.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany)|String.Contains(ListItem.mpaa,FSK)| String.Contains(ListItem.mpaa,o.A)| String.Contains(ListItem.mpaa,Rated 0)">flags/mpaa/FSK-0.png</value>
+		<value condition="String.Contains(ListItem.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
+		<value condition="String.Contains(ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
+		<value condition="String.Contains(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:U) | String.Contains(ListItem.mpaa,partir de 3 ans) | String.Contains(ListItem.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-10) | String.Contains(ListItem.mpaa,Interdit aux moins de 10 ans) | String.Contains(ListItem.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-12) | String.Contains(ListItem.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-16) | String.Contains(ListItem.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-18) | String.Contains(ListItem.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
+		<value condition="String.Contains(ListItem.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
+		<value condition="String.Contains(ListItem.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:Livre) | String.Contains(ListItem.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:10) | String.Contains(ListItem.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:12) | String.Contains(ListItem.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:14) | String.Contains(ListItem.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:16) | String.Contains(ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Australia:)">$INFO[ListItem.MPAA,flags/mpaa/australia_,.png]</value>
+		<value>$INFO[ListItem.MPAA,flags/mpaa/,.png]</value>
+	</variable>
+	<variable name="WidgetRatingFlagVar">
+		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.Title]</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,US:G) | String.Contains(Container(17100).ListItem.mpaa,USA:G) | String.Contains(Container(17100).ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Rated PG) | String.IsEqual(Container(17100).ListItem.Mpaa,PG)">flags/mpaa/PG.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,US:R) | String.Contains(Container(17100).ListItem.mpaa,USA:R) | String.Contains(Container(17100).ListItem.mpaa,Rated R) | String.IsEqual(Container(17100).ListItem.mpaa,R)">flags/mpaa/R.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,US:NC-17)| String.Contains(Container(17100).ListItem.mpaa,USA:NC-17)| String.Contains(Container(17100).ListItem.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Germany:16) | String.Contains(Container(17100).ListItem.mpaa,ab 16) | String.IsEqual(Container(17100).ListItem.mpaa,16) | String.Contains(Container(17100).ListItem.mpaa,FSK 16) | String.Contains(Container(17100).ListItem.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Germany:6)| String.Contains(Container(17100).ListItem.mpaa,ab 6) | String.IsEqual(Container(17100).ListItem.mpaa,6) | String.Contains(Container(17100).ListItem.mpaa,FSK 16) | String.Contains(Container(17100).ListItem.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Germany:12) | String.Contains(Container(17100).ListItem.mpaa,ab 12) | String.IsEqual(Container(17100).ListItem.mpaa,12) | String.Contains(Container(17100).ListItem.mpaa,FSK 12) | String.Contains(Container(17100).ListItem.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Germany:18) | String.Contains(Container(17100).ListItem.mpaa,ab 18) | String.IsEqual(Container(17100).ListItem.mpaa,18) | String.Contains(Container(17100).ListItem.mpaa,FSK 18) | String.Contains(Container(17100).ListItem.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Germany)|String.Contains(Container(17100).ListItem.mpaa,FSK)| String.Contains(Container(17100).ListItem.mpaa,o.A)| String.Contains(Container(17100).ListItem.mpaa,Rated 0)">flags/mpaa/FSK-0.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,France:U) | String.Contains(Container(17100).ListItem.mpaa,partir de 3 ans) | String.Contains(Container(17100).ListItem.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,France:-10) | String.Contains(Container(17100).ListItem.mpaa,Interdit aux moins de 10 ans) | String.Contains(Container(17100).ListItem.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,France:-12) | String.Contains(Container(17100).ListItem.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,France:-16) | String.Contains(Container(17100).ListItem.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,France:-18) | String.Contains(Container(17100).ListItem.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Brazil:Livre) | String.Contains(Container(17100).ListItem.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Brazil:10) | String.Contains(Container(17100).ListItem.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Brazil:12) | String.Contains(Container(17100).ListItem.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Brazil:14) | String.Contains(Container(17100).ListItem.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Brazil:16) | String.Contains(Container(17100).ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Brazil:18) | String.Contains(Container(17100).ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
+		<value condition="Control.HasFocus(17100) + String.Contains(Container(17100).ListItem.mpaa,Australia:)">$INFO[Container(17100).ListItem.MPAA,flags/mpaa/australia_,.png]</value>
+		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.MPAA,flags/mpaa/,.png]</value>
+		<value condition="Control.HasFocus(17200)">$INFO[Container(17200).ListItem.Title]</value>
+		<value condition="Control.HasFocus(17300)">$INFO[Container(17300).ListItem.Title]</value>
+		<value condition="Control.HasFocus(17400)">$INFO[Container(17400).ListItem.Title]</value>
+		<value condition="Control.HasFocus(19100)">$INFO[Container(19100).ListItem.Title]</value>
+		<value condition="Control.HasFocus(19200)">$INFO[Container(19200).ListItem.Title]</value>
+		<value condition="Control.HasFocus(19300)">$INFO[Container(19300).ListItem.Title]</value>
+		<value condition="Control.HasFocus(19400)">$INFO[Container(19400).ListItem.Title]</value>
+		<value condition="Control.HasFocus(11100)">$INFO[Container(11100).ListItem.Title]</value>
+		<value condition="Control.HasFocus(11200)">$INFO[Container(11200).ListItem.Title]</value>
+		<value condition="Control.HasFocus(11300)">$INFO[Container(11300).ListItem.Title]</value>
+
+		<value condition="Control.HasFocus(6100)">$INFO[Container(6100).ListItem.Title]</value>
+		<value condition="Control.HasFocus(6200)">$INFO[Container(6200).ListItem.Title]</value>
+		<value condition="Control.HasFocus(6300)">$INFO[Container(6300).ListItem.Title]</value>
+		<value condition="Control.HasFocus(7100)">$INFO[Container(7100).ListItem.Title]</value>
+		<value condition="Control.HasFocus(7200)">$INFO[Container(7200).ListItem.Title]</value>
+		<value condition="Control.HasFocus(7300)">$INFO[Container(7300).ListItem.Title]</value>
+		<value condition="Control.HasFocus(7400)">$INFO[Container(7400).ListItem.Title]</value>
+		<value condition="Control.HasFocus(7500)">$INFO[Container(7500).ListItem.Title]</value>
+		<value condition="Control.HasFocus(7600)">$INFO[Container(7600).ListItem.Title]</value>
+		<value condition="Control.HasFocus(12200)">$INFO[Container(12200).ListItem.Title]</value>
+		<value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
+		<value condition="String.Contains(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.Mpaa,PG)">flags/mpaa/PG.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.mpaa,R)">flags/mpaa/R.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:NC-17)| String.Contains(ListItem.mpaa,USA:NC-17)| String.Contains(ListItem.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:16) | String.Contains(ListItem.mpaa,ab 16) | String.IsEqual(ListItem.mpaa,16) | String.Contains(ListItem.mpaa,FSK 16) | String.Contains(ListItem.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:6)| String.Contains(ListItem.mpaa,ab 6) | String.IsEqual(ListItem.mpaa,6) | String.Contains(ListItem.mpaa,FSK 16) | String.Contains(ListItem.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:12) | String.Contains(ListItem.mpaa,ab 12) | String.IsEqual(ListItem.mpaa,12) | String.Contains(ListItem.mpaa,FSK 12) | String.Contains(ListItem.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:18) | String.Contains(ListItem.mpaa,ab 18) | String.IsEqual(ListItem.mpaa,18) | String.Contains(ListItem.mpaa,FSK 18) | String.Contains(ListItem.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany)|String.Contains(ListItem.mpaa,FSK)| String.Contains(ListItem.mpaa,o.A)| String.Contains(ListItem.mpaa,Rated 0)">flags/mpaa/FSK-0.png</value>
+		<value condition="String.Contains(ListItem.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
+		<value condition="String.Contains(ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
+		<value condition="String.Contains(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:U) | String.Contains(ListItem.mpaa,partir de 3 ans) | String.Contains(ListItem.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-10) | String.Contains(ListItem.mpaa,Interdit aux moins de 10 ans) | String.Contains(ListItem.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-12) | String.Contains(ListItem.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-16) | String.Contains(ListItem.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-18) | String.Contains(ListItem.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
+		<value condition="String.Contains(ListItem.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
+		<value condition="String.Contains(ListItem.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:Livre) | String.Contains(ListItem.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:10) | String.Contains(ListItem.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:12) | String.Contains(ListItem.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:14) | String.Contains(ListItem.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:16) | String.Contains(ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Australia:)">$INFO[ListItem.MPAA,flags/mpaa/australia_,.png]</value>
+		<value>$INFO[ListItem.MPAA,flags/mpaa/,.png]</value>
 	</variable>
 </includes>
