@@ -978,7 +978,7 @@
 						<animation effect="fade" time="300">Visible</animation>
 						<animation effect="fade" time="150">Hidden</animation>
 						<aspectratio>keep</aspectratio>
-						<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched] + String.IsEmpty(ListItem.Mpaa)</visible>
+						<visible>[[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]] + String.IsEmpty(ListItem.Mpaa)</visible>
 					</control>
 					<control type="image">
 						<right>-12</right>
@@ -1370,6 +1370,12 @@
 							<label>$INFO[System.Time]</label>
 						</control>
 					</control>
+					<control type="image" id="342111">
+						<texture fallback="empty.png">$VAR[WidgetRatingFlagVar]</texture>
+						<width>1</width>
+						<height>1</height>
+						<left>-1000</left>
+					</control>
 					<control type="group">
 						<control type="image">
 							<right>25</right>
@@ -1380,7 +1386,7 @@
 							<animation effect="fade" time="300">Visible</animation>
 							<animation effect="fade" time="150">Hidden</animation>
 							<aspectratio>keep</aspectratio>
-							<visible>[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched] + IsEmpty(ListItem.mpaa)</visible>
+							<visible>[[!Window.IsActive(volumebar) + !Skin.HasSetting(show_weatherinfo)] | [Skin.HasSetting(show_weatherinfo) + !Weather.IsFetched]] + Substring(Control.GetLabel(342111),empty.png)</visible>
 						</control>
 						<control type="image">
 							<right>-12</right>
@@ -1390,7 +1396,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture colordiffuse="$VAR[ColourFocus]">weather/small/$INFO[Weather.FanartCode].png</texture>
 							<visible>!Window.IsActive(volumebar)</visible>
-							<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)] + IsEmpty(ListItem.mpaa)</visible>
+							<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)] + Substring(Control.GetLabel(342111),empty.png)</visible>
 						</control>
 						<control type="image">
 							<right>-12</right>
@@ -1398,9 +1404,9 @@
 							<height>90</height>
 							<width>100</width>
 							<aspectratio>stretch</aspectratio>
-							<texture colordiffuse="$VAR[ColourFocus]">$VAR[RatingFlagVar]</texture>
+							<texture colordiffuse="$VAR[ColourFocus]">$VAR[WidgetRatingFlagVar]</texture>
 							<aspectratio aligny="center" align="right">keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
+							<visible>!Substring(Control.GetLabel(342111),empty.png)</visible>
 						</control>
 						<control type="label">
 							<top>47</top>
@@ -1701,11 +1707,11 @@
 						<visible>Control.HasFocus(12200)</visible>
 					</control>
 					<control type="grouplist">
-						<animation effect="zoom" start="100" end="120" time="0" condition="true">Conditional</animation>
-						<left>724</left>
+						<animation effect="zoom" start="100" end="150" time="0" condition="true">Conditional</animation>
+						<left>650</left>
 						<top>756</top>
 						<width>1500</width>
-						<height>35</height>
+						<height>70</height>
 						<orientation>horizontal</orientation>
 						<itemgap>6</itemgap>
 						<control type="label">
@@ -1855,11 +1861,11 @@
 						<aspectratio aligny="center" align="right">keep</aspectratio>
 					</control>
 					<control type="grouplist">
-						<animation effect="zoom" start="100" end="120" time="0" condition="true">Conditional</animation>
-						<left>724</left>
+						<animation effect="zoom" start="100" end="150" time="0" condition="true">Conditional</animation>
+						<left>650</left>
 						<top>756</top>
 						<width>1500</width>
-						<height>30</height>
+						<height>70</height>
 						<orientation>horizontal</orientation>
 						<itemgap>6</itemgap>
 						<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating)) + !IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesMeter))</visible>
