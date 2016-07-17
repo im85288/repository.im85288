@@ -46,6 +46,16 @@
 		<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
 		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[Player.Title]&amp;type=clearlogo,clearart,characterart</value>
 	</variable>
+	<variable name="PlayerLandscape">
+		<value condition="!String.IsEmpty(Player.Art(tvshow.landscape))">$INFO[Player.Art(tvshow.landscape)]</value>
+		<value condition="!String.IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
+		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[Player.Title]&amp;type=landscape,fanart,thumb</value>
+	</variable>
+	<variable name="PlayerPoster">
+		<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[Player.Title]&amp;type=poster</value>
+	</variable>
           <variable name="ClearArtTop">
         	<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearart))">$INFO[ListItem.Art(tvshow.clearart)]</value>
         	<value condition="!String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
@@ -280,6 +290,23 @@
 		<value condition="String.Contains(VideoPlayer.Filenameandpath,3D)">flags/videoresolution/3D.png</value>
 		<value condition="Integer.IsGreater(VideoPlayer.VideoResolution,1080)">flags/videoresolution/4K.png</value>
 		<value>$INFO[VideoPlayer.VideoResolution,flags/videoresolution/,.png]</value>
+	</variable>
+	<variable name="NewResolutionFlagVarPlayer">
+		<value>$INFO[VideoPlayer.VideoResolution,skyq/icons/ico_format_,.png]</value>
+	</variable>
+	<variable name="VideoAspect">
+		<value condition="StringCompare(VideoPlayer.VideoAspect,1.33)">skyq/icons/ico_format_on1.png</value>
+		<value condition="StringCompare(VideoPlayer.VideoAspect,1.37)">skyq/icons/ico_format_on1.png</value>
+		<value>skyq/icons/ico_format_on.png</value>
+	</variable>
+	<variable name="HDSD">
+		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719) + !IsEmpty(ListItem.VideoResolution)">skyq/icons/ico_hd_on.png</value>
+		<value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution)">skyq/icons/ico_hd_on.png</value>
+		<value condition="IntegerGreaterThan(Window.Property(VideoResolution),719) + !IsEmpty(Window.Property(VideoResolution))">skyq/icons/ico_hd_on.png</value>
+		<value condition="!IntegerGreaterThan(ListItem.VideoResolution,719) + !IsEmpty(ListItem.VideoResolution)">skyq/icons/ico_sd_on.png</value>
+		<value condition="!IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution)">skyq/icons/ico_sd_on.png</value>
+		<value condition="!IntegerGreaterThan(Window.Property(VideoResolution),719) + !IsEmpty(Window.Property(VideoResolution))">skyq/icons/ico_sd_on.png</value>
+		<value>skyq/icons/ico_sd_on.png</value>
 	</variable>
 	<variable name="BannerVar">
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
@@ -706,14 +733,14 @@
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.TrackNumber,, : ][COLOR=grey]$INFO[Player.Title][/COLOR]</value>
 	</variable>
 	<variable name="PVRTimerIcon">
-		<value condition="ListItem.IsRecording">icons/pvr/PVR-IsRecording.png</value>
+		<value condition="ListItem.IsRecording">skyq/REC.png</value>
 		<value condition="ListItem.HasTimerSchedule + ListItem.TimerHasError">icons/pvr/PVR-HasTimerScheduleError.png</value>
 		<value condition="ListItem.HasTimer + ListItem.TimerHasError">icons/pvr/PVR-HasTimerError.png</value>
 		<value condition="ListItem.HasTimerSchedule + ListItem.TimerHasConflict">icons/pvr/PVR-HasTimerScheduleConflict.png</value>
 		<value condition="ListItem.HasTimer + ListItem.TimerHasConflict">icons/pvr/PVR-HasTimerConflict.png</value>
 		<value condition="ListItem.HasRecording">icons/pvr/PVR-HasRecording.png</value>
-		<value condition="ListItem.HasTimerSchedule + !ListItem.TimerIsActive">icons/pvr/PVR-HasTimerSchedule subwhite.png</value>
-		<value condition="ListItem.HasTimer + !ListItem.TimerIsActive">icons/pvr/PVR-HasTimer subwhite.png</value>
+		<value condition="ListItem.HasTimerSchedule + !ListItem.TimerIsActive">icons/pvr/PVR-HasTimerScheduleDisabled.png</value>
+		<value condition="ListItem.HasTimer + !ListItem.TimerIsActive">icons/pvr/PVR-HasTimerDisabled.png</value>
 		<value condition="ListItem.HasTimerSchedule">icons/pvr/PVR-HasTimerSchedule.png</value>
 		<value condition="ListItem.HasTimer">icons/pvr/PVR-HasTimer.png</value>
 	</variable>
@@ -1800,7 +1827,7 @@
 		<value condition="Control.HasFocus(17400) + String.Contains(Container(17400).ListItem.mpaa,Brazil:16) | String.Contains(Container(17400).ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
 		<value condition="Control.HasFocus(17400) + String.Contains(Container(17400).ListItem.mpaa,Brazil:18) | String.Contains(Container(17400).ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
 		<value condition="Control.HasFocus(17400) + String.Contains(Container(17400).ListItem.mpaa,Australia:)">$INFO[Container(17400).ListItem.MPAA,flags/mpaa/australia_,.png]</value>
-		<value condition="Control.HasFocus(17400)">$INFO[Container(17400).ListItem.MPAA,flags/mpaa/,.png]</value> -->
+		<value condition="Control.HasFocus(17400)">$INFO[Container(17400).ListItem.MPAA,flags/mpaa/,.png]</value>
 
 		<value condition="Control.HasFocus(19100) + String.Contains(Container(19100).ListItem.mpaa,US:G) | String.Contains(Container(19100).ListItem.mpaa,USA:G) | String.Contains(Container(19100).ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
 		<value condition="Control.HasFocus(19100) + String.Contains(Container(19100).ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
@@ -2201,7 +2228,7 @@
 		<value condition="Control.HasFocus(6300) + String.Contains(Container(6300).ListItem.mpaa,Brazil:16) | String.Contains(Container(6300).ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
 		<value condition="Control.HasFocus(6300) + String.Contains(Container(6300).ListItem.mpaa,Brazil:18) | String.Contains(Container(6300).ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
 		<value condition="Control.HasFocus(6300) + String.Contains(Container(6300).ListItem.mpaa,Australia:)">$INFO[Container(6300).ListItem.MPAA,flags/mpaa/australia_,.png]</value>
-		<value condition="Control.HasFocus(6300)">$INFO[Container(6300).ListItem.MPAA,flags/mpaa/,.png]</value>
+		<value condition="Control.HasFocus(6300)">$INFO[Container(6300).ListItem.MPAA,flags/mpaa/,.png]</value> -->
 		<value condition="Window.IsVisible(MyVideoNav.xml) + [String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G)]">flags/mpaa/G.png</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + String.Contains(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + [String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.Mpaa,PG)]">flags/mpaa/PG.png</value>

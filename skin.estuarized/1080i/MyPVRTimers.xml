@@ -4,26 +4,33 @@
 	<menucontrol>9000</menucontrol>
 	<views>50</views>
 	<controls>
-		<include>DefaultBackground</include>
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="100" end="bg_alpha" time="0" condition="Player.HasMedia + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))">Conditional</animation>
+			<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup)">WindowOpen</animation>
+			<texture>skyq/Backgrounds/full.png</texture>
+		</control>
+		<control type="label">
+			<top>70</top>
+			<width>480</width>
+			<align>center</align>
+			<height>55</height>
+			<font>skybold55</font>
+			<label>$LOCALIZE[19040]</label>
+		</control>
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<left>110</left>
-				<top>180</top>
-				<control type="image">
-					<description>background image</description>
-					<left>-20</left>
-					<top>-20</top>
-					<width>1090</width>
-					<height>746</height>
-					<texture border="22">dialogs/dialog-bg.png</texture>
-				</control>
+				<top>100</top>
+				<left>500</left>
 				<control type="list" id="50">
 					<left>0</left>
-					<top>0</top>
-					<width>1050</width>
-					<height>700</height>
+					<top>220</top>
+					<width>1350</width>
+					<height>800</height>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<onleft>9000</onleft>
@@ -32,18 +39,16 @@
 					<scrolltime>200</scrolltime>
 					<itemlayout height="100">
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>1700</width>
-							<height>101</height>
-							<texture border="5">lists/separator.png</texture>
+							<width>1350</width>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
 						</control>
 						<control type="label">
 							<left>30</left>
 							<top>0</top>
 							<width>680</width>
 							<height>100</height>
-							<font>font24_title</font>
+							<font>sky33</font>
 							<aligny>center</aligny>
 							<visible>String.IsEmpty(ListItem.Date)</visible>
 							<label>$INFO[ListItem.Label]</label>
@@ -63,22 +68,22 @@
 								<top>50</top>
 								<width>680</width>
 								<height>100</height>
-								<font>font12</font>
+								<font>sky25</font>
 								<aligny>top</aligny>
 								<label>$INFO[ListItem.Date]</label>
 							</control>
 							<control type="textbox">
-								<left>690</left>
+								<left>990</left>
 								<top>13</top>
 								<width>260</width>
 								<height>70</height>
-								<font>font12</font>
+								<font>sky25</font>
 								<align>right</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Timertype]</label>
 							</control>
 							<control type="image">
-								<left>940</left>
+								<left>1240</left>
 								<top>13</top>
 								<width>120</width>
 								<height>75</height>
@@ -89,27 +94,25 @@
 					</itemlayout>
 					<focusedlayout height="100">
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>1700</width>
-							<height>101</height>
-							<texture colordiffuse="$VAR[ColourFocus]">lists/focus.png</texture>
-							<visible>Control.HasFocus(50)</visible>
+							<width>1350</width>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
 						</control>
 						<control type="image">
 							<left>0</left>
-							<top>0</top>
+							<top>5</top>
 							<width>1700</width>
-							<height>101</height>
-							<texture border="5">lists/separator.png</texture>
-							<visible>!Control.HasFocus(50)</visible>
+							<height>90</height>
+							<texture colordiffuse="$VAR[ColourFocus]">lists/focus.png</texture>
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<visible>Control.HasFocus(50)</visible>
 						</control>
 						<control type="label">
 							<left>30</left>
 							<top>0</top>
 							<width>680</width>
 							<height>100</height>
-							<font>font24_title</font>
+							<font>sky33</font>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>String.IsEmpty(ListItem.Date)</visible>
@@ -129,22 +132,22 @@
 								<top>50</top>
 								<width>680</width>
 								<height>100</height>
-								<font>font12</font>
+								<font>sky25</font>
 								<aligny>top</aligny>
 								<label>$INFO[ListItem.Date]</label>
 							</control>
 							<control type="textbox">
-								<left>690</left>
+								<left>990</left>
 								<top>13</top>
 								<width>260</width>
 								<height>70</height>
-								<font>font12</font>
+								<font>sky25</font>
 								<align>right</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Timertype]</label>
 							</control>
 							<control type="image">
-								<left>940</left>
+								<left>1240</left>
 								<top>13</top>
 								<width>120</width>
 								<height>75</height>
@@ -154,26 +157,126 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="73">
-					<left>1055</left>
-					<top>0</top>
-					<width>12</width>
-					<height>706</height>
-					<onleft>50</onleft>
-					<onright>103</onright>
-					<orientation>vertical</orientation>
+				<control type="group">
+					<top>295</top>
+					<left>-499</left>
+					<control type="videowindow">
+						<width>480</width>
+						<height>290</height>
+						<visible>Player.HasVideo</visible>
+					</control>
+					<control type="image">
+						<width>480</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<fadetime>400</fadetime>
+						<texture fallback="special://skin/extras/home-images/tv.jpg">$INFO[Container(50).ListItem.Icon]</texture>
+						<visible>!Player.HasVideo</visible>
+					</control>
 				</control>
-			</control>
-			<control type="group">
-				<left>1220</left>
-				<top>180</top>
-				<visible>!String.IsEmpty(ListItem.Date)</visible>
-				<include>Visible_Right</include>
-				<include>OpenClose_Right</include>
-				<include content="PVRInfoPanel">
-					<param name="bottom_label1" value="$INFO[PVR.NextTimer]" />
-					<param name="bottom_label2" value="" />
-				</include>
+				<control type="group">
+					<control type="group">
+						<top>-20</top>
+						<control type="group">
+							<control type="label">
+								<width>1040</width>
+								<height>40</height>
+								<align>left</align>
+								<font>sky40</font>
+								<label>$INFO[ListItem.Title]</label>
+								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
+							</control>
+							<control type="textbox">
+								<top>51</top>
+								<width>1040</width>
+								<height>140</height>
+								<align>left</align>
+								<font>sky25</font>
+								<label>$INFO[ListItem.Plot]</label>
+								<autoscroll delay="10000" time="3000" repeat="10000"/>
+							</control>
+							<control type="label">
+								<top>200</top>
+								<width>1040</width>
+								<align>left</align>
+								<height>25</height>
+								<font>sky25</font>
+								<label>$INFO[PVR.NextTimer]</label>
+							</control>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(Container(50).ListItem.Date)</visible>
+						<top>-20</top>
+						<left>1050</left>
+						<control type="group">
+							<control type="image">
+								<width>1</width>
+								<top>51</top>
+								<height>130</height>
+								<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
+							</control>
+							<control type="image">
+								<top>33</top>
+								<left>180</left>
+								<width>100</width>
+								<height>140</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>http://localhost:52307/getpvrthumb&amp;title=$INFO[Container(50).ListItem.Title]&amp;channel=$INFO[Container(50).ListItem.ChannelName]&amp;type=poster</texture>
+							</control>
+							<control type="image">
+								<top>33</top>
+								<left>180</left>
+								<width>100</width>
+								<height>140</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>$INFO[Window(Home).Property(SkinHelper.PVR.Poster)]</texture>
+							</control>
+							<control type="image">
+								<top>54</top>
+								<left>20</left>
+								<width>100</width>
+								<height>60</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>$INFO[Window(Home).Property(SkinHelper.PVR.ClearLogo)]</texture>
+								<visible>!IsEmpty(Window(Home).Property(SkinHelper.PVR.ClearLogo))</visible>
+							</control>
+							<control type="image">
+								<top>54</top>
+								<left>20</left>
+								<width>100</width>
+								<height>60</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>$INFO[Container(50).ListItem.Icon]</texture>
+								<visible>IsEmpty(Window(Home).Property(SkinHelper.PVR.ClearLogo))</visible>
+							</control>
+							<control type="label">
+								<top>120</top>
+								<left>20</left>
+								<width>300</width>
+								<height>30</height>
+								<font>sky24</font>
+								<align>left</align>
+								<label>$INFO[Container(50).ListItem.Duration]</label>
+								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
+							</control>
+							<control type="label">
+								<top>150</top>
+								<left>20</left>
+								<width>300</width>
+								<height>30</height>
+								<font>sky20</font>
+								<align>left</align>
+								<label>$INFO[Container(50).ListItem.StartTime]$INFO[Container(50).ListItem.EndTime, - ,]</label>
+								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
+							</control>
+						</control>
+					</control>
+				</control>
 			</control>
 		</control>
 		<control type="group">

@@ -5,7 +5,22 @@
 	<views>10,11,12,13</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
-		<include>DefaultBackground</include>
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="100" end="bg_alpha" time="0" condition="Player.HasMedia + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))">Conditional</animation>
+			<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup)">WindowOpen</animation>
+			<texture>skyq/Backgrounds/full.png</texture>
+		</control>
+		<control type="label">
+			<top>70</top>
+			<width>480</width>
+			<align>center</align>
+			<height>55</height>
+			<font>skybold55</font>
+			<label>$LOCALIZE[19069]</label>
+		</control>
 		<control type="group" id="50">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
@@ -13,20 +28,13 @@
 				<visible>Control.IsVisible(10)</visible>
 				<include>OpenClose_Right</include>
 				<include>Visible_Right</include>
-				<top>170</top>
-				<left>60</left>
-				<control type="image">
-					<left>-20</left>
-					<top>-20</top>
-					<width>1840</width>
-					<height>552</height>
-					<texture border="22">dialogs/dialog-bg.png</texture>
-				</control>
+				<top>100</top>
+				<left>500</left>
 				<control type="epggrid" id="10">
 					<left>0</left>
-					<top>0</top>
-					<width>1800</width>
-					<height>510</height>
+					<top>175</top>
+					<width>1460</width>
+					<height>810</height>
 					<pagecontrol>10</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<timeblocks>36</timeblocks>
@@ -41,159 +49,183 @@
 							<left>-3</left>
 							<width>610</width>
 							<height>45</height>
-							<font>font12</font>
+							<font>sky25</font>
 							<label>$INFO[ListItem.Label]</label>
-							<textoffsetx>10</textoffsetx>
-							<textcolor>$VAR[ColourFocus]</textcolor>
+							<textoffsetx>4</textoffsetx>
 						</control>
 					</rulerlayout>
-					<channellayout height="58" width="330">
-						<control type="image" id="2">
+					<channellayout height="84" width="330">
+						<control type="image">
+							<top>1</top>
 							<width>330</width>
-							<height>58</height>
-							<texture colordiffuse="55000000" border="8">buttons/thumbnail_focused.png</texture>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
+						</control>
+						<control type="image">
+							<top>82</top>
+							<width>330</width>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
+						</control>
+
+						<control type="image">
+							<width>1</width>
+							<top>1</top>
+							<height>82</height>
+							<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
+						</control>
+						<control type="image">
+							<left>329</left>
+							<width>1</width>
+							<height>82</height>
+							<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
 						</control>
 						<control type="label">
 							<right>2</right>
 							<top>-2</top>
 							<width>65</width>
-							<height>60</height>
-							<font>font14</font>
+							<height>84</height>
+							<font>sky33</font>
 							<label>$INFO[ListItem.ChannelNumber]</label>
 							<align>center</align>
 							<aligny>center</aligny>
 						</control>
 						<control type="label" id="1">
-							<left>70</left>
+							<left>5</left>
 							<top>-2</top>
-							<width>190</width>
-							<height>60</height>
-							<font>font12</font>
+							<width>255</width>
+							<align>right</align>
+							<height>84</height>
+							<font>sky33</font>
 							<label>$INFO[ListItem.ChannelName]</label>
 							<aligny>center</aligny>
 							<textoffsetx>10</textoffsetx>
 						</control>
-						<control type="image">
-							<left>5</left>
-							<top>3</top>
-							<width>56</width>
-							<height>56</height>
-							<aspectratio>keep</aspectratio>
-							<fadetime>400</fadetime>
-							<texture>$INFO[ListItem.Icon]</texture>
-						</control>
 					</channellayout>
-					<focusedchannellayout height="58" width="330">
-						<control type="image" id="2">
+					<focusedchannellayout height="84" width="330">
+						<control type="image">
+							<top>1</top>
 							<width>330</width>
-							<height>58</height>
-							<texture colordiffuse="55000000" border="8">buttons/thumbnail_focused.png</texture>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
+						</control>
+						<control type="image">
+							<top>82</top>
+							<width>330</width>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
+						</control>
+
+						<control type="image">
+							<width>1</width>
+							<top>1</top>
+							<height>82</height>
+							<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
+						</control>
+						<control type="image">
+							<left>329</left>
+							<width>1</width>
+							<height>82</height>
+							<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
 						</control>
 						<control type="label">
 							<right>2</right>
 							<top>-2</top>
 							<width>65</width>
-							<height>60</height>
-							<font>font14</font>
+							<height>84</height>
+							<font>sky33</font>
 							<label>$INFO[ListItem.ChannelNumber]</label>
 							<textcolor>$VAR[ColourFocus]</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 						</control>
 						<control type="label" id="1">
-							<left>70</left>
+							<left>5</left>
 							<top>-2</top>
-							<width>190</width>
-							<height>60</height>
-							<font>font12</font>
+							<width>255</width>
+							<height>84</height>
+							<font>sky33</font>
+							<align>right</align>
 							<label>$INFO[ListItem.ChannelName]</label>
 							<scroll>yes</scroll>
 							<textcolor>$VAR[ColourFocus]</textcolor>
 							<aligny>center</aligny>
 							<textoffsetx>10</textoffsetx>
 						</control>
-						<control type="image">
-							<left>5</left>
-							<top>3</top>
-							<width>56</width>
-							<height>56</height>
-							<aspectratio>keep</aspectratio>
-							<fadetime>400</fadetime>
-							<texture>$INFO[ListItem.Icon]</texture>
-						</control>
 					</focusedchannellayout>
-					<itemlayout height="58" width="60">
+					<itemlayout height="84">
 						<control type="image" id="2">
 							<width>58</width>
-							<height>58</height>
+							<height>84</height>
 							<texture border="3" fallback="windows/pvr/epg-genres/0.png">$INFO[ListItem.Property(GenreType),windows/pvr/epg-genres/,.png]</texture>
 							<visible>Skin.HasSetting(epgshow.genres)</visible>
 						</control>
-						<control type="image" id="2">
-							<width>58</width>
-							<height>58</height>
-							<texture colordiffuse="99000000" border="8">buttons/thumbnail_focused.png</texture>
+
+						<control type="image">
+							<top>1</top>
+							<width min="50">auto</width>
+							<height>1</height>
+							<texture>skyq/Backgrounds/line-h.png</texture>
 							<visible>!Skin.HasSetting(epgshow.genres)</visible>
 						</control>
+
+
+						<control type="image">
+							<width>1</width>
+							<top>1</top>
+							<height>82</height>
+							<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
+							<visible>!Skin.HasSetting(epgshow.genres)</visible>
+						</control>
+
 						<control type="label" id="1">
 							<left>6</left>
 							<top>0</top>
-							<width>50</width>
-							<height>36</height>
+							<width min="50">auto</width>
+							<height>84</height>
 							<aligny>center</aligny>
-							<font>font10</font>
+							<font>sky28</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
 							<left>6</left>
-							<top>32</top>
+							<top>6</top>
 							<width>20</width>
 							<height>20</height>
 							<texture>$VAR[PVRTimerIcon]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="58" width="60">
+					<focusedlayout height="84" width="50">
 						<control type="image" id="2">
-							<top>2</top>
-							<left>2</left>
-							<width>54</width>
-							<height>54</height>
+							<top>5</top>
+							<left>4</left>
+							<width>50</width>
+							<height>74</height>
 							<texture colordiffuse="$VAR[ColourFocus]">lists/focus.png</texture>
-							<visible>Control.HasFocus(10)</visible>
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<visible>!Skin.HasSetting(epgshow.genres)</visible>
 						</control>
 						<control type="image" id="2">
-							<width>58</width>
-							<height>58</height>
-							<texture border="8" colordiffuse="$VAR[ColourFocus]">buttons/thumbnail_focused.png</texture>
-						</control>
-						<control type="image" id="2">
-							<width>58</width>
-							<height>58</height>
-							<top>0</top>
+							<top>5</top>
+							<left>4</left>
+							<width>50</width>
+							<height>74</height>
 							<texture border="3" fallback="windows/pvr/epg-genres/0.png">$INFO[ListItem.Property(GenreType),windows/pvr/epg-genres/,.png]</texture>
 							<visible>!Control.HasFocus(10)</visible>
 							<visible>Skin.HasSetting(epgshow.genres)</visible>
-						</control>
-						<control type="image" id="2">
-							<width>58</width>
-							<height>58</height>
-							<top>0</top>
-							<texture colordiffuse="99000000" border="8">buttons/thumbnail_focused.png</texture>
-							<visible>!Control.HasFocus(10)</visible>
-							<visible>!Skin.HasSetting(epgshow.genres)</visible>
 						</control>
 						<control type="label" id="1">
 							<left>6</left>
 							<top>0</top>
 							<width>50</width>
-							<height>36</height>
+							<height>84</height>
 							<aligny>center</aligny>
-							<font>font10</font>
+							<font>sky28</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
 							<left>6</left>
-							<top>32</top>
+							<top>6</top>
 							<width>20</width>
 							<height>20</height>
 							<texture>$VAR[PVRTimerIcon]</texture>
@@ -201,68 +233,122 @@
 					</focusedlayout>
 				</control>
 				<control type="group">
-					<top>540</top>
-					<left>-120</left>
-					<control type="image">
-						<top>-25</top>
-						<left>100</left>
-						<width>1840</width>
-						<height>250</height>
-						<texture border="22">dialogs/dialog-bg.png</texture>
-					</control>
-					<control type="image" id="82">
-						<width>450</width>
-						<height>240</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<fadetime>400</fadetime>
-						<texture>$INFO[ListItem.PlotOutline]</texture>
-						<visible>String.StartsWith(ListItem.PlotOutline,http://) | String.StartsWith(ListItem.PlotOutline,https://)</visible>
-					</control>
+					<top>295</top>
+					<left>-499</left>
 					<control type="image" id="45678">
-						<left>125</left>
-						<width>312</width>
-						<height>200</height>
-						<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[ListItem.Title]&amp;channel=$INFO[ListItem.ChannelName]&amp;type=landscape,fanart,thumb,poster</texture>
+						<width>480</width>
+						<height>290</height>
+						<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[ListItem.Title]&amp;channel=$INFO[ListItem.ChannelName]&amp;type=landscape,fanart,thumb</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!Player.HasVideo</visible>
 					</control>
 					<control type="videowindow">
-						<left>125</left>
-						<width>312</width>
-						<height>200</height>
+						<width>480</width>
+						<height>290</height>
 						<visible>Player.HasVideo</visible>
 					</control>
 					<control type="image">
-						<left>125</left>
-						<width>312</width>
-						<height>200</height>
+						<width>480</width>
+						<height>290</height>
 						<aspectratio>keep</aspectratio>
 						<fadetime>400</fadetime>
-						<texture>$INFO[Container(10).ListItem.Icon]</texture>
-						<visible>Substring(Control.GetLabel(45678),empty.png)</visible>
+						<texture fallback="special://skin/extras/home-images/tv.jpg">$INFO[Container(10).ListItem.Icon]</texture>
+						<visible>!Player.HasVideo + Substring(Control.GetLabel(45678),empty.png)</visible>
 					</control>
-
+				</control>
+				<control type="group">
 					<control type="group">
-						<left>452</left>
-						<top>0</top>
+						<top>-20</top>
 						<control type="group">
 							<control type="label">
-								<width>1460</width>
-								<height>30</height>
-								<textcolor>$VAR[ColourFocus]</textcolor>
-								<font>font12</font>
-								<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label>
+								<width>1040</width>
+								<height>40</height>
+								<align>left</align>
+								<font>sky40</font>
+								<label>$INFO[ListItem.Title]</label>
+								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
 							</control>
 							<control type="textbox">
-								<top>38</top>
-								<width>1460</width>
-								<height>153</height>
-								<font>font12</font>
+								<top>51</top>
+								<width>1040</width>
+								<height>140</height>
+								<align>left</align>
+								<font>sky25</font>
 								<label>$INFO[ListItem.Plot]</label>
 								<autoscroll delay="10000" time="3000" repeat="10000"/>
 							</control>
 						</control>
-
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(Container(10).ListItem.Date)</visible>
+						<top>-20</top>
+						<left>1050</left>
+						<control type="group">
+							<control type="image">
+								<width>1</width>
+								<top>51</top>
+								<height>130</height>
+								<texture flipy="true">skyq/Backgrounds/line-h.png</texture>
+							</control>
+							<control type="image">
+								<top>33</top>
+								<left>180</left>
+								<width>100</width>
+								<height>140</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>http://localhost:52307/getpvrthumb&amp;title=$INFO[Container(10).ListItem.Title]&amp;channel=$INFO[Container(10).ListItem.ChannelName]&amp;type=poster</texture>
+							</control>
+							<control type="image">
+								<top>33</top>
+								<left>180</left>
+								<width>100</width>
+								<height>140</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>$INFO[Window(Home).Property(SkinHelper.PVR.Poster)]</texture>
+							</control>
+							<control type="image">
+								<top>54</top>
+								<left>20</left>
+								<width>100</width>
+								<height>60</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>$INFO[Window(Home).Property(SkinHelper.PVR.ClearLogo)]</texture>
+								<visible>!IsEmpty(Window(Home).Property(SkinHelper.PVR.ClearLogo))</visible>
+							</control>
+							<control type="image">
+								<top>54</top>
+								<left>20</left>
+								<width>100</width>
+								<height>60</height>
+								<aspectratio>keep</aspectratio>
+								<fadetime>400</fadetime>
+								<texture>$INFO[Container(10).ListItem.Icon]</texture>
+								<visible>IsEmpty(Window(Home).Property(SkinHelper.PVR.ClearLogo))</visible>
+							</control>
+							<control type="label">
+								<top>120</top>
+								<left>20</left>
+								<width>300</width>
+								<height>30</height>
+								<font>sky24</font>
+								<align>left</align>
+								<label>$INFO[Container(10).ListItem.Duration]</label>
+								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
+							</control>
+							<control type="label">
+								<top>150</top>
+								<left>20</left>
+								<width>300</width>
+								<height>30</height>
+								<font>sky20</font>
+								<align>left</align>
+								<label>$INFO[Container(10).ListItem.StartTime]$INFO[Container(10).ListItem.EndTime, - ,]</label>
+								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
+							</control>
+						</control>
 					</control>
 				</control>
 			</control>

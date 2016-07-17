@@ -191,6 +191,84 @@
 			<style>bold</style>
 			<size>30</size>
 		</font>
+
+		<!-- Sky -->
+		<font>
+			<name>skybold85</name>
+			<filename>skybold.ttf</filename>
+			<size>85</size>
+		</font>
+		<font>
+			<name>sky55</name>
+			<filename>skymedium.ttf</filename>
+			<size>55</size>
+		</font>
+		<font>
+			<name>skybold55</name>
+			<filename>skybold.ttf</filename>
+			<size>55</size>
+		</font>
+		<font>
+			<name>sky47</name>
+			<filename>skymedium.ttf</filename>
+			<size>47</size>
+		</font>
+		<font>
+			<name>sky43</name>
+			<filename>skymedium.ttf</filename>
+			<size>43</size>
+		</font>
+		<font>
+			<name>skybold43</name>
+			<filename>skybold.ttf</filename>
+			<size>43</size>
+		</font>
+		<font>
+			<name>sky40</name>
+			<filename>skymedium.ttf</filename>
+			<size>40</size>
+		</font>
+		<font>
+			<name>sky33</name>
+			<filename>skymedium.ttf</filename>
+			<size>33</size>
+		</font>
+		<font>
+			<name>skybold33</name>
+			<filename>skybold.ttf</filename>
+			<size>33</size>
+		</font>
+		<font>
+			<name>sky30</name>
+			<filename>skymedium.ttf</filename>
+			<size>30</size>
+		</font>
+		<font>
+			<name>sky28</name>
+			<filename>skymedium.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
+			<name>skybold28</name>
+			<filename>skybold.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
+			<name>sky25</name>
+			<filename>skymedium.ttf</filename>
+			<size>25</size>
+		</font>
+		<font>
+			<name>sky24</name>
+			<filename>skymedium.ttf</filename>
+			<size>24</size>
+		</font>
+
+		<font>
+			<name>sky20</name>
+			<filename>skymedium.ttf</filename>
+			<size>20</size>
+		</font>
 	</fontset>
 	<fontset id="Arial" idloc="31053">
 		<!-- Arial Font better for non English -->

@@ -1444,3 +1444,7 @@ msgstr ""
 msgctxt "#40200"
 msgid "Do not show unwatched episodes count"
 msgstr ""
+
+msgctxt "#40201"
+msgid "Show ClearLogo"
+msgstr ""

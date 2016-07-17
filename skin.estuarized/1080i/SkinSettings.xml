@@ -480,18 +480,10 @@
                     <control type="radiobutton" id="628">
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
-                        <label>40190</label>
+                        <label>40201</label>
                         <selected>Skin.HasSetting(osd.showclearart)</selected>
                         <onclick>Skin.ToggleSetting(osd.showclearart)</onclick>
                     </control>
-                   <control type="radiobutton" id="6282">
-                       <width>1256</width>
-                       <include>DefaultSettingButton</include>
-                       <label>40191</label>
-                       <selected>Skin.HasSetting(osd.preferclearlogo)</selected>
-                       <onclick>Skin.ToggleSetting(osd.preferclearlogo)</onclick>
-                       <visible>Skin.HasSetting(osd.showclearart)</visible>
-                   </control>
                     <control type="radiobutton" id="642">
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
