@@ -7,17 +7,24 @@
 	</coordinates>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
-		<include content="DialogBackgroundCommons">
+		<include content="DialogBackgroundCommons1">
 			<param name="DialogBackgroundWidth" value="500" />
 			<param name="DialogBackgroundHeight" value="100" />
 			<param name="DialogHeaderLabel" value="$LOCALIZE[31072]" />
 			<param name="DialogHeaderId" value="2" />
 		</include>
+		<control type="image">
+			<left>-20</left>
+			<top>80</top>
+			<width>540</width>
+			<height>540</height>
+			<texture border="22">dialogs/dialog-bg.png</texture>
+		</control>
 		<control type="list" id="9000">
 			<left>0</left>
 			<top>100</top>
 			<width>500</width>
-			<height>700</height>
+			<height>500</height>
 			<onleft>9000</onleft>
 			<onright>9000</onright>
 			<onup>9000</onup>
@@ -28,18 +35,25 @@
 					<top>0</top>
 					<width>500</width>
 					<height>70</height>
-					<texture>lists/buttonmenu-separator.png</texture>
+					<texture>lists/separator.png</texture>
 				</control>
 				<control type="label">
-					<left>0</left>
-					<textoffsetx>20</textoffsetx>
+					<left>74</left>
 					<top>0</top>
-					<width>500</width>
+					<width>426</width>
 					<height>70</height>
-					<align>center</align>
+					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>grey</textcolor>
+					<font>font14</font>
 					<label>$INFO[ListItem.Label]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+				</control>
+				<control type="image">
+					<left>-3</left>
+					<top>1</top>
+					<width>70</width>
+					<height>70</height>
+					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="70">
@@ -48,7 +62,7 @@
 					<top>0</top>
 					<width>500</width>
 					<height>70</height>
-					<texture>lists/buttonmenu-separator.png</texture>
+					<texture>lists/separator.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -59,15 +73,23 @@
 					<visible>Control.HasFocus(9000)</visible>
 				</control>
 				<control type="label">
-					<left>0</left>
-					<textoffsetx>20</textoffsetx>
+					<left>74</left>
 					<top>0</top>
-					<width>500</width>
+					<width>426</width>
 					<height>70</height>
-					<align>center</align>
+					<align>left</align>
 					<aligny>center</aligny>
 					<scroll>yes</scroll>
+					<font>font14</font>
 					<label>$INFO[ListItem.Label]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+				</control>
+				<control type="image">
+					<left>-3</left>
+					<top>1</top>
+					<width>70</width>
+					<height>70</height>
+					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 			</focusedlayout>
 			<content>

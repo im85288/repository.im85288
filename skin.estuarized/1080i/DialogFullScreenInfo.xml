@@ -15,6 +15,17 @@
 			<texturenofocus>-</texturenofocus>
 			<onclick>Action(close)</onclick>
 		</control>
+		<control type="button" id="5553">
+			<left>-100</left>
+			<top>-100</top>
+			<width>1</width>
+			<height>1</height>
+			<onup condition="IntegerGreaterThan(Container(518621).NumItems,0)">Control.Move(518621,-1)</onup>
+			<onup condition="IntegerGreaterThan(Container(518621).NumItems,0)">SetFocus(518621)</onup>
+			<ondown condition="IntegerGreaterThan(Container(518621).NumItems,0)">Control.Move(518621,1)</ondown>
+			<ondown condition="IntegerGreaterThan(Container(518621).NumItems,0)">SetFocus(518621)</ondown>
+			<visible>VideoPlayer.Content(LiveTV)</visible>
+		</control>
 		<control type="group">
 			<top>960</top>
 			<control type="image">
@@ -22,7 +33,14 @@
 				<top>-240</top>
 				<width>1920</width>
 				<height>400</height>
-				<texture colordiffuse="background">skyq/Backgrounds/infobar1.png</texture>
+				<texture colordiffuse="background">skyq/Backgrounds/infobar.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>-240</top>
+				<width>1920</width>
+				<height>400</height>
+				<texture>skyq/Backgrounds/infobar.png</texture>
 			</control>
 			<control type="image" id="456788">
 				<left>420</left>
@@ -31,7 +49,7 @@
 				<height>240</height>
 				<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[VideoPlayer.Title]&amp;channel=$INFO[VideoPlayer.ChannelName]&amp;type=landscape,fanart,thumb</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
 			</control>
 			<control type="image">
 				<description>TV Cover</description>
@@ -42,7 +60,38 @@
 				<texture fallback="DefaultVideoCover.png">$VAR[NowPlayingPosterVar]</texture>
 				<aspectratio aligny="top">keep</aspectratio>
 				<visible>SubString(Control.GetLabel(456788),empty.png)</visible>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
+			</control>
+			<control type="image" id="456789">
+				<left>420</left>
+				<top>-205</top>
+				<width>427</width>
+				<height>240</height>
+				<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[Container(518621).ListItem.Title]&amp;channel=$INFO[Container(518621).ListItem..ChannelName]&amp;type=landscape,fanart,thumb</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
+			</control>
+			<control type="image">
+				<description>TV Cover</description>
+				<left>420</left>
+				<top>-205</top>
+				<width>427</width>
+				<height>240</height>
+				<texture fallback="special://skin/extras/home-images/tv.jpg">$INFO[Container(518621).ListItem.Icon]</texture>
+				<aspectratio aligny="top">stretch</aspectratio>
+				<visible>SubString(Control.GetLabel(456789),empty.png)</visible>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
+			</control>
+			<control type="image">
+				<left>610</left>
+				<top>-120</top>
+				<width>70</width>
+				<height>70</height>
+				<label></label>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texture colordiffuse="$VAR[ColourFocus]">$VAR[ProgressPercent]</texture>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
 			</control>
 			<control type="image">
 				<description>landscape</description>
@@ -54,21 +103,102 @@
 				<aspectratio aligny="top">keep</aspectratio>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
+			<control type="group">
+				<visible>!Control.HasFocus(518621)</visible>
+				<left>420</left>
+				<top>35</top>
+				<width>427</width>
+				<control type="progress">
+					<animation effect="fade" end="0" time="200">WindowClose</animation>
+					<height>5</height>
+					<info>Player.ProgressCache</info>
+					<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+					<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+					<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="progress" id="23">
+					<animation effect="fade" end="0" time="200">WindowClose</animation>
+					<height>5</height>
+					<info>Player.Progress</info>
+					<texturebg border="3" colordiffuse="80FFFFFF">colors/white50.png</texturebg>
+					<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+				</control>
+				<control type="button" id="87">
+					<include>HiddenObject</include>
+					<onup condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onup>
+					<onup>201</onup>
+					<ondown condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</ondown>
+					<ondown>201</ondown>
+					<onright>PlayerControl(Forward)</onright>
+					<onleft>PlayerControl(Rewind)</onleft>
+					<visible>Player.SeekEnabled</visible>
+					<onclick condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onclick>
+				</control>
+				<control type="slider">
+					<height>5</height>
+					<onup>8010</onup>
+					<ondown>650</ondown>
+					<controloffsetx>75</controloffsetx>
+					<controloffsety>0</controloffsety>
+					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_bar.png</texturesliderbar>
+					<textureslidernib>osd/progress/nub_bar.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="$VAR[ColourFocus]">osd/progress/nub_bar.png</textureslidernibfocus>
+					<info>Player.Progress</info>
+					<action>seek</action>
+					<visible>!Control.HasFocus(87)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Control.HasFocus(518621)</visible>
+				<left>420</left>
+				<top>35</top>
+				<width>427</width>
+				<control type="progress">
+					<animation effect="fade" end="0" time="200">WindowClose</animation>
+					<height>5</height>
+					<info>Container(518621).ListItem.ProgressCache</info>
+					<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+					<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+					<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="progress" id="23121">
+					<animation effect="fade" end="0" time="200">WindowClose</animation>
+					<height>5</height>
+					<info>Container(518621).ListItem.Progress</info>
+					<texturebg border="3" colordiffuse="80FFFFFF">colors/white50.png</texturebg>
+					<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+				</control>
+				<control type="button" id="87">
+					<include>HiddenObject</include>
+					<onup condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onup>
+					<onup>201</onup>
+					<ondown condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</ondown>
+					<ondown>201</ondown>
+					<onright>PlayerControl(Forward)</onright>
+					<onleft>PlayerControl(Rewind)</onleft>
+					<visible>Player.SeekEnabled</visible>
+					<onclick condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onclick>
+				</control>
+				<control type="slider">
+					<height>5</height>
+					<onup>8010</onup>
+					<ondown>650</ondown>
+					<controloffsetx>75</controloffsetx>
+					<controloffsety>0</controloffsety>
+					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_bar.png</texturesliderbar>
+					<textureslidernib>osd/progress/nub_bar.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="$VAR[ColourFocus]">osd/progress/nub_bar.png</textureslidernibfocus>
+					<info>Container(518621).ListItem.Progress</info>
+					<action>seek</action>
+					<visible>!Control.HasFocus(87)</visible>
+				</control>
+			</control>
 			<control type="image">
-				<left>10</left>
-				<top>-205</top>
+				<left>-10</left>
+				<top>-235</top>
 				<width>400</width>
 				<height>100</height>
 				<texture>$VAR[PlayerClearLogo]</texture>
-				<aspectratio align="center" aligny="top">keep</aspectratio>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
-			</control>
-			<control type="image">
-				<left>10</left>
-				<top>-42</top>
-				<width>400</width>
-				<height>100</height>
-				<texture>$VAR[PlayerClearArt]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
@@ -80,27 +210,39 @@
 				<texture>$VAR[PlayerClearLogo]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>Skin.HasSetting(osd.showclearart)</visible>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
 
 			<control type="label">
-				<left>10</left>
+				<left>1</left>
 				<top>-104</top>
-				<width>400</width>
+				<width>370</width>
 				<height>360</height>
 				<label fallback="">$INFO[VideoPlayer.ChannelName,[B],[/B]    ]$INFO[VideoPlayer.ChannelNumber]</label>
-				<align>center</align>
-				<font>skybold39</font>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<align>right</align>
+				<font>skybold35</font>
+				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
 			</control>
 			<control type="label">
-				<left>10</left>
+				<left>1</left>
+				<top>-104</top>
+				<width>370</width>
+				<height>360</height>
+				<label>$INFO[Container(518621).ListItem.ChannelName,[B],[/B]    ]$INFO[Container(518621).ListItem.ChannelNumber]</label>
+				<align>right</align>
+				<font>skybold35</font>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
+			</control>
+			<control type="label">
+				<left>1</left>
 				<top>70</top>
-				<width>400</width>
+				<width>370</width>
 				<height>40</height>
 				<label fallback="">$INFO[System.Date(DDD)],  $INFO[System.Time]</label>
-				<align>left</align>
+				<align>right</align>
 				<aligny>center</aligny>
 				<font>skybold33</font>
+				<textcolor>subwhite</textcolor>
 			</control>
 			<control type="label">
 				<left>890</left>
@@ -110,6 +252,17 @@
 				<label fallback="">$INFO[VideoPlayer.Title]</label>
 				<align>left</align>
 				<font>skybold33</font>
+				<visible>!Control.HasFocus(518621)</visible>
+			</control>
+			<control type="label">
+				<left>890</left>
+				<top>-204</top>
+				<width>640</width>
+				<height>33</height>
+				<label fallback="">$INFO[Container(518621).ListItem.Title]</label>
+				<align>left</align>
+				<font>skybold33</font>
+				<visible>Control.HasFocus(518621)</visible>
 			</control>
 			<control type="textbox">
 				<left>890</left>
@@ -120,6 +273,18 @@
 				<align>justify</align>
 				<font>sky30</font>
 				<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
+				<visible>!Control.HasFocus(518621)</visible>
+			</control>
+			<control type="textbox">
+				<left>890</left>
+				<top>-154</top>
+				<width>640</width>
+				<height>241</height>
+				<label fallback="416">$INFO[Container(518621).ListItem.Tagline,[B],[/B][CR]]$INFO[Container(518621).ListItem.Plot]</label>
+				<align>justify</align>
+				<font>sky30</font>
+				<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
+				<visible>Control.HasFocus(518621)</visible>
 			</control>
 
 			<control type="label">
@@ -129,8 +294,9 @@
 				<height>28</height>
 				<label fallback="">$INFO[VideoPlayer.NextTitle]</label>
 				<align>left</align>
-				<font>skybold28</font>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<font>skybold30</font>
+				<shadowcolor>text_shadow</shadowcolor>
+				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
 			</control>
 			<control type="textbox">
 				<right>10</right>
@@ -141,18 +307,75 @@
 				<align>justify</align>
 				<font>sky25</font>
 				<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
 			</control>
 
 			<control type="label">
 				<right>10</right>
 				<top>70</top>
 				<width>330</width>
-				<height>28</height>
+				<height>40</height>
 				<label fallback="">$INFO[VideoPlayer.NextStartTime,$LOCALIZE[19031] @ ,]</label>
 				<align>left</align>
-				<font>skybold28</font>
+				<aligny>center</aligny>
+				<font>sky28</font>
+				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
+			</control>
+
+			<control type="label">
+				<right>10</right>
+				<top>-204</top>
+				<width>330</width>
+				<height>30</height>
+				<label fallback="">$INFO[Container(518621).ListItem.NextTitle]</label>
+				<align>left</align>
+				<font>skybold30</font>
+				<shadowcolor>text_shadow</shadowcolor>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
+			</control>
+			<control type="textbox">
+				<right>10</right>
+				<top>-162</top>
+				<width>330</width>
+				<height>241</height>
+				<label fallback="416">$INFO[Container(518621).ListItem.NextPlot]</label>
+				<align>justify</align>
+				<font>sky25</font>
+				<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
+			</control>
+
+			<control type="label">
+				<right>10</right>
+				<top>70</top>
+				<width>330</width>
+				<height>40</height>
+				<label fallback="">$INFO[Container(518621).ListItem.NextStartTime,$LOCALIZE[19031] @ ,]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>sky28</font>
+				<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
+			</control>
+
+			<control type="group">
 				<visible>VideoPlayer.Content(LiveTV)</visible>
+
+				<control id="518621" type="list">
+					<top>-100</top>
+					<left>-100</left>
+					<width>1</width>
+					<height>1</height>
+					<preloaditems>1</preloaditems>
+					<focusposition>0</focusposition>
+					<viewtype label="ssls">list</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime easing="inout" tween="sine">300</scrolltime>
+					<itemlayout height="1" width="1">
+					</itemlayout>
+					<focusedlayout height="1" width="1">
+					</focusedlayout>
+					<content target="video">pvr://channels/tv/All channels/</content>
+				</control>
 			</control>
 
 			<control type="group">
@@ -276,17 +499,27 @@
 				<left>420</left>
 				<top>38</top>
 				<width>427</width>
-				<height>33</height>
+				<height>37</height>
 				<align>left</align>
 				<orientation>horizontal</orientation>
 				<itemgap>5</itemgap>
 				<control type="label">
 					<width>100</width>
-					<height>30</height>
+					<height>37</height>
 					<label fallback="">$INFO[VideoPlayer.StartTime]</label>
 					<align>left</align>
-					<font>sky33</font>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<font>sky37</font>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
+				</control>
+				<control type="label">
+					<width>100</width>
+					<height>37</height>
+					<label fallback="">$INFO[Container(518621).ListItem.StartTime]</label>
+					<align>left</align>
+					<font>sky37</font>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>VideoPlayer.Content(LiveTV) + Control.HasFocus(518621)</visible>
 				</control>
 			</control>
 			<control type="grouplist">
@@ -317,59 +550,6 @@
 					<aspectratio>keep</aspectratio>
 					<texture>$VAR[HDSD]</texture>
 					<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
-				</control>
-			</control>
-
-			<!-- Progress -->
-			<control type="group">
-				<top>119</top>
-				<control type="progress">
-					<animation effect="fade" end="0" time="200">WindowClose</animation>
-					<left>0</left>
-					<top>-10</top>
-					<width>1920</width>
-					<height>30</height>
-					<info>Player.ProgressCache</info>
-					<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
-					<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
-					<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
-				</control>
-				<control type="progress" id="23">
-					<animation effect="fade" end="0" time="200">WindowClose</animation>
-					<left>0</left>
-					<top>-10</top>
-					<width>1920</width>
-					<height>30</height>
-					<info>Player.Progress</info>
-					<texturebg border="3" colordiffuse="80FFFFFF">colors/white50.png</texturebg>
-					<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
-				</control>
-				<control type="button" id="87">
-					<include>HiddenObject</include>
-					<onup condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onup>
-					<onup>201</onup>
-					<ondown condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</ondown>
-					<ondown>201</ondown>
-					<onright>PlayerControl(Forward)</onright>
-					<onleft>PlayerControl(Rewind)</onleft>
-					<visible>Player.SeekEnabled</visible>
-					<onclick condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onclick>
-				</control>
-				<control type="slider">
-					<left>0</left>
-					<top>-10</top>
-					<width>1920</width>
-					<height>30</height>
-					<onup>8010</onup>
-					<ondown>650</ondown>
-					<controloffsetx>75</controloffsetx>
-					<controloffsety>0</controloffsety>
-					<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_bar.png</texturesliderbar>
-					<textureslidernib>osd/progress/nub_bar.png</textureslidernib>
-					<textureslidernibfocus colordiffuse="$VAR[ColourFocus]">osd/progress/nub_bar.png</textureslidernibfocus>
-					<info>Player.Progress</info>
-					<action>seek</action>
-					<visible>!Control.HasFocus(87)</visible>
 				</control>
 			</control>
 		</control>

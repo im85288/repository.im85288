@@ -22,14 +22,16 @@
 			<align>center</align>
 			<height>55</height>
 			<font>skybold55</font>
+			<shadowcolor>text_shadow</shadowcolor>
 			<label>$LOCALIZE[19019]</label>
 		</control>
 		<control type="label">
-			<top>680</top>
+			<top>345</top>
 			<width>480</width>
 			<align>center</align>
 			<height>40</height>
 			<font>sky40</font>
+			<shadowcolor>text_shadow</shadowcolor>
 			<label>[COLOR =subwhite][B]&lt;&gt;[/B][/COLOR]  $INFO[VideoPlayer.ChannelGroup]</label>
 		</control>
 
@@ -285,7 +287,7 @@
 							<height>30</height>
 							<font>sky20</font>
 							<align>left</align>
-							<label>$INFO[Container(11).ListItem.StartTime]$INFO[Container(50).ListItem.EndTime, - ,]</label>
+							<label>$INFO[Container(11).ListItem.StartTime]$INFO[Container(11).ListItem.EndTime, - ,]</label>
 							<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
 						</control>
 					</control>

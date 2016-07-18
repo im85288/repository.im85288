@@ -5,45 +5,6 @@
 	<depth>DepthOSD</depth>
 	<defaultcontrol always="true">602</defaultcontrol>
 	<controls>
-		<control type="image">
-                    <right>31</right>
-                    <bottom>271</bottom>
-                    <width>500</width>
-                    <height>281</height>
-                    <texture>$VAR[PlayerClearArt]</texture>
-                    <aspectratio align="center" aligny="bottom">keep</aspectratio>
-                    <animation effect="fade" end="100" time="200">WindowOpen</animation>
-		    <animation effect="fade" time="200">VisibleChange</animation>
-		    <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-                    <visible>Skin.HasSetting(enable_playerclearart) + [String.IsEmpty(Skin.String(clearart_position)) | String.IsEqual(Skin.String(clearart_position),$LOCALIZE[40088])]</visible>
-                    <visible>!Window.IsVisible(fullscreeninfo) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(osdvideosettings) + !Window.IsActive(audiodspmanager) + !Window.IsActive(videobookmarks) + !Window.IsActive(PVROSDChannels) + !Window.IsActive(PVROSDGuide) + !Control.HasFocus(70043) + !ControlGroup(11000).HasFocus + !Control.HasFocus(704) + !ControlGroup(12000).HasFocus + !Control.HasFocus(255) + !ControlGroup(13000).HasFocus</visible>
-                </control>
-                <control type="image">
-                    <left>31</left>
-                    <bottom>271</bottom>
-                    <width>500</width>
-                    <height>281</height>
-                    <texture>$VAR[PlayerClearArt]</texture>
-                    <aspectratio align="center" aligny="bottom">keep</aspectratio>
-                    <animation effect="fade" end="100" time="200">WindowOpen</animation>
-		    <animation effect="fade" time="200">VisibleChange</animation>
-		    <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-                    <visible>Skin.HasSetting(enable_playerclearart) + String.IsEqual(Skin.String(clearart_position),$LOCALIZE[40089])</visible>
-                    <visible>!Window.IsVisible(fullscreeninfo) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(osdvideosettings) + !Window.IsActive(audiodspmanager) + !Window.IsActive(videobookmarks) + !Window.IsActive(PVROSDChannels) + !Window.IsActive(PVROSDGuide)</visible>
-                </control>
-                <control type="image">
-                    <centerleft>50%</centerleft>
-                    <bottom>271</bottom>
-                    <width>500</width>
-                    <height>281</height>
-                    <texture>$VAR[PlayerClearArt]</texture>
-                    <aspectratio align="center" aligny="bottom">keep</aspectratio>
-                    <animation effect="fade" end="100" time="200">WindowOpen</animation>
-		    <animation effect="fade" time="200">VisibleChange</animation>
-		    <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-                    <visible>Skin.HasSetting(enable_playerclearart) + String.IsEqual(Skin.String(clearart_position),$LOCALIZE[40090])</visible>
-                    <visible>!Window.IsVisible(fullscreeninfo) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(osdvideosettings) + !Window.IsActive(audiodspmanager) + !Window.IsActive(videobookmarks) + !Window.IsActive(PVROSDChannels) + !Window.IsActive(PVROSDGuide)</visible>
-                </control>
 		<control type="button" id="22001">
 			<description>background close area</description>
 			<left>0</left>
@@ -60,17 +21,17 @@
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<control type="group">
-				<top>900</top>
+				<top>940</top>
 				<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(osdvideosettings) + !Window.IsActive(audiodspmanager) + !Window.IsActive(PVROSDChannels) + !Window.IsActive(PVROSDGuide)</visible>
 				<animation effect="fade" end="100" time="200">WindowOpen</animation>
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<control type="image">
-					<left>10</left>
+					<left>-20</left>
 					<top>-110</top>
-					<width>1900</width>
+					<width>1960</width>
 					<height>270</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<texture colordiffuse="ff000000" border="40">buttons/dialogbutton-nofo.png</texture>
 				</control>
 				<control type="label">
 					<left>30</left>
@@ -79,6 +40,7 @@
 					<textoffsetx>20</textoffsetx>
 					<aligny>center</aligny>
 					<width>1858</width>
+					<font>sky55</font>
 					<height>60</height>
 					<label>$VAR[VideoOSDHelpTextVar]</label>
 				</control>
@@ -89,14 +51,15 @@
 					<height>60</height>
 					<align>left</align>
 					<aligny>center</aligny>
+					<font>sky55</font>
 					<label>$VAR[SeekLabel]</label>
 					<textcolor>$VAR[ColourFocus]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="grouplist" id="201">
-					<left>20</left>
+					<left>0</left>
 					<top>-90</top>
-					<width>1920</width>
+					<width>1940</width>
 					<height>135</height>
 					<align>left</align>
 					<itemgap>-20</itemgap>
@@ -260,14 +223,14 @@
 				<control type="group" id="6000">
 					<top>90</top>
 					<control type="label">
-						<left>30</left>
-						<top>-140</top>
+						<left>-50</left>
+						<top>-154</top>
 						<width>1858</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>bottom</aligny>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-						<font>font30</font>
+						<font>skybold65</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="progress">
@@ -344,7 +307,7 @@
 				<control type="image">
 					<width>512</width>
 					<height>294</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<texture colordiffuse="ff000000" border="40">buttons/dialogbutton-nofo.png</texture>
 				</control>
 				<control type="grouplist" id="11100">
 					<left>20</left>
@@ -394,7 +357,7 @@
 				<control type="image">
 					<width>512</width>
 					<height>231</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<texture colordiffuse="ff000000" border="40">buttons/dialogbutton-nofo.png</texture>
 				</control>
 				<control type="grouplist" id="11100">
 					<left>20</left>
@@ -443,7 +406,7 @@
 				<control type="image">
 					<width>512</width>
 					<height>294</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<texture colordiffuse="ff000000" border="40">buttons/dialogbutton-nofo.png</texture>
 				</control>
 				<control type="grouplist" id="12100">
 					<left>20</left>
@@ -500,7 +463,7 @@
 				<control type="image">
 					<width>512</width>
 					<height>231</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<texture colordiffuse="ff000000" border="40">buttons/dialogbutton-nofo.png</texture>
 				</control>
 				<control type="grouplist" id="13100">
 					<left>20</left>

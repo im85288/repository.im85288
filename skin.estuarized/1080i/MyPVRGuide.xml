@@ -19,6 +19,7 @@
 			<align>center</align>
 			<height>55</height>
 			<font>skybold55</font>
+			<shadowcolor>text_shadow</shadowcolor>
 			<label>$LOCALIZE[19069]</label>
 		</control>
 		<control type="group" id="50">

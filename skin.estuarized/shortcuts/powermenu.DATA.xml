@@ -11,28 +11,28 @@
         <label2>Common Shortcut</label2>
         <label>13016</label>
         <action>Powerdown()</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/crosshair.png</icon>
         <visible>System.CanPowerDown</visible>        
     </shortcut>
     <shortcut>
         <label2>Common Shortcut</label2>
         <label>13011</label>
         <action>Suspend()</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/timer-rules.png</icon>
         <visible>System.CanSuspend</visible>       
     </shortcut>
     <shortcut>
         <label2>Common Shortcut</label2>
         <label>13010</label>
         <action>Hibernate()</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/timers.png</icon>
         <visible>System.CanHibernate</visible>        
     </shortcut>
     <shortcut>
         <label2>Common Shortcut</label2>
         <label>13013</label>
         <action>Reset()</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/rocket.png</icon>
         <visible>System.CanReboot</visible>        
     </shortcut>
     <shortcut>
@@ -40,7 +40,7 @@
         <label>20126</label>
         <action>dialog.close(all,true)</action>
         <action>System.LogOff</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/actor.png</icon>
         <visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
         <visible>System.Loggedon</visible>        
     </shortcut>
@@ -50,28 +50,28 @@
         <altlabel>20045</altlabel>
         <usealttexture>!System.IsMaster</usealttexture>
         <action>mastermode</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/forbidden.png</icon>
         <visible>System.HasLocks</visible>        
     </shortcut>
     <shortcut>
         <label2>Common Shortcut</label2>
         <label>13017</label>
         <action>InhibitIdleShutdown(true)</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/eye.png</icon>
         <visible>System.HasShutdown +!System.IsInhibit</visible>     
     </shortcut>
     <shortcut>
         <label2>Common Shortcut</label2>
         <label>13018</label>
         <action>InhibitIdleShutdown(false)</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/cloud.png</icon>
         <visible>System.HasShutdown + System.IsInhibit</visible>       
     </shortcut>
     <shortcut>
         <label2>Common Shortcut</label2>
         <label>20150</label>
         <action>AlarmClock(shutdowntimer,Shutdown())</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/wizard.png</icon>
         <visible>!System.HasAlarm(shutdowntimer)</visible>
         <visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>       
     </shortcut>
@@ -79,13 +79,13 @@
         <label2>Common Shortcut</label2>
         <label>20151</label>
         <action>CancelAlarm(shutdowntimer)</action>
-        <icon>special://skin/extras/icons/power.png</icon> 
+        <icon>special://skin/extras/icons/timer.png</icon>
         <visible>System.HasAlarm(shutdowntimer)</visible>        
     </shortcut>
         <shortcut>
         <label2>Common Shortcut</label2>
         <label>20183</label>
         <action>ReloadSkin()</action>
-        <icon>special://skin/extras/icons/power.png</icon>        
+        <icon>special://skin/extras/icons/update.png</icon>
     </shortcut>
 </shortcuts>

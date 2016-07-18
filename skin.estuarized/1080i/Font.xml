@@ -199,6 +199,11 @@
 			<size>85</size>
 		</font>
 		<font>
+			<name>skybold65</name>
+			<filename>skybold.ttf</filename>
+			<size>65</size>
+		</font>
+		<font>
 			<name>sky55</name>
 			<filename>skymedium.ttf</filename>
 			<size>55</size>
@@ -207,6 +212,16 @@
 			<name>skybold55</name>
 			<filename>skybold.ttf</filename>
 			<size>55</size>
+		</font>
+		<font>
+			<name>sky50</name>
+			<filename>skymedium.ttf</filename>
+			<size>50</size>
+		</font>
+		<font>
+			<name>skybold50</name>
+			<filename>skybold.ttf</filename>
+			<size>50</size>
 		</font>
 		<font>
 			<name>sky47</name>
@@ -234,6 +249,16 @@
 			<size>39</size>
 		</font>
 		<font>
+			<name>sky37</name>
+			<filename>skymedium.ttf</filename>
+			<size>37</size>
+		</font>
+		<font>
+			<name>skybold35</name>
+			<filename>skybold.ttf</filename>
+			<size>35</size>
+		</font>
+		<font>
 			<name>sky33</name>
 			<filename>skymedium.ttf</filename>
 			<size>33</size>
@@ -246,6 +271,11 @@
 		<font>
 			<name>sky30</name>
 			<filename>skymedium.ttf</filename>
+			<size>30</size>
+		</font>
+		<font>
+			<name>skybold30</name>
+			<filename>skybold.ttf</filename>
 			<size>30</size>
 		</font>
 		<font>

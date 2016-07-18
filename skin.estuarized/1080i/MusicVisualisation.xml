@@ -102,11 +102,11 @@
 			<include>OpenClose_Right</include>
 			<include>Visible_Right</include>
 			<control type="image">
-				<left>10</left>
+				<left>-10</left>
 				<top>680</top>
-				<width>1900</width>
+				<width>1960</width>
 				<height>420</height>
-				<texture border="40">buttons/dialogbutton-nofo.png</texture>
+				<texture colordiffuse="ff000000" border="40">buttons/dialogbutton-nofo.png</texture>
 			</control>
 			<control type="group">
 				<left>80</left>

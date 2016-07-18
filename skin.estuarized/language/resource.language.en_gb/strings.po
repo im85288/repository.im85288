@@ -1448,3 +1448,7 @@ msgstr ""
 msgctxt "#40201"
 msgid "Show ClearLogo"
 msgstr ""
+
+msgctxt "#40202"
+msgid "Disable Next Up for Live TV"
+msgstr ""

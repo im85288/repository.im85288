@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1111">
+	<defaultcontrol always="true">3012</defaultcontrol>
+	<onload>Dialog.Close(fullscreeninfo,true)</onload>
+	<visible>Window.IsActive(fullscreenvideo) + VideoPlayer.Content(livetv) + !Skin.HasSetting(PVRNextUpDisabled) + [Integer.IsGreater(Player.Duration(mm),05) | Integer.IsGreater(Player.Duration(hh),00)]</visible>
+	<controls>
+		<control type="group">
+			<visible>!Window.IsVisible(videoosd) + Window.IsVisible(fullscreenvideo) + Integer.IsEqual(Player.TimeRemaining(hh),00) + Integer.IsEqual(Player.TimeRemaining(mm),00) + Integer.IsLessOrEqual(Player.TimeRemaining(ss),30)</visible>
+			<right>64</right>
+			<bottom>64</bottom>
+			<width>480</width>
+			<height>270</height>
+			<control type="group">
+				<control type="image" description="blackline">
+					<width>100%</width>
+					<height>60</height>
+					<bottom>250</bottom>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>dialogs/nextup/nextup.png</texture>
+				</control>
+				<control type="label" description="text">
+					<top>-52</top>
+					<align>center</align>
+					<height>64</height>
+					<aligny>center</aligny>
+					<font>sky33</font>
+					<label>$INFO[VideoPlayer.NextStartTime,Next @ ,]</label>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="image" description="fanart" id="123111">
+					<width>100%</width>
+					<height>100%</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture fallback="empty.png">$VAR[NextPlayerLandscape]</texture>
+				</control>
+				<control type="image" description="icon">
+					<width>110</width>
+					<height>75</height>
+					<fadetime>350</fadetime>
+					<right>0</right>
+					<bottom>64</bottom>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture>$INFO[VideoPlayer.Cover]</texture>
+					<visible>!Substring(Control.GetLabel(123111),empty.png)</visible>
+				</control>
+				<control type="image" description="fanart">
+					<width>100%</width>
+					<height>100%</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>$INFO[VideoPlayer.Cover]</texture>
+					<visible>Substring(Control.GetLabel(123111),empty.png)</visible>
+				</control>
+				<control type="image" description="blackline">
+					<width>100%</width>
+					<height>64</height>
+					<bottom>0</bottom>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>dialogs/nextup/nextup.png</texture>
+				</control>
+				<control type="group">
+					<height>64</height>
+					<width>64</width>
+					<centertop>110</centertop>
+					<centerleft>50%</centerleft>
+					<control type="image">
+						<height>64</height>
+						<width>64</width>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<texture colordiffuse="$VAR[ColourFocus]">dialogs/nextup/circle.png</texture>
+					</control>
+					<control type="label">
+						<top>-2</top>
+						<align>center</align>
+						<width>64</width>
+						<height>64</height>
+						<font>skybold50</font>
+						<aligny>center</aligny>
+						<label>$INFO[Player.TimeRemaining(ss)]</label>
+						<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<right>0</right>
+					<height>64</height>
+					<bottom>0</bottom>
+					<control type="label">
+						<width>100%</width>
+						<top>0</top>
+						<height>64</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>skybold35</font>
+						<shadowcolor>black</shadowcolor>
+						<scroll>yes</scroll>
+						<label>$INFO[VideoPlayer.NextTitle]</label>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -51,6 +51,11 @@
 		<value condition="!String.IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
 		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[Player.Title]&amp;type=landscape,fanart,thumb</value>
 	</variable>
+
+	<variable name="NextPlayerLandscape">
+		<value>http://localhost:52307/getpvrthumb&amp;title=$INFO[VideoPlayer.NextTitle]&amp;channel=$INFO[VideoPlayer.ChannelName]&amp;type=landscape,fanart,thumb</value>
+	</variable>
+
 	<variable name="PlayerPoster">
 		<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
@@ -292,19 +297,33 @@
 		<value>$INFO[VideoPlayer.VideoResolution,flags/videoresolution/,.png]</value>
 	</variable>
 	<variable name="NewResolutionFlagVarPlayer">
+		<value condition="Control.HasFocus(10)">$INFO[Container(10).ListItem.VideoResolution,skyq/icons/ico_format_,.png]</value>
+
+		<value condition="Control.HasFocus(518621)">$INFO[Container(518621).ListItem.VideoResolution,skyq/icons/ico_format_,.png]</value>
 		<value>$INFO[VideoPlayer.VideoResolution,skyq/icons/ico_format_,.png]</value>
 	</variable>
 	<variable name="VideoAspect">
-		<value condition="StringCompare(VideoPlayer.VideoAspect,1.33)">skyq/icons/ico_format_on1.png</value>
-		<value condition="StringCompare(VideoPlayer.VideoAspect,1.37)">skyq/icons/ico_format_on1.png</value>
+		<value condition="StringCompare(Container(10).ListItem.VideoAspect,1.33) + Control.HasFocus(10)">skyq/icons/ico_format_on1.png</value>
+		<value condition="StringCompare(Container(10).ListItem.VideoAspect,1.37) + Control.HasFocus(10)">skyq/icons/ico_format_on1.png</value>
+
+		<value condition="StringCompare(Container(518621).ListItem.VideoAspect,1.33) + Control.HasFocus(518621)">skyq/icons/ico_format_on1.png</value>
+		<value condition="StringCompare(Container(518621).ListItem.VideoAspect,1.37) + Control.HasFocus(518621)">skyq/icons/ico_format_on1.png</value>
+		<value condition="StringCompare(VideoPlayer.VideoAspect,1.33) + !Control.HasFocus(518621)">skyq/icons/ico_format_on1.png</value>
+		<value condition="StringCompare(VideoPlayer.VideoAspect,1.37) + !Control.HasFocus(518621)">skyq/icons/ico_format_on1.png</value>
 		<value>skyq/icons/ico_format_on.png</value>
 	</variable>
 	<variable name="HDSD">
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719) + !IsEmpty(ListItem.VideoResolution)">skyq/icons/ico_hd_on.png</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution)">skyq/icons/ico_hd_on.png</value>
+		<value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution) + !Control.HasFocus(518621)">skyq/icons/ico_hd_on.png</value>
+		<value condition="IntegerGreaterThan(Container(518621).ListItem.VideoResolution,719) + !IsEmpty(Container(518621).ListItem.VideoResolution) + Control.HasFocus(518621)">skyq/icons/ico_hd_on.png</value>
+		<value condition="Control.HasFocus(10) + IntegerGreaterThan(Container(10).ListItem.VideoResolution,719) + !IsEmpty(Container(10).ListItem.VideoResolution)">skyq/icons/ico_hd_on.png</value>
+
 		<value condition="IntegerGreaterThan(Window.Property(VideoResolution),719) + !IsEmpty(Window.Property(VideoResolution))">skyq/icons/ico_hd_on.png</value>
 		<value condition="!IntegerGreaterThan(ListItem.VideoResolution,719) + !IsEmpty(ListItem.VideoResolution)">skyq/icons/ico_sd_on.png</value>
-		<value condition="!IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution)">skyq/icons/ico_sd_on.png</value>
+		<value condition="!IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution) + !Control.HasFocus(518621)">skyq/icons/ico_sd_on.png</value>
+		<value condition="!IntegerGreaterThan(Container(518621).ListItem.VideoResolution,719) + !IsEmpty(Container(518621).ListItem.VideoResolution) + Control.HasFocus(518621)">skyq/icons/ico_sd_on.png</value>
+		<value condition="!IntegerGreaterThan(Container(10).ListItem.VideoResolution,719) + !IsEmpty(Container(10).ListItem.VideoResolution) + Control.HasFocus(10)">skyq/icons/ico_sd_on.png</value>
+
 		<value condition="!IntegerGreaterThan(Window.Property(VideoResolution),719) + !IsEmpty(Window.Property(VideoResolution))">skyq/icons/ico_sd_on.png</value>
 		<value>skyq/icons/ico_sd_on.png</value>
 	</variable>
@@ -2272,5 +2291,108 @@
 		<value condition="Window.IsVisible(MyVideoNav.xml) + [String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)]">flags/mpaa/MPAA_Brazil_18.png</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + String.Contains(ListItem.mpaa,Australia:)">$INFO[ListItem.MPAA,flags/mpaa/australia_,.png]</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml)">$INFO[ListItem.MPAA,flags/mpaa/,.png]</value>
+	</variable>
+
+	<variable name="ProgressPercent">
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),99)">nextup/30.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),98)">nextup/30.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),97)">nextup/30.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),96)">nextup/30.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),95)">nextup/29.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),94)">nextup/29.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),93)">nextup/29.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),92)">nextup/29.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),91)">nextup/28.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),90)">nextup/28.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),89)">nextup/28.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),88)">nextup/28.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),87)">nextup/27.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),86)">nextup/27.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),85)">nextup/27.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),84)">nextup/27.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),83)">nextup/26.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),82)">nextup/26.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),81)">nextup/26.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),80)">nextup/26.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),79)">nextup/25.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),78)">nextup/25.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),77)">nextup/25.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),76)">nextup/25.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),75)">nextup/24.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),74)">nextup/24.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),73)">nextup/24.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),72)">nextup/24.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),71)">nextup/23121.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),70)">nextup/23121.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),69)">nextup/23121.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),68)">nextup/23121.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),67)">nextup/22.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),66)">nextup/22.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),65)">nextup/22.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),64)">nextup/22.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),63)">nextup/21.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),62)">nextup/21.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),61)">nextup/21.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),60)">nextup/21.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),59)">nextup/20.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),58)">nextup/20.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),57)">nextup/20.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),56)">nextup/20.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),55)">nextup/19.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),54)">nextup/19.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),53)">nextup/19.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),52)">nextup/19.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),51)">nextup/18.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),50)">nextup/18.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),49)">nextup/18.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),48)">nextup/18.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),47)">nextup/17.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),46)">nextup/17.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),45)">nextup/17.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),44)">nextup/17.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),43)">nextup/16.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),42)">nextup/16.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),41)">nextup/16.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),40)">nextup/16.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),39)">nextup/15.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),38)">nextup/15.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),37)">nextup/15.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),36)">nextup/15.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),35)">nextup/14.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),34)">nextup/14.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),33)">nextup/14.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),32)">nextup/13.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),31)">nextup/13.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),30)">nextup/13.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),29)">nextup/12.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),28)">nextup/12.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),27)">nextup/12.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),26)">nextup/11.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),25)">nextup/11.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),24)">nextup/11.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),23121)">nextup/10.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),22)">nextup/10.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),21)">nextup/10.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),20)">nextup/09.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),19)">nextup/09.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),18)">nextup/09.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),17)">nextup/08.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),16)">nextup/08.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),15)">nextup/08.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),14)">nextup/07.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),13)">nextup/07.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),12)">nextup/06.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),11)">nextup/06.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),10)">nextup/05.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),9)">nextup/05.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),8)">nextup/04.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),7)">nextup/04.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),6)">nextup/03.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),5)">nextup/03.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),4)">nextup/02.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),3)">nextup/02.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),2)">nextup/01.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),1)">nextup/01.png</value>
+		<value condition="IntegerGreaterThan(Control.GetLabel(23121),0)">nextup/00.png</value>
 	</variable>
 </includes>

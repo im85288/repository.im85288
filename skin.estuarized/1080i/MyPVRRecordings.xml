@@ -18,6 +18,7 @@
 			<width>480</width>
 			<align>center</align>
 			<height>55</height>
+			<shadowcolor>text_shadow</shadowcolor>
 			<font>skybold55</font>
 			<label>$LOCALIZE[19017]</label>
 		</control>

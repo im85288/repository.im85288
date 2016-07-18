@@ -10,6 +10,7 @@
     <onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=firstrun)</onload>
     <onload condition="System.HasAddon(script.colorbox) + Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onload>
     <onload condition="System.HasAddon(script.colorbox) + Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onload>
+    <onload>SetProperty(RefreshList,1,Home)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     <!--<menucontrol>9000</menucontrol>-->
     <defaultcontrol always="true">9000</defaultcontrol>

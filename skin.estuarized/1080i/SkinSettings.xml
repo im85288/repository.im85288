@@ -480,16 +480,9 @@
                     <control type="radiobutton" id="628">
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
-                        <label>40201</label>
-                        <selected>Skin.HasSetting(osd.showclearart)</selected>
-                        <onclick>Skin.ToggleSetting(osd.showclearart)</onclick>
-                    </control>
-                    <control type="radiobutton" id="642">
-                        <width>1256</width>
-                        <include>DefaultSettingButton</include>
-                        <label>40049</label>
-                        <selected>Skin.HasSetting(enable_clearartnextup)</selected>
-                        <onclick>Skin.ToggleSetting(enable_clearartnextup)</onclick>
+                        <label>40202</label>
+                        <selected>Skin.HasSetting(PVRNextUpDisabled)</selected>
+                        <onclick>Skin.ToggleSetting(PVRNextUpDisabled)</onclick>
                     </control>
                     <control type="image" id="14">
                         <description>separator image</description>
@@ -500,8 +493,7 @@
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
                         <label>10041</label>
-                        <onclick>Skin.Reset(osd.showclearartt)</onclick>
-                        <onclick>Skin.Reset(enable_clearartnextup)</onclick>
+                        <onclick>Skin.Reset(PVRNextUpDisabled)</onclick>
                     </control>
                 </control>
                 <control type="grouplist" id="620">
