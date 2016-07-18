@@ -211,9 +211,9 @@
 						<control type="textbox">
 							<top>51</top>
 							<width>1040</width>
-							<height>140</height>
+							<height>120</height>
 							<align>left</align>
-							<font>sky25</font>
+							<font>sky28</font>
 							<label>$INFO[Container(11).ListItem.Plot]</label>
 							<autoscroll delay="10000" time="3000" repeat="10000"/>
 						</control>

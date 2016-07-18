@@ -229,6 +229,11 @@
 			<size>40</size>
 		</font>
 		<font>
+			<name>skybold39</name>
+			<filename>skybold.ttf</filename>
+			<size>39</size>
+		</font>
+		<font>
 			<name>sky33</name>
 			<filename>skymedium.ttf</filename>
 			<size>33</size>

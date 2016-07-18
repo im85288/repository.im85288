@@ -61,7 +61,6 @@
 				<height>100</height>
 				<texture>$VAR[PlayerClearLogo]</texture>
 				<aspectratio align="center" aligny="top">keep</aspectratio>
-				<visible>Skin.HasSetting(osd.showclearart)</visible>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="image">
@@ -71,7 +70,6 @@
 				<height>100</height>
 				<texture>$VAR[PlayerClearArt]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>Skin.HasSetting(osd.showclearart)</visible>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="image">
@@ -81,7 +79,6 @@
 				<height>300</height>
 				<texture>$VAR[PlayerClearLogo]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>!VideoPlayer.Content(LiveTV)</visible>
 				<visible>Skin.HasSetting(osd.showclearart)</visible>
 			</control>
 
@@ -92,7 +89,7 @@
 				<height>360</height>
 				<label fallback="">$INFO[VideoPlayer.ChannelName,[B],[/B]    ]$INFO[VideoPlayer.ChannelNumber]</label>
 				<align>center</align>
-				<font>skybold43</font>
+				<font>skybold39</font>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="label">

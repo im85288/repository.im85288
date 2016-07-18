@@ -545,6 +545,10 @@
 		<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]$INFO[ListItem.Year, (,)]</value>
  		<value>$INFO[ListItem.Label]$INFO[ListItem.Year, (,)]</value>
 	</variable>
+	<variable name="PVRPlot">
+		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.PVR.Plot))">$INFO[Window(Home).Property(SkinHelper.PVR.Plot)]</value>
+		<value>$INFO[ListItem.Plot]</value>
+	</variable>
 	<variable name="VideoInfoSubLabelVar">
 		<value condition="Control.HasFocus(6100)">$INFO[Container(6100).ListItem.Season]$INFO[Container(6100).ListItem.Episode,[COLOR subwhite]x[/COLOR], : ]$INFO[Container(6100).ListItem.Title]</value>
 		<value condition="Control.HasFocus(6200)">$INFO[Container(6200).ListItem.Season]$INFO[Container(6200).ListItem.Episode,[COLOR subwhite]x[/COLOR], : ]$INFO[Container(6200).ListItem.Title]</value>

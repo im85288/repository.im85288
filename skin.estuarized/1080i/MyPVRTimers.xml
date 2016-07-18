@@ -189,10 +189,10 @@
 							<control type="textbox">
 								<top>51</top>
 								<width>1040</width>
-								<height>140</height>
+								<height>120</height>
 								<align>left</align>
-								<font>sky25</font>
-								<label>$INFO[ListItem.Plot]</label>
+								<font>sky28</font>
+								<label>$VAR[PVRPlot]</label>
 								<autoscroll delay="10000" time="3000" repeat="10000"/>
 							</control>
 							<control type="label">

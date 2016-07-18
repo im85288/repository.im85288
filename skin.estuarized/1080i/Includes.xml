@@ -2043,7 +2043,7 @@
 					<right>24</right>
 					<width>1200</width>
 					<itemgap>10</itemgap>
-					<visible>!System.HasModalDialog + !Window.isActive(musicplaylisteditor)</visible>
+					<visible>!System.HasModalDialog + !Window.isActive(musicplaylisteditor) + !Window.isVisible(MyPVRGuide.xml) + !Window.isVisible(MyPVRChannels.xml) + !Window.isVisible(MyPVRRecordings.xml) + !Window.isVisible(MyPVRSearch.xml) + !Window.isVisible(MyPVRTimers.xml)</visible>
 					<animation effect="fade" delay="1" time="200">VisibleChange</animation>
 					<control type="label">
 						<width>auto</width>
@@ -2052,6 +2052,37 @@
 						<align>right</align>
 						<shadowcolor>text_shadow</shadowcolor>
 						<label>$PARAM[PageLabel]</label>
+					</control>
+					<control type="image">
+						<width>54</width>
+						<height>44</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$VAR[ColourFocus]">frame/item-count.png</texture>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<visible>!String.IsEmpty(Container.NumItems)</visible>
+						<animation effect="fade" start="100" end="0" time="250" delay="200" reversible="true" condition="Control.IsVisible(23000)">Conditional</animation>
+						<animation effect="fade" start="0" end="100" time="250" reversible="true" delay="200" condition="!Control.IsVisible(23000)">Conditional</animation>
+					</control>
+				</control>
+				<control type="grouplist">
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<orientation>horizontal</orientation>
+					<align>left</align>
+					<top>1015</top>
+					<left>24</left>
+					<width>1200</width>
+					<itemgap>10</itemgap>
+					<visible>Window.isVisible(MyPVRGuide.xml) | Window.isVisible(MyPVRRecordings.xml) | Window.isVisible(MyPVRChannels.xml) | Window.isVisible(MyPVRSearch.xml) | Window.isVisible(MyPVRTimers.xml)</visible>
+					<animation effect="fade" delay="1" time="200">VisibleChange</animation>
+					<control type="label">
+						<width>auto</width>
+						<height>48</height>
+						<aligny>center</aligny>
+						<align>right</align>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>$PARAM[PageLabel]</label>
+						<font>sky25</font>
 					</control>
 					<control type="image">
 						<width>54</width>

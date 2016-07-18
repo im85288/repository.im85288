@@ -271,10 +271,10 @@
 							<control type="textbox">
 								<top>51</top>
 								<width>1040</width>
-								<height>140</height>
+								<height>120</height>
 								<align>left</align>
-								<font>sky25</font>
-								<label>$INFO[ListItem.Plot]</label>
+								<font>sky28</font>
+								<label>$VAR[PVRPlot]</label>
 								<autoscroll delay="10000" time="3000" repeat="10000"/>
 							</control>
 						</control>
@@ -325,7 +325,7 @@
 								<height>60</height>
 								<aspectratio>keep</aspectratio>
 								<fadetime>400</fadetime>
-								<texture>$INFO[Container(10).ListItem.Icon]</texture>
+								<texture>$INFO[ListItem.Icon]</texture>
 								<visible>IsEmpty(Window(Home).Property(SkinHelper.PVR.ClearLogo))</visible>
 							</control>
 							<control type="label">
@@ -335,7 +335,7 @@
 								<height>30</height>
 								<font>sky24</font>
 								<align>left</align>
-								<label>$INFO[Container(10).ListItem.Duration]</label>
+								<label>$INFO[ListItem.Duration]</label>
 								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
 							</control>
 							<control type="label">
@@ -345,7 +345,7 @@
 								<height>30</height>
 								<font>sky20</font>
 								<align>left</align>
-								<label>$INFO[Container(10).ListItem.StartTime]$INFO[Container(10).ListItem.EndTime, - ,]</label>
+								<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
 							</control>
 						</control>
