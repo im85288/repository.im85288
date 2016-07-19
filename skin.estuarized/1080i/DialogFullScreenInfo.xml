@@ -34,6 +34,7 @@
 				<width>1920</width>
 				<height>400</height>
 				<texture colordiffuse="background">skyq/Backgrounds/infobar.png</texture>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -41,6 +42,23 @@
 				<width>1920</width>
 				<height>400</height>
 				<texture>skyq/Backgrounds/infobar.png</texture>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>-240</top>
+				<width>1920</width>
+				<height>400</height>
+				<texture colordiffuse="background">skyq/Backgrounds/infobar1.png</texture>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>-240</top>
+				<width>1920</width>
+				<height>400</height>
+				<texture>skyq/Backgrounds/infobar1.png</texture>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="image" id="456788">
 				<left>420</left>
@@ -57,7 +75,7 @@
 				<top>-205</top>
 				<width>427</width>
 				<height>240</height>
-				<texture fallback="DefaultVideoCover.png">$VAR[NowPlayingPosterVar]</texture>
+				<texture fallback="special://skin/extras/home-images/tv.jpg">$VAR[NowPlayingPosterVar]</texture>
 				<aspectratio aligny="top">keep</aspectratio>
 				<visible>SubString(Control.GetLabel(456788),empty.png)</visible>
 				<visible>VideoPlayer.Content(LiveTV) + !Control.HasFocus(518621)</visible>
@@ -99,7 +117,7 @@
 				<top>-205</top>
 				<width>427</width>
 				<height>240</height>
-				<texture fallback="DefaultVideoCover.png">$VAR[PlayerLandscape]</texture>
+				<texture fallback="special://skin/extras/home-images/avatar.jpg">$VAR[PlayerLandscape]</texture>
 				<aspectratio aligny="top">keep</aspectratio>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
