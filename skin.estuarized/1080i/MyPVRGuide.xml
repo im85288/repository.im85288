@@ -266,7 +266,7 @@
 								<height>40</height>
 								<align>left</align>
 								<font>sky40</font>
-								<label>$INFO[ListItem.Title]</label>
+								<label>$INFO[ListItem.EpgEventTitle]$INFO[ListItem.EpisodeName, (,)]</label>
 								<!--<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Title,  [COLOR grey],[/COLOR]]$INFO[ListItem.Genre,      $LOCALIZE[515] : [COLOR grey],[/COLOR]]</label> -->
 							</control>
 							<control type="textbox">

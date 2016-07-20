@@ -779,7 +779,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[container_target]">$PARAM[container_path]</content>
+			<content sortby="lastused" sortorder="descending" target="$PARAM[container_target]">$PARAM[container_path]</content>
 		</control>
 	</include>
 	<include name="LeftAlignedInfo">
@@ -1493,33 +1493,33 @@
 					<top>-16</top>
 					<control type="grouplist">
 						<description>middle of top bar</description>
-						<left>60</left>
+						<left>290</left>
+						<right>370</right>
 						<top>$PARAM[posy]</top>
 						<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
 						<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-						<width>1800</width>
 						<height>105</height>
 						<itemgap>15</itemgap>
 						<orientation>vertical</orientation>
 						<control type="label">
-							<width>1800</width>
 							<label>$PARAM[main_label]</label>
-							<font>font24_title</font>
+							<font>skybold35</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<height>55</height>
 							<align>center</align>
 							<scroll>true</scroll>
-							<animation effect="slide" start="0,0" end="0,15" time="0" condition="String.IsEmpty(Control.GetLabel($PARAM[id]))">Conditional</animation>
+							<animation effect="slide" start="0,0" end="0,35" time="100" condition="String.IsEmpty(Control.GetLabel(343566))">Conditional</animation>
+							<animation effect="slide" start="0,0" end="0,15" time="100" condition="!String.IsEmpty(Control.GetLabel(343566))">Conditional</animation>
 						</control>
-						<control type="label" id="$PARAM[id]">
+						<control type="label" id="343566">
 							<label>$PARAM[sub_label]</label>
-							<font>font10</font>
-							<left>85</left>
+							<font>sky28</font>
+							<left>10</left>
+							<right>10</right>
 							<shadowcolor>text_shadow</shadowcolor>
 							<textcolor>$VAR[ColourFocus]</textcolor>
 							<align>center</align>
 							<height>30</height>
-							<width>1800</width>
 							<animation effect="slide" start="0,0" end="0,-8" time="0" condition="true">Conditional</animation>
 						</control>
 					</control>
@@ -1776,7 +1776,7 @@
 					</control>
 					<control type="grouplist">
 						<animation effect="zoom" start="100" end="150" time="0" condition="true">Conditional</animation>
-						<left>650</left>
+						<left>550</left>
 						<top>756</top>
 						<width>1500</width>
 						<height>70</height>
@@ -1797,7 +1797,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Rating)]</label>
@@ -1817,7 +1817,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesMeter),,% ]</label>
@@ -1837,7 +1837,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter),,% ]</label>
@@ -1856,7 +1856,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$VAR[WidgetUserRatingLabelKarma]</label>
@@ -1870,7 +1870,7 @@
 							<textcolor>black</textcolor>
 							<textoffsetx>0</textoffsetx>
 							<label>$INFO[Window(Home).Property(SkinHelper.MetaCritic.Rating)]</label>
-							<font>font9_title</font>
+							<font>skybold</font>
 							<aligny>bottom</aligny>
 							<align>center</align>
 							<texturefocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturefocus>
@@ -1895,7 +1895,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Top250),#,]</label>
@@ -1930,7 +1930,7 @@
 					</control>
 					<control type="grouplist">
 						<animation effect="zoom" start="100" end="150" time="0" condition="true">Conditional</animation>
-						<left>650</left>
+						<left>550</left>
 						<top>756</top>
 						<width>1500</width>
 						<height>70</height>
@@ -1952,7 +1952,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Rating)]</label>
@@ -1972,7 +1972,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesMeter),,% ]</label>
@@ -1992,7 +1992,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter),,% ]</label>
@@ -2011,7 +2011,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[ListItem.UserRating]</label>
@@ -2025,7 +2025,7 @@
 							<textcolor>black</textcolor>
 							<textoffsetx>0</textoffsetx>
 							<label>$INFO[Window(Home).Property(SkinHelper.MetaCritic.Rating)]</label>
-							<font>font9_title</font>
+							<font>skybold18</font>
 							<aligny>bottom</aligny>
 							<align>center</align>
 							<texturefocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturefocus>
@@ -2050,7 +2050,7 @@
 						<control type="label">
 							<aligny>bottom</aligny>
 							<align>left</align>
-							<font>font10</font>
+							<font>sky27</font>
 							<height>27</height>
 							<width>auto</width>
 							<label>$INFO[Window(Home).Property(SkinHelper.IMDB.Top250),#,]</label>
@@ -2247,7 +2247,7 @@
 
 	<include name="Furniture_Cast">
 		<control type="group">
-			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Control.IsVisible(500) + !Control.IsVisible(54) + !Control.IsVisible(52) + !Control.IsVisible(53) + !Control.IsVisible(56) + !Control.IsVisible(58) + !Control.IsVisible(515) + !Control.IsVisible(517)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + !Window.IsVisible(script-script.extendedinfo-VideoList.xml) + !Control.IsVisible(500) + !Control.IsVisible(54) + !Control.IsVisible(52) + !Control.IsVisible(53) + !Control.IsVisible(56) + !Control.IsVisible(58) + !Control.IsVisible(515) + !Control.IsVisible(517)</visible>
 			<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<visible>Skin.HasSetting(show.cast)</visible>
 			<visible>!Control.IsVisible(502)</visible>

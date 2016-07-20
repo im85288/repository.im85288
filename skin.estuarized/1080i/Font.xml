@@ -284,6 +284,11 @@
 			<size>28</size>
 		</font>
 		<font>
+			<name>sky27</name>
+			<filename>skymedium.ttf</filename>
+			<size>27</size>
+		</font>
+		<font>
 			<name>skybold28</name>
 			<filename>skybold.ttf</filename>
 			<size>28</size>
@@ -303,6 +308,16 @@
 			<name>sky20</name>
 			<filename>skymedium.ttf</filename>
 			<size>20</size>
+		</font>
+		<font>
+			<name>skybold18</name>
+			<filename>skybold.ttf</filename>
+			<size>18</size>
+		</font>
+		<font>
+			<name>sky18</name>
+			<filename>skymedium.ttf</filename>
+			<size>18</size>
 		</font>
 	</fontset>
 	<fontset id="Arial" idloc="31053">

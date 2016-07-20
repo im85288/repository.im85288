@@ -73,4 +73,9 @@
     <setting id="HomeTwoTone2" value="#000000" label="black" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="Black"/>
     <setting id="HomeTwoTone2" value="#ffffff" label="white" condition="" icon="special://skin/media/DefaultAddonLookAndFeel.png" description="White"/>
 
+    <!-- Aspect Ratio -->
+    <setting id="AspectRatio" value="Poster" label="Poster" condition="" icon="special://skin/media/DefaultAddon.png" description="Poster Layout"/>
+    <setting id="AspectRatio" value="Landscape" label="Landscape" condition="" icon="special://skin/media/DefaultAddon.png" description="Landscape Layout"/>
+    <setting id="AspectRatio" value="Square" label="Square" condition="" icon="special://skin/media/DefaultAddon.png" description="Square Layout"/>
+
 </settings>

@@ -232,6 +232,75 @@
 					<visible>false</visible>
 				</control>
 
+				<control type="button" id="1406">
+					<!--set widget-->
+					<width>1256</width>
+					<include>DefaultSettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] default 1</label>
+					<label2 fallback="31134">$INFO[Container(211).Listitem.Property(widgetName.default1)]</label2>
+					<onclick>SetProperty(widgetID, default1)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>!String.IsEqual(Container(211).ListItem.Property(widget),MoviesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),PictureWidget)</visible>
+				</control>
+				<control type="button" id="1407">
+					<!--set widget 2-->
+					<width>1256</width>
+					<include>DefaultSettingButton</include>
+					<onclick>SetProperty(widgetID, default2)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<label>$ADDON[script.skinshortcuts 32044] default 2</label>
+					<label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.default2)]</label2>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>!String.IsEqual(Container(211).ListItem.Property(widget),MoviesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),PictureWidget)</visible>
+				</control>
+				<control type="button" id="1408">
+					<!--set widget 3-->
+					<width>1256</width>
+					<include>DefaultSettingButton</include>
+					<onclick>SetProperty(widgetID, default3)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<label>$ADDON[script.skinshortcuts 32044] default 3</label>
+					<label2 fallback="31224">$INFO[Container(211).Listitem.Property(widgetName.default3)]</label2>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>!String.IsEqual(Container(211).ListItem.Property(widget),MoviesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),PictureWidget)</visible>
+				</control>
+
+				<control type="button" id="1409">
+					<!--aspect widget 1-->
+					<width>1256</width>
+					<include>DefaultSettingButton</include>
+					<label2 fallback="31968">$INFO[Container(211).ListItem.Property(widget1Icon)]</label2>
+					<onclick>SetProperty(chooseProperty,widget1Icon)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<label>$ADDON[script.skinshortcuts 32044] 1 Layout</label>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>!String.IsEqual(Container(211).ListItem.Property(widget),MoviesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),PictureWidget)</visible>
+				</control>
+				<control type="button" id="1410">
+					<!--aspect widget 2-->
+					<width>1256</width>
+					<include>DefaultSettingButton</include>
+					<label2 fallback="31968">$INFO[Container(211).ListItem.Property(widget2Icon)]</label2>
+					<onclick>SetProperty(chooseProperty,widget2Icon)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<label>$ADDON[script.skinshortcuts 32044] 2 Layout</label>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>!String.IsEqual(Container(211).ListItem.Property(widget),MoviesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),PictureWidget)</visible>
+				</control>
+				<control type="button" id="1411">
+					<!--aspect widget 3-->
+					<width>1256</width>
+					<include>DefaultSettingButton</include>
+					<label2 fallback="31968">$INFO[Container(211).ListItem.Property(widget3Icon)]</label2>
+					<onclick>SetProperty(chooseProperty,widget3Icon)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<label>$ADDON[script.skinshortcuts 32044] 3 Layout</label>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>!String.IsEqual(Container(211).ListItem.Property(widget),MoviesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),TVShowsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),HomeWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),SourcesWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),LiveTVWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),MusicVideoWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),AddonsWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),RadioWidget) + !String.IsEqual(Container(211).ListItem.Property(widget),PictureWidget)</visible>
+				</control>
+
+
 				<control type="button" id="1452">
 					<width>1256</width>
 					<include>DefaultSettingButton</include>
@@ -436,6 +505,16 @@
 					<width>1256</width>
 					<include>DefaultSettingButton</include>
 					<label>$ADDON[script.skinshortcuts 32000]</label>
+				</control>
+
+				<!-- 404, for setting custom property -->
+				<control type="button" id="404">
+					<visible>False</visible>
+					<left>-100000</left>
+					<top>-100000</top>
+					<width>1</width>
+					<height>1</height>
+					<onclick>noop</onclick>
 				</control>
 			</control>
 			<control type="textbox" id="6">

@@ -332,6 +332,13 @@
 						<label>$LOCALIZE[13395]</label>
 						<onclick>ActivateWindow(osdvideosettings)</onclick>
 					</control>
+					<control type="button" id="11105">
+						<width>470</width>
+						<include>DefaultSettingButton</include>
+						<label>$LOCALIZE[36560]</label>
+						<onclick>ActivateWindow(osdcmssettings)</onclick>
+						<visible>System.HasCMS</visible>
+					</control>
 					<control type="button" id="11103">
 						<width>470</width>
 						<include>DefaultOSDSettingButton</include>

@@ -58,26 +58,22 @@
     <backgrounddefault labelID="weather">$VAR[WeatherFanart]$INFO[Window(Weather).Property(Current.FanartCode)]</backgrounddefault>
 	<backgrounddefault labelID="home">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</backgrounddefault>
 
-<!-- Widget Style -->
-    <propertySettings property="WidgetStyle.1" buttonID="3121" title="$LOCALIZE[40017] 1" showNone="False" />
-    <property property="WidgetStyle.1">$LOCALIZE[40020]</property>
-    <property property="WidgetStyle.1">$LOCALIZE[40021]</property>
-    <property property="WidgetStyle.1">$LOCALIZE[40022]</property>
-    
-    <propertySettings property="WidgetStyle.2" buttonID="3123" title="$LOCALIZE[40017] 2" showNone="False" />
-    <property property="WidgetStyle.2">$LOCALIZE[40020]</property>
-    <property property="WidgetStyle.2">$LOCALIZE[40021]</property>
-    <property property="WidgetStyle.2">$LOCALIZE[40022]</property>
-    
-    <propertySettings property="WidgetStyle.3" buttonID="3125" title="$LOCALIZE[40017] 3" showNone="False" />
-    <property property="WidgetStyle.3">$LOCALIZE[40020]</property>
-    <property property="WidgetStyle.3">$LOCALIZE[40021]</property>
-    <property property="WidgetStyle.3">$LOCALIZE[40022]</property>
-    
-    <propertySettings property="WidgetStyle.4" buttonID="3127" title="$LOCALIZE[40017] 4" showNone="False" />
-    <property property="WidgetStyle.4">$LOCALIZE[40020]</property>
-    <property property="WidgetStyle.4">$LOCALIZE[40021]</property>
-    <property property="WidgetStyle.4">$LOCALIZE[40022]</property>
+
+	<!-- Widget1 Icon Aspect Ratio -->
+	<propertySettings property="widget1Icon" title="Select Aspect Ratio" showNone="False" />
+	<property property="widget1Icon">Poster</property>
+	<property property="widget1Icon">Square</property>
+	<property property="widget1Icon">Landscape</property>
+
+	<propertySettings property="widget2Icon" title="Select Aspect Ratio" showNone="False" />
+	<property property="widget2Icon">Poster</property>
+	<property property="widget2Icon">Square</property>
+	<property property="widget2Icon">Landscape</property>
+
+	<propertySettings property="widget3Icon" title="Select Aspect Ratio" showNone="False" />
+	<property property="widget3Icon">Poster</property>
+	<property property="widget3Icon">Square</property>
+	<property property="widget3Icon">Landscape</property>
 
 <!-- Widget Settings -->    
     <propertySettings toggle="HideBannerWidget" buttonID="3129" templateonly="True" />

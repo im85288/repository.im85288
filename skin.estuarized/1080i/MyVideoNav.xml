@@ -34,7 +34,7 @@
 			<control type="group">
 				<include>OpenClose_Left</include>
 				<visible>Control.IsVisible(55)</visible>
-				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(addons) | Container.Content(files) | Container.Content(mixed) | Container.Content(musicvideos) | Container.Content(videos)</visible>
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(addons) | Container.Content(files) | Container.Content(mixed) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content()</visible>
 				<include>Visible_Left</include>
 				<include>ListThumbInfoPanel</include>
 			</control>
@@ -197,7 +197,7 @@
 					<aspectratio aligny="top">scale</aspectratio>
 					<timeperimage>9000</timeperimage>
 					<fadetime>900</fadetime>
-					<imagepath background="true" fallback="DefaultFolder.png">$VAR[ListInfoBoxImageVar]</imagepath>
+					<imagepath background="true" fallback="colors/black.png">$VAR[ListInfoBoxImageVar]</imagepath>
 				</control>
 				<control type="group">
 					<visible>!ListItem.IsCollection</visible>

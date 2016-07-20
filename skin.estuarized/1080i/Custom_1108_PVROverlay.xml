@@ -29,7 +29,7 @@
                 <top>870</top>
                 <width>1450</width>
                 <height>25</height>
-                <label>$INFO[VideoPlayer.ChannelNumberLabel,, ]$INFO[VideoPlayer.ChannelName,, ]$INFO[VideoPlayer.Title]</label>
+                <label>$INFO[VideoPlayer.ChannelNumberLabel,, ]$INFO[VideoPlayer.ChannelName,, ]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.EpisodeName, (,)]</label>
                 <aligny>center</aligny>
                 <font>skybold43</font>
             </control>
