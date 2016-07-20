@@ -1870,7 +1870,7 @@
 							<textcolor>black</textcolor>
 							<textoffsetx>0</textoffsetx>
 							<label>$INFO[Window(Home).Property(SkinHelper.MetaCritic.Rating)]</label>
-							<font>skybold</font>
+							<font>skybold18</font>
 							<aligny>bottom</aligny>
 							<align>center</align>
 							<texturefocus colordiffuse="$VAR[CommunityRatingColour]">dialogs/white.png</texturefocus>
