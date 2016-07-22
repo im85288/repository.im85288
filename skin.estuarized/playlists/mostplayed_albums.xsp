@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <smartplaylist type="albums">
-    <name>$LOCALIZE[40096]</name>
+    <name>Most Played Albums</name>
     <match>all</match>
     <limit>25</limit>
     <rule field="playcount" operator="greaterthan">

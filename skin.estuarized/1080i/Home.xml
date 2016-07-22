@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|home|videos|movie|tvshow|musicvideo|music|livetv|radio|pictures|addons|weather|powermenu)</onload>
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|home|videos|movie|tvshow|musicvideo|music|livetv|radio|pictures|addons|weather|powermenu|movieshub|episodeshub)</onload>
     <onload condition="Skin.HasSetting(Skin_EnableAnimatedPosters)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
     <onload>Skin.SetString(SkinHelper.RandomFanartDelay,15)</onload>
     <onload>Skin.SetBool(SmartShortcuts.playlists)</onload>

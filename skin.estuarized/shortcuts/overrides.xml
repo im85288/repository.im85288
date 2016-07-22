@@ -3,6 +3,8 @@
 
 <!-- Icons overrides -->
 	<useDefaultThumbAsIcon>True</useDefaultThumbAsIcon>
+	<icon labelID="tvhub">special://skin/extras/icons/tv.png</icon>
+	<icon labelID="moviehub">special://skin/extras/icons/movie.png</icon>
 	<icon image="DefaultShortcut.png">special://skin/extras/icons/addtile.png</icon>
 	<icon image="DefaultFolder.png">DefaultFolderSquare.png</icon>
 	<icon image="DefaultVideo.png">DefaultAddonVideo.png</icon>
@@ -57,6 +59,9 @@
     <backgrounddefault labelID="addons">special://skin/extras/home-images/addons.jpg</backgrounddefault>
     <backgrounddefault labelID="weather">$VAR[WeatherFanart]$INFO[Window(Weather).Property(Current.FanartCode)]</backgrounddefault>
 	<backgrounddefault labelID="home">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</backgrounddefault>
+
+	<shortcut label="40206" type="TVHub" grouping="common" icon="special://skin/extras/icons/tv.png">ActivateWindow(1114)</shortcut>
+	<shortcut label="40205" type="MovieHub" grouping="common" icon="special://skin/extras/icons/movie.png">ActivateWindow(1113)</shortcut>
 
 
 	<!-- Widget1 Icon Aspect Ratio -->

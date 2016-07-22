@@ -399,8 +399,11 @@
 	</variable>
 	<variable name="SkinSettingsHelpTextVar">
 		<value condition="Control.HasFocus(611)">$LOCALIZE[40119]</value>
- 		<value condition="Control.HasFocus(612)">$LOCALIZE[40120]</value>
- 		<value condition="Control.HasFocus(613)">$LOCALIZE[40121]</value>
+ 		<value condition="Control.HasFocus(612)">$LOCALIZE[40209]</value>
+		<value condition="Control.HasFocus(6122)">$LOCALIZE[40211]</value>
+ 		<value condition="Control.HasFocus(613)">$LOCALIZE[40210]</value>
+		<value condition="Control.HasFocus(6132)">$LOCALIZE[40212]</value>
+		<value condition="Control.HasFocus(614)">$LOCALIZE[40120]</value>
  		<value condition="Control.HasFocus(653)">$LOCALIZE[40122]</value>
  		<value condition="Control.HasFocus(601)">$LOCALIZE[40123]</value>
  		<value condition="Control.HasFocus(602)">$LOCALIZE[40124]</value>
@@ -583,6 +586,7 @@
 		<value condition="String.IsEqual(ListItem.DBType,episode)">$INFO[ListItem.Season]$INFO[ListItem.Episode,[COLOR subwhite]x[/COLOR], : ]$INFO[ListItem.TVShowTitle]</value>
  		<value condition="String.IsEqual(ListItem.DBType,movie)">$INFO[ListItem.Tagline]</value>
 		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.TMDB.Tagline))">$INFO[Window(Home).Property(SkinHelper.TMDB.Tagline)]</value>
+		<value condition="String.IsEqual(ListItem.DBType,tvshow)">$VAR[LabelNextAiredDetails]</value>
 		<value>$INFO[ListItem.Genre]</value>
 	</variable>
 	<variable name="OSDSubLabelVar">
@@ -880,6 +884,8 @@
 	</variable>
 
 	<variable name="WidgetLabelKarma">
+		<value condition="Control.HasFocus(9500) | Control.HasFocus(9501)">$INFO[Container(9500).ListItem.Label][COLOR= subwhite]$INFO[Container(9500).ListItem.Year, (,)][/COLOR]</value>
+
 		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.Label][COLOR= subwhite]$INFO[Container(17100).ListItem.Year, (,)][/COLOR]</value>
 		<value condition="Control.HasFocus(17200)">$INFO[Container(17200).ListItem.Label][COLOR= subwhite]$INFO[Container(17200).ListItem.Year, (,)][/COLOR]</value>
 		<value condition="Control.HasFocus(17300)">$INFO[Container(17300).ListItem.Label][COLOR= subwhite]$INFO[Container(17300).ListItem.Year, (,)][/COLOR]</value>
@@ -910,10 +916,11 @@
 		<value condition="Control.HasFocus(7500)">$INFO[Container(7500).ListItem.Label][COLOR= subwhite]$INFO[Container(7500).ListItem.Year, (,)][/COLOR]</value>
 		<value condition="Control.HasFocus(7600)">$INFO[Container(7600).ListItem.Label][COLOR= subwhite]$INFO[Container(7600).ListItem.Year, (,)][/COLOR]</value>
 		<value condition="Control.HasFocus(12200)">$INFO[Container(12200).ListItem.Title][COLOR= subwhite]$INFO[Container(12200).ListItem.Year, (,)][/COLOR]</value>
-
 	</variable>
 
 	<variable name="WidgetRatingLabelKarma">
+		<value condition="Control.HasFocus(9500) | Control.HasFocus(9501)">$INFO[Container(9500).ListItem.Rating]</value>
+
 		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.Rating]</value>
 		<value condition="Control.HasFocus(17200)">$INFO[Container(17200).ListItem.Rating]</value>
 		<value condition="Control.HasFocus(17300)">$INFO[Container(17300).ListItem.Rating]</value>
@@ -944,6 +951,8 @@
 	</variable>
 
 	<variable name="WidgetUserRatingLabelKarma">
+		<value condition="Control.HasFocus(9500) | Control.HasFocus(9501)">$INFO[Container(9500).ListItem.UserRating]</value>
+
 		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.UserRating]</value>
 		<value condition="Control.HasFocus(17200)">$INFO[Container(17200).ListItem.UserRating]</value>
 		<value condition="Control.HasFocus(17300)">$INFO[Container(17300).ListItem.UserRating]</value>
@@ -973,6 +982,8 @@
 	</variable>
 
 	<variable name="WidgetPlotKarma">
+		<value condition="Control.HasFocus(9500) | Control.HasFocus(9501)">$INFO[Container(9500).ListItem.Plot]</value>
+
 		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.Plot]</value>
 		<value condition="Control.HasFocus(17200)">$INFO[Container(17200).ListItem.Plot]</value>
 		<value condition="Control.HasFocus(17300)">$INFO[Container(17300).ListItem.Plot]</value>
@@ -1002,6 +1013,8 @@
 	</variable>
 
 	<variable name="WidgetTitleKarma">
+		<value condition="Control.HasFocus(9500) | Control.HasFocus(9501)">$INFO[Container(9500).ListItem.Title]</value>
+
 		<value condition="Control.HasFocus(17100)">$INFO[Container(17100).ListItem.Title]</value>
 		<value condition="Control.HasFocus(17200)">$INFO[Container(17200).ListItem.Title]</value>
 		<value condition="Control.HasFocus(17300)">$INFO[Container(17300).ListItem.Title]</value>
@@ -1031,6 +1044,8 @@
 	</variable>
 
 	<variable name="KarmaEndTimeLabel">
+		<value condition="!IsEmpty(Container(9500).ListItem.EndTime) + [Control.HasFocus(9500) | Control.HasFocus(9501)]">$INFO[Container(9500).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
+
 		<value condition="!IsEmpty(Container(17100).ListItem.EndTime) + Control.HasFocus(17100)">$INFO[Container(17100).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
 		<value condition="!IsEmpty(Container(17200).ListItem.EndTime) + Control.HasFocus(17200)">$INFO[Container(17200).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
 		<value condition="!IsEmpty(Container(17300).ListItem.EndTime) + Control.HasFocus(17300)">$INFO[Container(17300).ListItem.EndTime(hh:mm),$LOCALIZE[31080] [COLOR=button_focus],[/COLOR]]</value>
@@ -1066,6 +1081,10 @@
 		</variable>
 
 	<variable name="LabelUserRatingKarma">
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9501)] + IntegerGreaterThan(Container(9500).ListItem.Userrating,5)"></value>
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9501)] + !IntegerGreaterThan(Container(9500).ListItem.Userrating,5)"></value>
+
+
 		<value condition="Control.HasFocus(17100) + IntegerGreaterThan(Container(17100).ListItem.Userrating,5)"></value>
 		<value condition="Control.HasFocus(17100) + !IntegerGreaterThan(Container(17100).ListItem.Userrating,5)"></value>
 		<value condition="Control.HasFocus(17200) + IntegerGreaterThan(Container(17200).ListItem.Userrating,5)"></value>
@@ -1131,6 +1150,11 @@
 
 	<variable name="WidgetLogoKarma">
 		<value condition="Control.HasFocus(15200) + !IsEmpty(Window(Weather).Property(WeatherProviderLogo))">$INFO[Window(Weather).Property(WeatherProviderLogo)]</value>
+
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9501)] + !IsEmpty(Container(9500).ListItem.Art(tvshow.clearlogo))">$INFO[Container(9500).ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9501)] + !IsEmpty(Container(9500).ListItem.Art(clearlogo))">$INFO[Container(9500).ListItem.Art(clearlogo)]</value>
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9501)] + IsEmpty(Container(9500).ListItem.Art(clearlogo)) + IsEmpty(Container(9500).ListItem.Art(tvshow.clearlogo))">http://localhost:52307/getpvrthumb&amp;title=$INFO[Container(9500).Listitem.Title]&amp;type=clearlogo</value>
+
 
 		<value condition="Control.HasFocus(17100) + !IsEmpty(Container(17100).ListItem.Art(tvshow.clearlogo))">$INFO[Container(17100).ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="Control.HasFocus(17100) + !IsEmpty(Container(17100).ListItem.Art(clearlogo))">$INFO[Container(17100).ListItem.Art(clearlogo)]</value>
@@ -2466,5 +2490,46 @@
 		<value condition="IntegerGreaterThan(Control.GetLabel(23121),2)">nextup/01.png</value>
 		<value condition="IntegerGreaterThan(Control.GetLabel(23121),1)">nextup/01.png</value>
 		<value condition="IntegerGreaterThan(Control.GetLabel(23121),0)">nextup/00.png</value>
+	</variable>
+
+	<variable name="DefTVHubWidget">
+		<value condition="!IsEmpty(Skin.String(tvhubwidget.path))">$INFO[Skin.String(tvhubwidget.path)]</value>
+		<value>plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=40&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+	</variable>
+	<variable name="DefTVHubWidgetTarget">
+		<value condition="!IsEmpty(Skin.String(tvhubwidget.target))">$INFO[Skin.String(tvhubwidget.target)]</value>
+		<value>video</value>
+	</variable>
+	<variable name="DefTVHubWidgetLabel">
+		<value condition="!IsEmpty(Skin.String(tvhubwidget.name))">$INFO[Skin.String(tvhubwidget.name)]</value>
+		<value>$LOCALIZE[40163]</value>
+	</variable>
+
+	<variable name="DefMovieHubWidget">
+		<value condition="!IsEmpty(Skin.String(moviehubwidget.path))">$INFO[Skin.String(moviehubwidget.path)]</value>
+		<value>special://skin/playlists/random_movies.xsp</value>
+	</variable>
+	<variable name="DefMovieHubWidgetTarget">
+		<value condition="!IsEmpty(Skin.String(moviehubwidget.target))">$INFO[Skin.String(moviehubwidget.target)]</value>
+		<value>video</value>
+	</variable>
+	<variable name="DefMovieHubWidgetLabel">
+		<value condition="!IsEmpty(Skin.String(moviehubwidget.name))">$INFO[Skin.String(moviehubwidget.name)]</value>
+		<value>$LOCALIZE[31006]</value>
+	</variable>
+
+	<variable name="LabelNextAiredDetails">
+		<value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.NextTitle),[B],[/B]]$INFO[Window(Home).Property(NextAired.AirTime), ]$INFO[Window(Home).Property(NextAired.NextDate), ]</value>
+		<value condition="IsEmpty(Window(Home).Property(NextAired.NextDate)) + !IsEmpty(Window(Home).Property(NextAired.LatestTitle))">$INFO[Window(Home).Property(NextAired.LatestTitle),[B],[/B] ]$INFO[Window(Home).Property(NextAired.LatestDate),, ]$INFO[Window(Home).Property(NextAired.Status),[I],[/I]]</value>
+	</variable>
+
+	<variable name="MovieHub">
+		<value condition="!Skin.HasSetting(donotuse.moviehub)">$LOCALIZE[40205]</value>
+		<value>$LOCALIZE[342]</value>
+	</variable>
+
+	<variable name="TVHub">
+		<value condition="!Skin.HasSetting(donotuse.tvhub)">$LOCALIZE[40206]</value>
+		<value>$LOCALIZE[20343]</value>
 	</variable>
 </includes>

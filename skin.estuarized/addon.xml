@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.estuarized" version="1.0.20" name="Estuarized" provider-name="im85288">
+<addon id="skin.estuarized" version="1.0.21" name="Estuarized" provider-name="im85288">
 	<requires>
 		<import addon="xbmc.gui" version="5.12.0"/>
 		<import addon="script.skinshortcuts" version="0.6.0"/>
 		<import addon="script.skin.helper.service" version="0.0.1"/>
 		<import addon="resource.uisounds.fromashes" version="0.0.1"/>
+		<import addon="script.tv.show.next.aired" version="6.0.14"/>
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
 		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
@@ -14,7 +15,7 @@
 		<description lang="en_GB">Estuarized is a modification of the default Kodi Estuary skin by im85288</description>
 		<platform>all</platform>
 		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
-		<forum>http://forum.kodi.tv/</forum>
+		<forum>http://forum.kodi.tv/showthread.php?tid=280154</forum>
 		<source>https://github.com/im85288/skin.estuarized</source>
 	</extension>
 </addon>

@@ -2,7 +2,7 @@
 <window>
     <defaultcontrol>9000</defaultcontrol>
     <backgroundcolor>background</backgroundcolor>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|videos|movie|tvshow|music|musicvideo|livetv|radio|pictures|addons|weather|powermenu)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|videos|movie|tvshow|music|musicvideo|livetv|radio|pictures|addons|weather|powermenu|movieshub|episodeshub)</onunload>
     <controls>
         <include>DefaultBackground</include>
         <control type="group">
@@ -234,7 +234,51 @@
                         <include>DefaultSettingButton</include>
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
                     </control>
+                    <control type="radiobutton" id="6120" description="Home Style">
+                        <label>$LOCALIZE[40216]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <selected>Skin.HasSetting(donotuse.moviehub)</selected>
+                        <onclick>Skin.ToggleSetting(donotuse.moviehub)</onclick>
+                    </control>
                     <control type="button" id="612">
+                        <label>40203</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=movieshub)</onclick>
+                        <visible>!Skin.HasSetting(donotuse.moviehub)</visible>
+                    </control>
+                    <control type="button" id="6122">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>40211</label>
+                        <label2 fallback="">$INFO[Skin.String(moviehubwidget.name)]</label2>
+                        <visible>!Skin.HasSetting(donotuse.moviehub)</visible>
+                        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=moviehubwidget.name&amp;skinWidgetTarget=moviehubwidget.target&amp;skinWidgetPath=moviehubwidget.path)</onclick>
+                    </control>
+                    <control type="radiobutton" id="6130" description="Home Style">
+                        <label>$LOCALIZE[40217]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <selected>Skin.HasSetting(donotuse.tvhub)</selected>
+                        <onclick>Skin.ToggleSetting(donotuse.tvhub)</onclick>
+                    </control>
+                    <control type="button" id="613">
+                        <label>40204</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
+                        <visible>!Skin.HasSetting(donotuse.tvhub)</visible>
+                    </control>
+                    <control type="button" id="6133">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>40212</label>
+                        <label2 fallback="">$INFO[Skin.String(tvhubwidget.name)]</label2>
+                        <visible>!Skin.HasSetting(donotuse.tvhub)</visible>
+                        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=tvhubwidget.name&amp;skinWidgetTarget=tvhubwidget.target&amp;skinWidgetPath=tvhubwidget.path)</onclick>
+                    </control>
+                    <control type="button" id="614">
                         <label>40001</label>
                         <width>1256</width>
                         <include>DefaultSettingButton</include>
@@ -245,7 +289,12 @@
                         <height>3</height>
                         <texture colordiffuse="AAAAAAAA" border="3">dialogs/separator-grey.png</texture>
                     </control>
-                    <control type="button" id="613">
+                    <control type="image" id="111">
+                        <description>separator image</description>
+                        <height>3</height>
+                        <texture colordiffuse="AAAAAAAA" border="3">dialogs/separator-grey.png</texture>
+                    </control>
+                    <control type="button" id="61333">
                         <label>40003</label>
                         <width>1256</width>
                         <include>DefaultSettingButton</include>

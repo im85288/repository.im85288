@@ -1308,7 +1308,7 @@
 					<top>0</top>
 					<centerleft>50%</centerleft>
 					<visible>Player.HasMedia + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
-					<visible>!Window.IsVisible(MyVideoNav.xml) + !ControlGroup(2000).HasFocus</visible>
+					<visible>!Window.IsVisible(MyVideoNav.xml) + !ControlGroup(2000).HasFocus + !Control.HasFocus(9500)</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<control type="grouplist">
 						<orientation>horizontal</orientation>
@@ -1489,7 +1489,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>Window.IsVisible(MyVideoNav.xml) | ControlGroup(2000).HasFocus</visible>
+					<visible>Window.IsVisible(MyVideoNav.xml) | ControlGroup(2000).HasFocus | Control.HasFocus(9500)</visible>
 					<top>-16</top>
 					<control type="grouplist">
 						<description>middle of top bar</description>
@@ -1593,6 +1593,34 @@
  					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))</visible>
 					<visible>!Window.IsVisible(Home)</visible>
  				</control>
+				<control type="multiimage">
+					<depth>DepthBackground</depth>
+					<include>FullScreenDimensions</include>
+					<aspectratio>scale</aspectratio>
+					<fadetime>400</fadetime>
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Poster.Wall)]</imagepath>
+					<timeperimage>3000</timeperimage>
+					<randomize>true</randomize>
+					<visible>Window.IsVisible(1113)</visible>
+					<visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)] | !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+				</control>
+				<control type="multiimage">
+					<depth>DepthBackground</depth>
+					<include>FullScreenDimensions</include>
+					<aspectratio>scale</aspectratio>
+					<fadetime>400</fadetime>
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Poster.Wall)]</imagepath>
+					<timeperimage>3000</timeperimage>
+					<randomize>true</randomize>
+					<visible>Window.IsVisible(1114)</visible>
+					<visible>![Player.HasVideo + Skin.HasSetting(background_showvideo)] | !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+				</control>
  				<control type="multiimage">
             		<depth>DepthBackground</depth>
  					<include>FullScreenDimensions</include>
@@ -1644,7 +1672,7 @@
 					<height>85</height>
 					<texture flipy="true">frame/InfoBar.png</texture>
 					<visible>![String.IsEqual(Skin.String(HideBars.label),$LOCALIZE[40069]) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)] + !Container.Content(addons) + [Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | [Control.IsVisible(55) + !Container.Content(actors) + !Container.Content(directors) + ![Control.IsVisible(55) + Window.IsVisible(MyVideoNav.xml)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(59) | Control.IsVisible(60)]]</visible>
-					<visible>[Window.IsVisible(Home) + !Skin.HasSetting(home.blur) + !Skin.HasSetting(home.twotone)] | [Window.IsVisible(Home) + Skin.HasSetting(home.blur) + !ControlGroup(2000).HasFocus] | [Window.IsVisible(Home) + Skin.HasSetting(home.twotone) + !ControlGroup(2000).HasFocus]</visible>
+					<visible>[Window.IsVisible(Home) + !Skin.HasSetting(home.blur) + !Skin.HasSetting(home.twotone)] | [Window.IsVisible(Home) + Skin.HasSetting(home.blur) + !ControlGroup(2000).HasFocus] | [Window.IsVisible(Home) + Skin.HasSetting(home.twotone) + !ControlGroup(2000).HasFocus] | Window.IsVisible(1113) | Window.IsVisible(1114)</visible>
 				</control>
 
 				<control type="image">
@@ -1655,7 +1683,7 @@
 					<texture colordiffuse="$VAR[ColorboxPowerModeColor]">dialogs/white.png</texture>
 					<animation effect="fade" start="100" end="30" time="300" condition="true">Conditional</animation>
 					<visible>Window.IsVisible(Home) + [Skin.HasSetting(home.blur) | Skin.HasSetting(home.twotone)] + ControlGroup(2000).HasFocus</visible>
-				</control>
+                </control>
 				<control type="group">
 					<visible>$PARAM[info_visible]</visible>
 					<visible>!System.HasModalDialog</visible>
@@ -1714,7 +1742,7 @@
 
 				<!-- ratings etc -->
 				<control type="group">
-					<visible>ControlGroup(2000).HasFocus</visible>
+					<visible>ControlGroup(2000).HasFocus | Control.HasFocus(9500)</visible>
 					<animation effect="slide" end="0,20" time="400" condition="Control.HasFocus(80133)">Conditional</animation>
 					<left>100</left>
 					<top>258</top>
@@ -1778,10 +1806,11 @@
 						<animation effect="zoom" start="100" end="150" time="0" condition="true">Conditional</animation>
 						<left>550</left>
 						<top>756</top>
-						<width>1500</width>
+						<width>400</width>
 						<height>70</height>
 						<orientation>horizontal</orientation>
 						<itemgap>6</itemgap>
+						<align>center</align>
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>
@@ -1932,11 +1961,12 @@
 						<animation effect="zoom" start="100" end="150" time="0" condition="true">Conditional</animation>
 						<left>550</left>
 						<top>756</top>
-						<width>1500</width>
+						<width>400</width>
 						<height>70</height>
 						<orientation>horizontal</orientation>
 						<itemgap>6</itemgap>
-						<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating)) + !IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesMeter))</visible>
+						<align>center</align>
+						<visible>!IsEmpty(Window(Home).Property(SkinHelper.IMDB.Rating))</visible>
 						<control type="label">
 							<aligny>center</aligny>
 							<align>left</align>

@@ -668,7 +668,7 @@ msgstr ""
 
 #: /1080i/Variables.xml:230
 msgctxt "#31130"
-msgid "Main menu-related settings: Configure the home screen to your likings."
+msgid "Main menu-related settings: Configure the home screen."
 msgstr ""
 
 #: /1080i/SkinSettings.xml:117
@@ -704,7 +704,7 @@ msgid "Home menu"
 msgstr ""
 
 msgctxt "#40003"
-msgid "Reset menus settings"
+msgid "Reset menu to default settings"
 msgstr ""
 
 msgctxt "#40004"
@@ -1461,4 +1461,64 @@ msgstr ""
 
 msgctxt "#40202"
 msgid "Disable Next Up for Live TV"
+msgstr ""
+
+msgctxt "#40203"
+msgid "Customise Movies Hub"
+msgstr ""
+
+msgctxt "#40204"
+msgid "Customise TV Hub"
+msgstr ""
+
+msgctxt "#40205"
+msgid "Movie Hub"
+msgstr ""
+
+msgctxt "#40206"
+msgid "TV Hub"
+msgstr ""
+
+msgctxt "#40207"
+msgid "Recent"
+msgstr ""
+
+msgctxt "#40208"
+msgid "Play Random"
+msgstr ""
+
+msgctxt "#40209"
+msgid "Customise the Movie Hub items"
+msgstr ""
+
+msgctxt "#40210"
+msgid "Customise the TV Hub items"
+msgstr ""
+
+msgctxt "#40211"
+msgid "Change the Movie Hub widget"
+msgstr ""
+
+msgctxt "#40212"
+msgid "Change the TV Hub widget"
+msgstr ""
+
+msgctxt "#40213"
+msgid "Random Episodes"
+msgstr ""
+
+msgctxt "#40214"
+msgid "Recent Episodes"
+msgstr ""
+
+msgctxt "#40215"
+msgid "Airing Next"
+msgstr ""
+
+msgctxt "#40216"
+msgid "Do not use Movie Hub"
+msgstr ""
+
+msgctxt "#40217"
+msgid "Do not use TV Hub"
 msgstr ""
