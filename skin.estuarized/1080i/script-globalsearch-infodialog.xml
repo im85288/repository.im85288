@@ -1391,45 +1391,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="grouplist">
-					<orientation>horizontal</orientation>
-					<left>505</left>
-					<top>750</top>
-					<width>767</width>
-					<align>center</align>
-					<itemgap>53</itemgap>
-					<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
-					<control type="image">
-						<width>63</width>
-						<height>60</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container(100).ListItem.Property(VideoResolution),flags/videoresolution/,.png]</texture>
-					</control>
-					<control type="image">
-						<width>111</width>
-						<height>60</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container(100).ListItem.Property(VideoCodec),flags/videocodec/,.png]</texture>
-					</control>
-					<control type="image">
-						<width>93</width>
-						<height>60</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container(100).ListItem.Property(VideoAspect),flags/aspectratio/,.png]</texture>
-					</control>
-					<control type="image">
-						<width>111</width>
-						<height>60</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container(100).ListItem.Property(AudioCodec),flags/audiocodec/,.png]</texture>
-					</control>
-					<control type="image">
-						<width>111</width>
-						<height>60</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container(100).ListItem.Property(AudioChannels),flags/audiochannel/,.png]</texture>
-					</control>	
-				</control>
 			</control>
 		</control>
 	</controls>
