@@ -7,94 +7,219 @@
             <animation effect="fade" end="100" time="200">WindowOpen</animation>
             <animation effect="fade" time="200">VisibleChange</animation>
             <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-            <right>64</right>
-            <bottom>64</bottom>
-            <width>480</width>
-            <height>270</height>
+            <left>0</left>
+            <top>740</top>
+            <width>1920</width>
+            <height>400</height>
             <control type="group">
-                <control type="image" description="blackline">
+                <control type="image">
                     <width>100%</width>
-                    <height>60</height>
-                    <bottom>250</bottom>
-                    <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture>dialogs/nextup/nextup.png</texture>
+                    <height>100%</height>
+                    <texture colordiffuse="background">skyq/Backgrounds/infobar1.png</texture>
+                </control>
+                <control type="image">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <texture>skyq/Backgrounds/infobar1.png</texture>
                 </control>
                 <control type="label" description="text">
-                    <top>-52</top>
-                    <align>center</align>
-                    <height>64</height>
+                    <top>20</top>
+                    <align>left</align>
+                    <left>60</left>
+                    <height>35</height>
                     <aligny>center</aligny>
                     <font>sky33</font>
-                    <label>[UPPERCASE]$LOCALIZE[20359] $ADDON[service.nextup.notification 30008][/UPPERCASE]</label>
+                    <label>$LOCALIZE[40218]</label>
+                    <textcolor>subwhite</textcolor>
                     <shadowcolor>black</shadowcolor>
                 </control>
                 <control type="image" description="fanart">
-                    <width>100%</width>
-                    <height>100%</height>
+                    <left>60</left>
+                    <top>60</top>
+                    <width>300</width>
+                    <height>169</height>
                     <fadetime>350</fadetime>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture>$VAR[PlayerLandscape]</texture>
-                </control>
-                <control type="image" description="blackline">
-                    <width>100%</width>
-                    <height>64</height>
-                    <bottom>0</bottom>
-                    <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture>dialogs/nextup/nextup.png</texture>
+                    <texture>$INFO[VideoPlayer.Cover]</texture>
                 </control>
                 <control type="group">
-                    <height>64</height>
-                    <width>64</width>
-                    <centertop>110</centertop>
-                    <centerleft>50%</centerleft>
-                    <control type="image">
-                        <height>64</height>
-                        <width>64</width>
-                        <aspectratio scalediffuse="false">keep</aspectratio>
-                        <texture colordiffuse="$VAR[ColourFocus]">dialogs/nextup/circle.png</texture>
+                    <left>60</left>
+                    <top>224</top>
+                    <width>300</width>
+                    <control type="progress">
+                        <animation effect="fade" end="0" time="200">WindowClose</animation>
+                        <height>5</height>
+                        <info>Player.ProgressCache</info>
+                        <texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+                        <midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+                        <animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
                     </control>
-                    <control type="label">
-                        <top>-2</top>
-                        <align>center</align>
-                        <width>64</width>
-                        <height>64</height>
-                        <font>skybold50</font>
-                        <aligny>center</aligny>
-                        <shadowcolor>black</shadowcolor>
-                        <label>$INFO[Player.TimeRemaining(ss)]</label>
+                    <control type="progress" id="23">
+                        <animation effect="fade" end="0" time="200">WindowClose</animation>
+                        <height>5</height>
+                        <info>Player.Progress</info>
+                        <texturebg border="3" colordiffuse="80FFFFFF">colors/white50.png</texturebg>
+                        <midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
                     </control>
                 </control>
-                <control type="button" id="3012">
-                    <description>Play</description>
-                    <right>64</right>
-                    <bottom>8</bottom>
-                    <width>48</width>
-                    <height>48</height>
-                    <label></label>
-                    <align>center</align>
+
+                <control type="label" description="text">
+                    <top>235</top>
+                    <align>left</align>
+                    <left>60</left>
+                    <height>35</height>
                     <aligny>center</aligny>
-                    <textoffsetx>0</textoffsetx>
-                    <onleft>3013</onleft>
-                    <onright>3013</onright>
-                    <texturefocus colordiffuse="$VAR[ColourFocus]">dialogs/nextup/nextupplay.png</texturefocus>
-                    <texturenofocus>dialogs/nextup/nextupplay.png</texturenofocus>
+                    <font>sky20</font>
+                    <width>300</width>
+                    <label>$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x,  ]$INFO[VideoPlayer.Title]</label>
+                    <textcolor>subwhite</textcolor>
+                    <shadowcolor>black</shadowcolor>
                 </control>
+
+                <control type="image" id="123111">
+                    <top>40</top>
+                    <left>424</left>
+                    <width>427</width>
+                    <height>240</height>
+                    <texture fallback="empty.png" background="true">$VAR[PlayerLandscape]</texture>
+                    <aspectratio>scale</aspectratio>
+                </control>
+
                 <control type="button" id="3013">
                     <description>Cancel</description>
-                    <right>8</right>
-                    <bottom>8</bottom>
+                    <left>630</left>
+                    <top>120</top>
                     <width>48</width>
                     <height>48</height>
                     <label></label>
                     <align>center</align>
                     <aligny>center</aligny>
                     <textoffsetx>0</textoffsetx>
-                    <onleft>3012</onleft>
-                    <onright>3012</onright>
+                    <onup>3012</onup>
+                    <ondown>3012</ondown>
                     <texturefocus colordiffuse="$VAR[ColourFocus]">dialogs/nextup/nextupstop.png</texturefocus>
-                    <texturenofocus>dialogs/nextup/nextupstop.png</texturenofocus>
+                    <texturenofocus>-</texturenofocus>
                 </control>
+
+                <control type="button" id="3012">
+                    <description>Play</description>
+                    <left>630</left>
+                    <top>120</top>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textoffsetx>0</textoffsetx>
+                    <onup>3013</onup>
+                    <ondown>3013</ondown>
+                    <texturefocus colordiffuse="$VAR[ColourFocus]">dialogs/nextup/nextupplay.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                </control>
+
+                <control type="grouplist">
+                    <left>424</left>
+                    <top>290</top>
+                    <width>433</width>
+                    <height>30</height>
+                    <align>right</align>
+                    <orientation>horizontal</orientation>
+                    <itemgap>5</itemgap>
+                    <control type="image">
+                        <width>60</width>
+                        <height>30</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[NewResolutionFlagVarPlayer]</texture>
+                        <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+                    </control>
+                    <control type="image">
+                        <width>60</width>
+                        <height>30</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[VideoAspect]</texture>
+                        <visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
+                    </control>
+                    <control type="image">
+                        <width>60</width>
+                        <height>30</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[HDSD]</texture>
+                        <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+                    </control>
+                </control>
+
+                <control type="label" description="text">
+                    <top>290</top>
+                    <left>424</left>
+                    <width>433</width>
+                    <align>left</align>
+                    <height>30</height>
+                    <aligny>top</aligny>
+                    <font>skybold30</font>
+                    <label>$INFO[Control.GetLabel(3002)]</label>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+
+                <control type="label" description="text">
+                    <top>40</top>
+                    <left>860</left>
+                    <width>700</width>
+                    <align>left</align>
+                    <height>40</height>
+                    <aligny>top</aligny>
+                    <font>skybold39</font>
+                    <label>$INFO[Control.GetLabel(3000)]</label>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+
+                <control type="label" description="text">
+                    <top>80</top>
+                    <left>860</left>
+                    <width>700</width>
+                    <align>left</align>
+                    <height>35</height>
+                    <aligny>bottom</aligny>
+                    <font>sky33</font>
+                    <label>$INFO[Player.TimeRemaining(ss), Next episode starts in , seconds]</label>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+
+                <control type="label" description="text">
+                    <top>250</top>
+                    <left>860</left>
+                    <width>700</width>
+                    <align>left</align>
+                    <height>35</height>
+                    <aligny>bottom</aligny>
+                    <font>sky33</font>
+                    <label>$LOCALIZE[40219]</label>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label" description="text">
+                    <top>287</top>
+                    <left>860</left>
+                    <width>700</width>
+                    <align>left</align>
+                    <height>35</height>
+                    <aligny>bottom</aligny>
+                    <font>sky20</font>
+                    <label>$LOCALIZE[40220]</label>
+                    <textcolor>subwhite</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+
+                <control type="image">
+                    <right>10</right>
+                    <top>20</top>
+                    <width>330</width>
+                    <height>241</height>
+                    <texture>$VAR[PlayerClearLogo]</texture>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                </control>
+
+
                 <control type="group">
+                    <visible>false</visible>
                     <left>0</left>
                     <right>0</right>
                     <height>64</height>

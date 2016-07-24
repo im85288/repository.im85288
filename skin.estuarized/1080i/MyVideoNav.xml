@@ -263,6 +263,16 @@
 					<texture fallback="DefaultVideo.png" background="true">$VAR[PosterImage]</texture>
 				</control>
 				<control type="image">
+					<right>1320</right>
+					<top>-13</top>
+					<width>560</width>
+					<height>738</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>cases/Blank-Case.png</texture>
+					<visible>Skin.HasSetting(show.case)</visible>
+					<fadetime>200</fadetime>
+				</control>
+				<control type="image">
 					<left>1</left>
 					<top>1</top>
 					<width>472</width>

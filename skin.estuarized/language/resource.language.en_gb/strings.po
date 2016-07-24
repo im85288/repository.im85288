@@ -1522,3 +1522,20 @@ msgstr ""
 msgctxt "#40217"
 msgid "Do not use TV Hub"
 msgstr ""
+
+msgctxt "#40218"
+msgid "Currently Watching"
+msgstr ""
+
+msgctxt "#40219"
+msgid "Press play to start now or stop to end play here"
+msgstr ""
+
+msgctxt "#40220"
+msgid "Push up down to cycle between play/stop"
+msgstr ""
+
+msgctxt "#40221"
+msgid "Overlay poster with blank case in certain views"
+msgstr ""
+

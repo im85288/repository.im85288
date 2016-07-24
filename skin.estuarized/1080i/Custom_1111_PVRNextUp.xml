@@ -6,97 +6,185 @@
 	<controls>
 		<control type="group">
 			<visible>!Window.IsVisible(videoosd) + Window.IsVisible(fullscreenvideo) + Integer.IsEqual(Player.TimeRemaining(hh),00) + Integer.IsEqual(Player.TimeRemaining(mm),00) + Integer.IsLessOrEqual(Player.TimeRemaining(ss),30)</visible>
-			<right>64</right>
-			<bottom>64</bottom>
-			<width>480</width>
-			<height>270</height>
+			<left>0</left>
+			<top>740</top>
+			<width>1920</width>
+			<height>400</height>
 			<control type="group">
-				<control type="image" description="blackline">
-					<width>100%</width>
-					<height>60</height>
-					<bottom>250</bottom>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture>dialogs/nextup/nextup.png</texture>
-				</control>
-				<control type="label" description="text">
-					<top>-52</top>
-					<align>center</align>
-					<height>64</height>
-					<aligny>center</aligny>
-					<font>sky33</font>
-					<label>$INFO[VideoPlayer.NextStartTime,Next @ ,]</label>
-					<shadowcolor>black</shadowcolor>
-				</control>
-				<control type="image" description="fanart" id="123111">
+				<control type="image">
 					<width>100%</width>
 					<height>100%</height>
+					<texture colordiffuse="background">skyq/Backgrounds/infobar1.png</texture>
+				</control>
+				<control type="image">
+					<width>100%</width>
+					<height>100%</height>
+					<texture>skyq/Backgrounds/infobar1.png</texture>
+				</control>
+				<control type="label" description="text">
+					<top>20</top>
+					<align>left</align>
+					<left>60</left>
+					<height>35</height>
+					<aligny>center</aligny>
+					<font>sky33</font>
+					<label>$LOCALIZE[40218]</label>
+					<textcolor>subwhite</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="image" id="456788">
+					<left>60</left>
+					<top>60</top>
+					<width>300</width>
+					<height>169</height>
+					<texture fallback="empty.png" background="true">http://localhost:52307/getpvrthumb&amp;title=$INFO[VideoPlayer.Title]&amp;channel=$INFO[VideoPlayer.ChannelName]&amp;type=landscape,fanart,thumb</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image" description="fanart">
+					<left>60</left>
+					<top>60</top>
+					<width>300</width>
+					<height>169</height>
 					<fadetime>350</fadetime>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture fallback="empty.png">$VAR[NextPlayerLandscape]</texture>
+					<texture>$INFO[VideoPlayer.Cover]</texture>
+					<visible>Substring(Control.GetLabel(456788),empty.png)</visible>
+				</control>
+				<control type="group">
+					<left>60</left>
+					<top>224</top>
+					<width>300</width>
+					<control type="progress">
+						<animation effect="fade" end="0" time="200">WindowClose</animation>
+						<height>5</height>
+						<info>Player.ProgressCache</info>
+						<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+						<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+						<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+					</control>
+					<control type="progress" id="23">
+						<animation effect="fade" end="0" time="200">WindowClose</animation>
+						<height>5</height>
+						<info>Player.Progress</info>
+						<texturebg border="3" colordiffuse="80FFFFFF">colors/white50.png</texturebg>
+						<midtexture colordiffuse="$VAR[ColourFocus]">colors/white50.png</midtexture>
+					</control>
+				</control>
+				<control type="image">
+					<left>60</left>
+					<top>268</top>
+					<width>300</width>
+					<height>75</height>
+					<texture>$VAR[PlayerClearLogo]</texture>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				</control>
+
+				<control type="label" description="text">
+					<top>235</top>
+					<align>left</align>
+					<left>60</left>
+					<height>35</height>
+					<aligny>center</aligny>
+					<font>sky20</font>
+					<width>300</width>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<textcolor>subwhite</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="image" id="123111">
+					<top>40</top>
+					<left>424</left>
+					<width>427</width>
+					<height>240</height>
+					<texture fallback="empty.png" background="true">$VAR[NextPlayerLandscape]</texture>
+					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="image" description="icon">
 					<width>110</width>
 					<height>75</height>
 					<fadetime>350</fadetime>
-					<right>0</right>
+					<right>110</right>
 					<bottom>64</bottom>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture>$INFO[VideoPlayer.Cover]</texture>
 					<visible>!Substring(Control.GetLabel(123111),empty.png)</visible>
 				</control>
 				<control type="image" description="fanart">
-					<width>100%</width>
-					<height>100%</height>
+					<top>40</top>
+					<left>424</left>
+					<width>427</width>
+					<height>240</height>
 					<fadetime>350</fadetime>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<texture>$INFO[VideoPlayer.Cover]</texture>
 					<visible>Substring(Control.GetLabel(123111),empty.png)</visible>
 				</control>
-				<control type="image" description="blackline">
-					<width>100%</width>
-					<height>64</height>
-					<bottom>0</bottom>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture>dialogs/nextup/nextup.png</texture>
-				</control>
-				<control type="group">
-					<height>64</height>
-					<width>64</width>
-					<centertop>110</centertop>
-					<centerleft>50%</centerleft>
+
+				<control type="grouplist">
+					<left>424</left>
+					<top>290</top>
+					<width>433</width>
+					<height>30</height>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<itemgap>5</itemgap>
 					<control type="image">
-						<height>64</height>
-						<width>64</width>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture colordiffuse="$VAR[ColourFocus]">dialogs/nextup/circle.png</texture>
+						<width>60</width>
+						<height>30</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[NewResolutionFlagVarPlayer]</texture>
+						<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
 					</control>
-					<control type="label">
-						<top>-2</top>
-						<align>center</align>
-						<width>64</width>
-						<height>64</height>
-						<font>skybold50</font>
-						<aligny>center</aligny>
-						<label>$INFO[Player.TimeRemaining(ss)]</label>
-						<shadowcolor>black</shadowcolor>
+					<control type="image">
+						<width>60</width>
+						<height>30</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[VideoAspect]</texture>
+						<visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
+					</control>
+					<control type="image">
+						<width>60</width>
+						<height>30</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[HDSD]</texture>
+						<visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
 					</control>
 				</control>
-				<control type="group">
-					<left>0</left>
-					<right>0</right>
-					<height>64</height>
-					<bottom>0</bottom>
-					<control type="label">
-						<width>100%</width>
-						<top>0</top>
-						<height>64</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>skybold35</font>
-						<shadowcolor>black</shadowcolor>
-						<scroll>yes</scroll>
-						<label>$INFO[VideoPlayer.NextTitle]</label>
-					</control>
+
+
+				<control type="label" description="text">
+					<top>40</top>
+					<left>860</left>
+					<width>700</width>
+					<align>left</align>
+					<height>40</height>
+					<aligny>top</aligny>
+					<font>skybold39</font>
+					<label>$INFO[VideoPlayer.NextTitle]</label>
+					<shadowcolor>black</shadowcolor>
+				</control>
+
+				<control type="label" description="text">
+					<top>255</top>
+					<left>860</left>
+					<width>700</width>
+					<align>left</align>
+					<height>35</height>
+					<aligny>bottom</aligny>
+					<font>sky33</font>
+					<label>$INFO[Player.TimeRemaining(ss), Next episode starts in , seconds]</label>
+					<shadowcolor>black</shadowcolor>
+				</control>
+
+				<control type="textbox">
+					<right>10</right>
+					<top>20</top>
+					<width>330</width>
+					<height>241</height>
+					<label fallback="416">$INFO[VideoPlayer.NextPlot]</label>
+					<align>justify</align>
+					<font>sky25</font>
+					<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
 				</control>
 			</control>
 		</control>

@@ -348,7 +348,14 @@
                         <onclick>Skin.ToggleSetting(hide.unwatched)</onclick>
                         <selected>Skin.HasSetting(hide.unwatched)</selected>
                     </control>
-                    <control type="image" id="11">
+                    <control type="radiobutton" id="64272">
+                        <label>40221</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>Skin.ToggleSetting(show.case)</onclick>
+                        <selected>Skin.HasSetting(show.case)</selected>
+                    </control>
+                    <control type="image" id="1231">
                         <description>separator image</description>
                         <height>3</height>
                         <texture colordiffuse="AAAAAAAA" border="3">dialogs/separator-grey.png</texture>
@@ -362,6 +369,8 @@
                         <onclick>Skin.Reset(autoscroll)</onclick>
                         <onclick>Skin.Reset(show_weatherinfo)</onclick>
                         <onclick>Skin.Reset(Skin_EnableAnimatedPosters)</onclick>
+                        <onclick>Skin.Reset(hide.unwatched)</onclick>
+                        <onclick>Skin.Reset(show.case)</onclick>
                     </control>
                 </control>
                 <control type="grouplist" id="630">
