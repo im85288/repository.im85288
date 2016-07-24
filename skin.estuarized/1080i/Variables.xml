@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<variable name="DurationVar">
-		<value condition="Integer.IsLessOrEqual(ListItem.Duration,59)">$INFO[ListItem.Duration,,min]</value>
-		<value>$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes)]</value>
+		<value condition="Skin.HasSetting(home.vertical.widgets)">$INFO[ListItem.Duration,,min]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.MovieSet.Duration.Hours))">$INFO[Window(Home).Property(SkinHelper.MovieSet.Duration.Hours),,h]$INFO[Window(Home).Property(SkinHelper.MovieSet.Duration.Minutes), ,min]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration.Hours)) + IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes), ,min]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration.Hours)) + !IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes), ,min]</value>
+		<value>$INFO[ListItem.Duration,,min]</value>
 	</variable>
 	<variable name="RatingStringVar">
 		<value>$INFO[ListItem.mpaa]</value>
@@ -682,8 +685,6 @@
 	</variable>
 	<variable name="MediaFanartVar">
 		<value condition="Skin.HasSetting(no_fanart)">$VAR[GlobalFanartVar]</value>
-		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)">$INFO[Window(home).Property(infobackground)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(infobackground))">$INFO[Window(home).Property(infobackground)]</value>
 		<value condition="Window.IsActive(pictures) + IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
 		<value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
 		<value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
@@ -704,6 +705,9 @@
 		<value condition="!String.IsEmpty(Container(500).ListItem.Art(fanart))">$INFO[Container(500).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(501).ListItem.Art(fanart))">$INFO[Container(501).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(502).ListItem.Art(fanart))">$INFO[Container(502).ListItem.Art(fanart)]</value>
+		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)">$INFO[Window(home).Property(infobackground)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(infobackground))">$INFO[Window(home).Property(infobackground)]</value>
+
 	</variable>
 	<variable name="WeatherFanart">
 		<value condition="System.HasAddon(script.image.resource.select) + !IsEmpty(Skin.String(weatherfanart.path))">$INFO[Skin.String(weatherfanart.path)]</value>
