@@ -15,20 +15,18 @@
         <action>ActivateWindow(Videos,VideoLibrary)</action>
     </shortcut>
     <shortcut>
-        <label>$VAR[MovieHub]</label>
+        <label>342</label>
         <label2>$INFO[Window(home).Property(Movies.watched)]$INFO[Window(home).Property(Movies.Count), / ]</label2>
         <defaultID>movies</defaultID>
         <icon>special://skin/extras/icons/movie.png</icon>
-        <action condition="!Skin.HasSetting(donotuse.moviehub)">ActivateWindow(1113)</action>
-        <action condition="Skin.HasSetting(donotuse.moviehub)">ActivateWindow(Videos,MovieTitles,return)</action>
+        <action>ActivateWindow(Videos,MovieTitles,return)</action>
     </shortcut>
     <shortcut>
-        <label>$VAR[TVHub]</label>
+        <label>20343</label>
         <label2>$INFO[Window(home).Property(Episodes.watched)]$INFO[Window(home).Property(Episodes.Count), / ]</label2>
         <defaultID>tvshows</defaultID>
         <icon>special://skin/extras/icons/tv.png</icon>
-        <action condition="!Skin.HasSetting(donotuse.tvhub)">ActivateWindow(1114)</action>
-        <action condition="Skin.HasSetting(donotuse.tvhub)">ActivateWindow(Videos,TvShowTitles,return)</action>
+        <action>ActivateWindow(Videos,TvShowTitles,return)</action>
     </shortcut>
     <shortcut>
         <label>20389</label>

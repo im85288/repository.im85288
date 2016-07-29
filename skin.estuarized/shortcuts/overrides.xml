@@ -97,6 +97,10 @@
 
 <!-- Groupings -->    
     <groupings>
+		<node label="Hubs">
+			<shortcut label="$LOCALIZE[40205]" type="Hub" icon="special://skin/extras/icons/movie.png">ActivateWindow(1113)</shortcut>
+			<shortcut label="$LOCALIZE[40206]" type="Hub" icon="special://skin/extras/icons/tv.png">ActivateWindow(1114)</shortcut>
+		</node>
 		<node label="32029">
 			<content>common</content>
 			<shortcut label="$ADDON[script.skin.helper.service 32062]" type="32010" icon="DefaultFolderSquare.png" condition="System.HasAddon(script.skin.helper.service)">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>

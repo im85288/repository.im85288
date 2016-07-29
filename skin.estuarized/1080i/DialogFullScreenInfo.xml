@@ -117,7 +117,7 @@
 				<top>-205</top>
 				<width>427</width>
 				<height>240</height>
-				<texture fallback="special://skin/extras/home-images/avatar.jpg">$VAR[PlayerLandscape]</texture>
+				<texture fallback="$INFO[Player.Art(thumb)]">$VAR[PlayerLandscape]</texture>
 				<aspectratio aligny="top">keep</aspectratio>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
