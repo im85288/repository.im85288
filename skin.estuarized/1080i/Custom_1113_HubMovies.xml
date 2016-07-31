@@ -6,6 +6,7 @@
         <left>0</left>
         <top>0</top>
     </coordinates>
+    <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
     <controls>
         <control type="group">
             <include>DefaultBackground</include>
@@ -123,8 +124,6 @@
                             <focusedlayout width="1387" height="780">
                                 <control type="button">
                                     <onfocus>SetProperty(SkinHelper.WidgetContainer,9500,Home)</onfocus>
-                                    <onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
-                                    <onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
                                     <texturenofocus>-</texturenofocus>
                                     <texturefocus>-</texturefocus>
                                 </control>
@@ -207,8 +206,6 @@
                             <focusedlayout width="380" height="78">
                                 <control type="button">
                                     <onfocus>SetProperty(SkinHelper.WidgetContainer,9500,Home)</onfocus>
-                                    <onfocus condition="Skin.HasSetting(home.blur)">RunScript(script.colorbox,info=blur,id='"$VAR[HomeFanartVar]"',radius=$VAR[BlurLevel],prefix=HomeInfo)</onfocus>
-                                    <onfocus condition="Skin.HasSetting(home.twotone)">RunScript(script.colorbox,info=twotone,id='"$VAR[HomeFanartVar]"',black=$VAR[ColourTwoTone1],white=$VAR[ColourTwoTone2],prefix=HomeInfo)</onfocus>
                                     <texturenofocus>-</texturenofocus>
                                     <texturefocus>-</texturefocus>
                                 </control>

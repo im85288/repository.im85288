@@ -316,9 +316,13 @@
 		<value>skyq/icons/ico_format_on.png</value>
 	</variable>
 	<variable name="HDSD">
+		<value condition="StringCompare(ListItem.VideoResolution,4K) + !IsEmpty(ListItem.VideoResolution)">skyq/icons/ico_4k_on.png</value>
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719) + !IsEmpty(ListItem.VideoResolution)">skyq/icons/ico_hd_on.png</value>
+		<value condition="StringCompare(VideoPlayer.VideoResolution,4K) + !IsEmpty(VideoPlayer.VideoResolution) + !Control.HasFocus(518621)">skyq/icons/ico_4k_on.png</value>
 		<value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,719) + !IsEmpty(VideoPlayer.VideoResolution) + !Control.HasFocus(518621)">skyq/icons/ico_hd_on.png</value>
+		<value condition="StringCompare(Container(518621).ListItem.VideoResolution,4K) + !IsEmpty(Container(518621).ListItem.VideoResolution) + Control.HasFocus(518621)">skyq/icons/ico_4k_on.png</value>
 		<value condition="IntegerGreaterThan(Container(518621).ListItem.VideoResolution,719) + !IsEmpty(Container(518621).ListItem.VideoResolution) + Control.HasFocus(518621)">skyq/icons/ico_hd_on.png</value>
+		<value condition="Control.HasFocus(10) + StringCompare(Container(10).ListItem.VideoResolution,4K) + !IsEmpty(Container(10).ListItem.VideoResolution)">skyq/icons/ico_4k_on.png</value>
 		<value condition="Control.HasFocus(10) + IntegerGreaterThan(Container(10).ListItem.VideoResolution,719) + !IsEmpty(Container(10).ListItem.VideoResolution)">skyq/icons/ico_hd_on.png</value>
 
 		<value condition="IntegerGreaterThan(Window.Property(VideoResolution),719) + !IsEmpty(Window.Property(VideoResolution))">skyq/icons/ico_hd_on.png</value>
