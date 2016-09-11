@@ -6,6 +6,10 @@ USAGE NOTES:
 - reload all folders in settings
 - use Spoyser's repo for Super Favourites
 
+version 0.0.7
+- fanart tv used for retrieving movie artwork
+- omdb used for retrieving rotten tomatoes ratings/consensus for movies
+
 version 0.0.6
 - change highlight colour for title to palegreen
 
