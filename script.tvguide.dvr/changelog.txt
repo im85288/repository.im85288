@@ -6,6 +6,13 @@ USAGE NOTES:
 - reload all folders in settings
 - use Spoyser's repo for Super Favourites
 
+version 0.0.8
+- artwork database added
+- imdb/top250 ratings
+- fanart tv used for tv shows
+- osd shows charcterart/clearart
+- awards shown for movies/tvshows
+
 version 0.0.7
 - fanart tv used for retrieving movie artwork
 - omdb used for retrieving rotten tomatoes ratings/consensus for movies
