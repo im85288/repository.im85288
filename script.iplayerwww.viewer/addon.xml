@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.iplayerwww.viewer" name="BBC iPlayer WWW Viewer" version="0.0.1" provider-name="im85288">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+		<import addon="plugin.video.iplayerwww" version="0.0.1"/>
+    </requires>
+	<extension point="xbmc.python.script" library="addon.py">
+            <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+		<disclaimer lang="en">A viewer app for the bbc iplayerwww video addon</disclaimer>
+		<language></language>
+		<platform>all</platform>
+		<license>GPLv2</license>
+		<forum>-</forum>
+		<source>https://github.com/im85288/script.iplayerwww.viewer</source>
+        <website></website>
+		<email></email>
+	</extension>
+</addon>

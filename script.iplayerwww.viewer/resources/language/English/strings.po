@@ -1,0 +1,66 @@
+# XBMC Media Center language file
+# Addon Name: iPlayer WWW Viewer
+# Addon id: script.iplayerwwww.viewer
+# Addon Provider: im85288
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "Search BBC iPlayer"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Today's most popular"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Science and Nature"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Entertainment"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Sport"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Highlights"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Comedy"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Documentaries"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Drama/Soaps"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Films"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Food"
+msgstr ""
+
+msgctxt "#30011"
+msgid "History"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Lifestyle"
+msgstr ""
+
+msgctxt "#30013"
+msgid "News"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Music"
+msgstr ""
