@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.iplayerwww.viewer" name="BBC iPlayer WWW Viewer" version="0.0.1" provider-name="im85288">
+<addon id="script.iplayerwww.viewer" name="BBC iPlayer WWW Viewer" version="0.0.2" provider-name="im85288">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
 		<import addon="plugin.video.iplayerwww" version="0.0.1"/>

@@ -1,0 +1,7 @@
+v0.0.2
+ - Icon/Fanart images added
+
+v0.0.1
+ - Initial beta release
+
+
