@@ -85,6 +85,7 @@
                 <font>font12</font>
                 <ondown condition="Control.IsVisible(15200)">15005</ondown>
                 <ondown condition="!Control.IsVisible(15200)">15001</ondown>
+                <onright condition="!Control.IsVisible(15300)">15301</onright>
                 <label>[CR]$ADDON[script.iplayerwww.viewer 30000]</label>
                 <textcolor>ddcccccc</textcolor>
                 <textoffsety>6</textoffsety>
@@ -114,6 +115,43 @@
                 <top>-100</top>
                 <width>1</width>
                 <height>1</height>
+            </control>
+
+            <control type="label" id="15300">
+                <description>visibility marker for mouse control group</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>40</width>
+                <height>40</height>
+            </control>
+            <control type="group">
+                <visible>!Control.IsVisible(15300)</visible>
+                <control type="radiobutton" id="15301">
+                    <description>navigate to exit</description>
+                    <posx>240</posx>
+                    <posy>-3</posy>
+                    <width>160</width>
+                    <height>60</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <font>font12</font>
+                    <ondown condition="Control.IsVisible(15200)">15005</ondown>
+                    <ondown condition="!Control.IsVisible(15200)">15001</ondown>
+                    <onleft>15100</onleft>
+                    <label>$ADDON[script.iplayerwww.viewer 30015]</label>
+                    <textcolor>ddcccccc</textcolor>
+                    <textoffsety>26</textoffsety>
+                    <texturefocus border="40" colordiffuse="FF00ff48">button-fo.png</texturefocus>
+                    <texturenofocus border="40">button-nofo.png</texturenofocus>
+                    <radioposx>80</radioposx>
+                    <radioposy>19</radioposy>
+                    <radiowidth>40</radiowidth>
+                    <radioheight>40</radioheight>
+                    <textureradioonfocus colordiffuse="FF000000">close.png</textureradioonfocus>
+                    <textureradioonnofocus colordiffuse="FFCCCCCC">close.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="FF000000">close.png</textureradioofffocus>
+                    <textureradiooffnofocus colordiffuse="FFCCCCCC">close.png</textureradiooffnofocus>
+                </control>
             </control>
             <control type="wraplist" id="89899">
                 <description>Search</description>

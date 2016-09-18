@@ -93,6 +93,8 @@ class IPlayerViewer(xbmcgui.WindowXML):
     C_IPLAYER_SEARCH_TEXT = 15101
     C_IPLAYER_SEARCH_DISPLAY_TEXT = 15102
     C_IPLAYER_SEARCH_VISIBLE = 15200
+    C_IPLAYER_MOUSE_CONTROLS = 15300
+    C_IPLAYER_MOUSE_EXIT = 15301
 
     def __new__(cls):
         return super(IPlayerViewer, cls).__new__(cls, 'script-iplayerwww-main.xml', ADDON.getAddonInfo('path'), SKIN)
@@ -118,6 +120,7 @@ class IPlayerViewer(xbmcgui.WindowXML):
 
     def onInit(self):
         control = self.getControl(self.C_IPLAYER_POPULAR)
+        self._hideControl(self.C_IPLAYER_MOUSE_CONTROLS)
         self._showControl(self.C_IPLAYER)
         super(IPlayerViewer, self).setFocus(control)
 
@@ -130,35 +133,34 @@ class IPlayerViewer(xbmcgui.WindowXML):
     def onActionIPlayerMode(self, action):
         if action.getId() in [ACTION_PARENT_DIR, KEY_NAV_BACK]:
             if self.player.isPlaying():
-                xbmc.log("back pressed and playing hide called")
                 self._hideIPlayer()
             else:
                 self.close()
 
+        elif action.getId() == ACTION_MOUSE_MOVE:
+            self._showControl(self.C_IPLAYER_MOUSE_CONTROLS)
+            return
+
         # catch the ESC key
         elif action.getId() == ACTION_PREVIOUS_MENU and action.getButtonCode() == KEY_ESC:
             if self.player.isPlaying():
-                xbmc.log("esc pressed and playing hide called")
                 self._hideIPlayer()
             else:
                 self.close()
 
         elif action.getId() == ACTION_SELECT_ITEM:
             # must be playable item
-            xbmc.log("onActionIPlayerMode called")
             if xbmc.getCondVisibility("Control.HasFocus(15100)"):
                 control = self.getControl(self.C_IPLAYER_POPULAR)
                 super(IPlayerViewer, self).setFocus(control)
                 return
             elif self.player.isPlaying():
-                xbmc.log("onActionIPlayerMode called playing so closing")
                 self._hideIPlayer()
 
         else:
             xbmc.log('[script.iplayerwww.viewer] iplayer Unhandled ActionId: ' + str(action.getId()), xbmc.LOGDEBUG)
 
     def onClick(self, controlId):
-        xbmc.log("onClick called for control %s" %controlId)
 
         if controlId == self.C_IPLAYER_SEARCH:
             keyboard = xbmc.Keyboard('', 'Search iPlayer')
@@ -170,12 +172,14 @@ class IPlayerViewer(xbmcgui.WindowXML):
                 control = self.getControl(self.C_IPLAYER_SEARCH_VISIBLE)
                 control.setVisible(True)
             return
+        elif controlId in [self.C_IPLAYER_MOUSE_EXIT]:
+            self.close()
+            return
 
     def onFocus(self, controlId):
         pass
 
     def _hideIPlayer(self):
-        xbmc.log("hide iplayed called")
         if self.player.isPlaying():
             xbmc.executebuiltin("Action(Fullscreen)")
         else:
@@ -188,7 +192,7 @@ class IPlayerViewer(xbmcgui.WindowXML):
         for controlId in controlIds:
             control = self.getControl(controlId)
             if control:
-                control.setVisible(False)
+                control.setVisible(True)
 
     def _showControl(self, *controlIds):
         """

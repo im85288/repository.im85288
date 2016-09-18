@@ -64,3 +64,7 @@ msgstr ""
 msgctxt "#30014"
 msgid "Music"
 msgstr ""
+
+msgctxt "#30015"
+msgid "Exit"
+msgstr ""
