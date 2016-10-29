@@ -6,6 +6,13 @@ USAGE NOTES:
 - reload all folders in settings
 - use Spoyser's repo for Super Favourites
 
+version 0.0.20
+- further performance tweeks
+
+version 0.0.18
+- ui tweeks for current progress on epg(s)
+
+
 version 0.0.10
 - ratings table added
 - more data shown/scrapped such as tagline, poster etc
