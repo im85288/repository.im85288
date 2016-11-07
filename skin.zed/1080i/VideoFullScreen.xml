@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window>
+    <defaultcontrol>-</defaultcontrol>
+	<onload condition="Skin.HasSetting(DisableSubtitles) + VideoPlayer.SubtitlesEnabled">ShowSubtitles</onload>
+    <onunload condition="![Player.HasVideo + VideoPlayer.Content(livetv)]">ClearProperty(pvrGuideOnFullscreenVideo,home)</onunload>
+    <controls>
+    </controls>
+</window>
