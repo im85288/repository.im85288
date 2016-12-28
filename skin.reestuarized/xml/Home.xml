@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- 	<menucontrol>9000</menucontrol>
+												 -->
+	<defaultcontrol>700</defaultcontrol>
+	<!-- 	<onload condition="ControlGroup(700).HasFocus">SetFocus(9000,0)</onload>
+
+													 -->
+	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|home|videos|movie|tvshow|musicvideo|music|livetv|radio|pictures|addons|weather|powermenu|movieshub|episodeshub|librarymenu)</onload>
+    <onload condition="Skin.HasSetting(LibraryActive)">ActivateWindow(1110)</onload>
+	<onload>Skin.SetString(SkinHelper.RandomFanartDelay,15)</onload>
+	<onload>Skin.SetBool(SmartShortcuts.playlists)</onload>
+	<onload>Skin.SetBool(SkinHelper.EnableExtraFanart)</onload>
+	<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
+	<onload>Skin.SetBool(SkinHelper.EnableAddonsLookups)</onload>
+	<onload>Skin.SetBool(SkinHelper.EnableExtendedArt)</onload>
+	<onload>Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart, 0)</onload>
+	<onload>Skin.SetString(SkinHelper.StudioLogos.Path,resource://resource.images.studios.coloured/)</onload>
+	<onload condition="String.IsEmpty(Skin.String(widgets.dim))">Skin.SetBool(widgets.dim)</onload>
+
+	<onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
+
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<control type="button" id="20000">
+			<include>HiddenObject</include>
+			<animation effect="fade" time="300" start="100" end="0">Focus</animation>
+			<onfocus>SetFocus(2000)</onfocus>
+			<onclick>noop</onclick>
+			<visible allowhiddenfocus="true">Control.HasFocus(20000)</visible>
+		</control>
+		<control type="button" id="20001">
+			<include>HiddenObject</include>
+			<animation effect="fade" time="300" start="100" end="0">Focus</animation>
+			<onfocus>SetFocus(2000)</onfocus>
+			<onclick>noop</onclick>
+			<visible allowhiddenfocus="true">Control.HasFocus(20001)</visible>
+		</control>
+		<include>DefaultBackground</include>
+		<control type="multiimage">
+			<depth>DepthBackground</depth>
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<fadetime>600</fadetime>
+			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<animation effect="fade" time="400">VisibleChange</animation>
+			<imagepath background="true" colordiffuse="bg_overlay">$VAR[HomeFanartVar]</imagepath>
+			<visible>!Player.HasMedia</visible>
+		</control>
+		<control type="group">
+			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
+			<control type="group" id="2000">
+				<top>140</top>
+				<left>-10</left>
+				<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
+					<effect type="slide" end="0,20" time="60" tween="sine" />
+					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
+				</animation>
+				<animation type="Conditional" condition="Control.IsVisible(20001)" reversible="false">
+					<effect type="slide" end="0,-20" time="60" tween="sine" />
+					<effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
+				</animation>
+				<include>OpenClose_Right</include>
+				<control type="group">
+					<visible>System.IdleTime(15) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus</visible>
+					<animation type="Conditional" condition="System.IdleTime(15) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus" reversible="false">
+						<!-- Broken Fade -->
+						<effect type="fade" start="10" end="100" time="3500" tween="quadratic"/>
+						<effect type="zoom" start="45" end="100" time="750" tween="elastic"/>
+						<effect type="rotate"  start="-1" end="0" time="1900" tween="elastic"/>
+					</animation>
+					<control type="textbox">
+						<top>180</top>
+						<left>30</left>
+						<height>600</height>
+						<right>10</right>
+						<textcolor>ddffffff</textcolor>
+						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus),","]$VAR[WidgetKarmaPlot,[CR][CR],]</label>
+						<font>font32_title</font>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus))</visible>
+					</control>
+					<control type="textbox">
+						<top>180</top>
+						<left>30</left>
+						<height>600</height>
+						<right>10</right>
+						<textcolor>ddffffff</textcolor>
+						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
+						<label>$VAR[WidgetKarmaPlot]</label>
+						<font>font32_title</font>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus))</visible>
+					</control>
+					<control type="image">
+						<left>800</left>
+						<right>40</right>
+						<width>440</width>
+						<height>128</height>
+						<bottom>10</bottom>
+						<texture>$VAR[ColourStudio]</texture>
+						<aspectratio aligny="bottom" align="center">keep</aspectratio>
+					</control>
+				</control>
+				<control type="group" id="7300">
+
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="home"/>
+					</include>
+					<animation type="Conditional" condition="System.IdleTime(15) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus" reversible="false">
+						<!-- Broken Fade -->
+						<effect type="fade" start="100" end="0" time="3500" tween="quadratic"/>
+						<effect type="zoom" start="100" end="90" time="750" tween="elastic"/>
+						<effect type="rotate" end="-1" time="1900" tween="elastic"/>
+					</animation>
+					<control type="grouplist" id="7301">
+						<onup>700</onup>
+						<include>WidgetGroupListCommon</include>
+						<include content="WidgetListTVSquare">
+							<param name="content_path" value="$VAR[DefWidgetHome1Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome1Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome1Target]"/>
+							<param name="list_id" value="7302"/>
+						</include>
+						<include content="WidgetListPosterInfo">
+							<param name="content_path" value="$VAR[DefWidgetHome2Content]"/>
+							<param name="item_image" value="$VAR[TVShowWidgetImageVar]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome2Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome2Target]"/>
+							<param name="diffuse" value="diffuse/roundedposter.png"/>
+							<param name="list_id" value="7303"/>
+						</include>
+						<include content="WidgetListTVSquare">
+							<param name="content_path" value="$VAR[DefWidgetHome3Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome3Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome3Target]"/>
+							<param name="list_id" value="7304"/>
+						</include>
+						<include content="WidgetListPosterRounded">
+							<param name="content_path" value="$VAR[DefWidgetHome4Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome4Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome4Target]"/>
+							<param name="list_id" value="7305"/>
+						</include>
+						<include content="WidgetListTVSquareInfo">
+							<param name="content_path" value="$VAR[DefWidgetHome5Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome5Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome5Target]"/>
+							<param name="list_id" value="7306"/>
+						</include>
+						<include content="WidgetListHomeCategories">
+							<param name="widget_header" value="$LOCALIZE[40010]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="7399"/>
+						</include>
+
+						<include content="WidgetListPosterInfo250">
+							<param name="content_path" value="$VAR[DefWidgetHome6Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome6Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome6Target]"/>
+							<param name="list_id" value="7307"/>
+						</include>
+						<include content="WidgetListTVSquareInfo250">
+							<param name="content_path" value="$VAR[DefWidgetHome7Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome7Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome7Target]"/>
+							<param name="list_id" value="7308"/>
+						</include>
+
+						<include content="WidgetListTVSquare">
+							<param name="content_path" value="$VAR[DefWidgetHome8Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome8Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome8Target]"/>
+							<param name="list_id" value="7309"/>
+						</include>
+						<include content="WidgetListPosterRounded">
+							<param name="content_path" value="$VAR[DefWidgetHome9Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome9Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome9Target]"/>
+							<param name="list_id" value="7310"/>
+						</include>
+						<include content="WidgetListTVSquareInfo">
+							<param name="content_path" value="$VAR[DefWidgetHome10Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome10Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome10Target]"/>
+							<param name="list_id" value="7311"/>
+						</include>
+						<include content="WidgetListPosterInfo">
+							<param name="content_path" value="$VAR[DefWidgetHome11Content]"/>
+							<param name="widget_header" value="$VAR[DefWidgetHome11Label]"/>
+							<param name="widget_target" value="$VAR[DefWidgetHome11Target]"/>
+							<param name="list_id" value="7312"/>
+						</include>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<depth>DepthContentPanel</depth>
+				<include>OpenClose_Left</include>
+				<control type="list" id="9000">
+					<visible>false</visible>
+					<left>-300</left>
+					<top>-300</top>
+					<height>1</height>
+					<movement>6</movement>
+					<focusposition>1</focusposition>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<animation effect="slide" start="-462" end="0" time="200" delay="100" tween="quadratic" easing="out">VisibleChange</animation>
+
+					<focusedlayout height="1" width="1">
+					</focusedlayout>
+					<itemlayout height="1" width="1">
+					</itemlayout>
+					<content>
+						<include>skinshortcuts-group-librarymenu</include>
+					</content>
+				</control>
+
+				<control type="grouplist" id="700">
+					<orientation>horizontal</orientation>
+					<itemgap>0</itemgap>
+					<left>15</left>
+					<width>720</width>
+					<height>110</height>
+					<top>-10</top>
+					<ondown>7300</ondown>
+					<onright>2000</onright>
+
+					<align>justify</align>
+
+					<include content="IconButton">
+						<param name="control_id" value="808" />
+						<param name="icon" value="icons/home.png" />
+						<param name="active" value="buttons/roundbutton-fo.png" />
+						<param name="onclick" value="ActivateWindow(1113)"/>
+						<param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+					</include>
+					<include content="IconButton">
+						<param name="control_id" value="809" />
+						<param name="onclick" value="ActivateWindow(1110)" />
+						<param name="onclick_2" value="Skin.SetBool(LibraryActive)"/>
+						<param name="icon" value="icons/filemanager.png" />
+						<param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+					</include>
+
+					<include content="IconButton">
+						<param name="control_id" value="801" />
+						<param name="onclick" value="ActivateWindow(1107)" />
+						<param name="icon" value="icons/search.png" />
+						<param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+					</include>
+					<include content="IconButton">
+						<param name="control_id" value="803" />
+						<param name="onclick" value="Fullscreen" />
+						<param name="icon" value="icons/now-playing/fullscreen.png" />
+						<param name="visible" value="Player.HasMedia" />
+						<param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+					</include>
+					<include content="IconButton">
+						<param name="control_id" value="807" />
+						<param name="icon" value="special://skin/extras/icons/years.png" />
+						<param name="textoffsety" value="120"/>
+						<param name="font" value="font_calender"/>
+						<param name="label" value="$INFO[Window(Home).Property(NextAired.TodayTotal)]" />
+						<param name="visible" value="!Player.HasMedia + System.HasAddon(script.tv.show.next.aired) + Integer.IsGreater(Window(Home).Property(NextAired.TodayTotal),0)" />
+						<param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+                        <param name="onclick" value="RunScript(script.tv.show.next.aired)" />
+					</include>
+					<include content="IconButton">
+						<param name="control_id" value="802" />
+						<param name="onclick" value="ActivateWindow(settings)" />
+						<param name="icon" value="icons/settings.png" />
+					</include>
+					<include content="IconButton">
+						<param name="control_id" value="804" />
+						<param name="onclick" value="ActivateWindow(shutdownmenu)" />
+						<param name="icon" value="icons/power.png" />
+						<param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+					</include>
+
+
+				</control>
+			</control>
+			<include>BottomBar</include>
+
+			<include content="TopBar">
+				<param name="breadcrumbs_label" value=""/>
+				<param name="main_label" value="$VAR[WidgetLabelKarma]"/>
+				<param name="sub_label" value="$VAR[VideoInfoSubLabelVar]"/>
+
+			</include>
+
+			<control type="group">
+				<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+				<control type="rss">
+					<left>0</left>
+					<bottom>0</bottom>
+					<height>39</height>
+					<width>100%</width>
+					<font>font12</font>
+					<urlset>1</urlset>
+					<hitrect x="-100" y="0" w="1" h="1" />
+					<titlecolor>button_focus</titlecolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<headlinecolor>FFC0C0C0</headlinecolor>
+					<visible>!Player.hasMedia</visible>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

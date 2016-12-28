@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="window" id="1110">
+    <defaultcontrol always="true">700</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <backgroundcolor>background</backgroundcolor>
+    <onload>ClearProperty(SkinHelper.WidgetContainer,Home)</onload>
+
+    <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+
+    <controls>
+        <control type="button" id="20000">
+            <include>HiddenObject</include>
+            <animation effect="fade" time="300" start="100" end="0">Focus</animation>
+            <onfocus>SetFocus(2000)</onfocus>
+            <onclick>noop</onclick>
+            <visible allowhiddenfocus="true">Control.HasFocus(20000)</visible>
+        </control>
+        <control type="button" id="20001">
+            <include>HiddenObject</include>
+            <animation effect="fade" time="300" start="100" end="0">Focus</animation>
+            <onfocus>SetFocus(2000)</onfocus>
+            <onclick>noop</onclick>
+            <visible allowhiddenfocus="true">Control.HasFocus(20001)</visible>
+        </control>
+        <include>DefaultBackground</include>
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
+            <control type="group">
+                <include>VerticalMenu</include>
+                <visible>Skin.HasSetting(ShowHomeMenu)</visible>
+            </control>
+            <control type="group">
+                <include>HorizontalMenu</include>
+                <visible>!Skin.HasSetting(ShowHomeMenu)</visible>
+            </control>
+
+            <include>BottomBar</include>
+            <include content="TopBar">
+                <param name="breadcrumbs_label" value="" />
+            </include>
+            <control type="group">
+                <animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+                <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+                <control type="rss">
+                    <left>0</left>
+                    <bottom>0</bottom>
+                    <height>39</height>
+                    <width>100%</width>
+                    <font>font12</font>
+                    <urlset>1</urlset>
+                    <hitrect x="-100" y="0" w="1" h="1" />
+                    <titlecolor>button_focus</titlecolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <headlinecolor>FFC0C0C0</headlinecolor>
+                    <visible>!Player.hasMedia</visible>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

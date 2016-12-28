@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="window" id="1111">
+    <defaultcontrol always="true">9501</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+    <controls>
+        <control type="group">
+           <include>DefaultBackground</include>
+            <control type="multiimage">
+                <depth>DepthBackground</depth>
+                <include>FullScreenDimensions</include>
+                <aspectratio>scale</aspectratio>
+                <fadetime>600</fadetime>
+                <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+                <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+                <animation effect="fade" time="400">VisibleChange</animation>
+                <imagepath background="true" colordiffuse="bg_overlay">$VAR[HomeFanartVar]</imagepath>
+                <visible>!Player.HasMedia</visible>
+            </control>
+            <include content="TopBar">
+                <param name="breadcrumbs_label" value=""/>
+                <param name="breadcrumbs_icon" value=""/>
+                <param name="main_label" value="$VAR[WidgetLabelKarma]"/>
+                <param name="sub_label" value="$VAR[VideoInfoSubLabelVar]"/>
+                <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+
+            </include>
+            <control type="grouplist" id="700">
+                <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+
+                <orientation>horizontal</orientation>
+                <itemgap>0</itemgap>
+                <left>15</left>
+                <width>600</width>
+                <height>110</height>
+                <top>0</top>
+                <ondown>9501</ondown>
+
+                <align>justify</align>
+
+                <include content="IconButton">
+                    <param name="control_id" value="808" />
+
+                    <param name="icon" value="icons/home.png" />
+                    <param name="label" value="$LOCALIZE[40001]" />
+                    <param name="active" value="buttons/roundbutton-fo.png" />
+                    <param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+                </include>
+                <include content="IconButton">
+                    <param name="control_id" value="809" />
+                    <param name="onclick" value="ActivateWindow(1110)" />
+                    <param name="onclick_2" value="Skin.SetBool(LibraryActive)"/>
+
+                    <param name="icon" value="icons/filemanager.png" />
+                    <param name="label" value="$LOCALIZE[40002]" />
+                    <param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+                </include>
+
+                <include content="IconButton">
+                    <param name="control_id" value="801" />
+                    <param name="onclick" value="ActivateWindow(1107)" />
+                    <param name="icon" value="icons/search.png" />
+                    <param name="label" value="$LOCALIZE[137]" />
+                    <param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+                </include>
+                <include content="IconButton">
+                    <param name="control_id" value="803" />
+                    <param name="onclick" value="Fullscreen" />
+                    <param name="icon" value="icons/now-playing/fullscreen.png" />
+                    <param name="label" value="$LOCALIZE[31000]" />
+                    <param name="visible" value="Player.HasMedia" />
+                    <param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+                </include>
+                <include content="IconButton">
+                    <param name="control_id" value="802" />
+                    <param name="onclick" value="ActivateWindow(settings)" />
+                    <param name="icon" value="icons/settings.png" />
+                    <param name="label" value="$LOCALIZE[21417]" />
+                </include>
+                <include content="IconButton">
+                    <param name="control_id" value="804" />
+                    <param name="onclick" value="ActivateWindow(shutdownmenu)" />
+                    <param name="icon" value="icons/power.png" />
+                    <param name="label" value="$LOCALIZE[33060]" />
+                    <param name="onfocus" value="ClearProperty(SkinHelper.WidgetContainer,Home)"/>
+
+                </include>
+
+
+            </control>
+            <control type="group">
+                <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+                <control type="group">
+                    <top>210</top>
+                    <left>20</left>
+                    <right>20</right>
+                    <height>830</height>
+                    <control type="group">
+                        <control type="label">
+                            <left>460</left>
+                            <top>-40</top>
+                            <width>1387</width>
+                            <height>40</height>
+                            <label>$VAR[DefMovieHubWidgetLabel]</label>
+                            <font>sky30</font>
+                            <shadowcolor>text_shadow</shadowcolor>
+                        </control>
+                        <control type="image">
+                            <left>460</left>
+                            <width>1387</width>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                            <texture background="true">special://skin/extras/home-images/movies.jpg</texture>
+                            <visible>!IntegerGreaterThan(Container(9500).NumItems,0)</visible>
+                        </control>
+                        <control type="wraplist" id="9500">
+                            <description>Widget</description>
+                            <left>460</left>
+                            <width>1387</width>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                            <onleft>9501</onleft>
+                            <onup>9500</onup>
+                            <ondown>9500</ondown>
+                            <preloaditems>1</preloaditems>
+                            <orientation>vertical</orientation>
+                            <autoscroll time="10000">!Control.HasFocus(9500)</autoscroll>
+                            <scrolltime tween="quadratic">400</scrolltime>
+                            <include>Animation.FadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <itemlayout width="1387" height="830">
+                                <control type="image">
+                                    <width>100%</width>
+                                    <height>100%</height>
+                                    <texture colordiffuse="FFdddddd" diffuse="diffuse/roundedposter.png" background="true">colors/grey.png</texture>
+                                </control>
+                                <control type="image">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>553.33</width>
+                                    <height>100%</height>
+                                    <texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                                    <aspectratio>scale</aspectratio>
+                                </control>
+                                <control type="group">
+                                    <left>580</left>
+                                    <width>800</width>
+                                    <control type="label">
+                                        <top>50</top>
+                                        <label>$INFO[ListItem.Genre]</label>
+                                        <shadowcolor>text_shadow</shadowcolor>
+                                        <textcolor>BB000000</textcolor>
+                                        <font>font22_title_upper</font>
+                                    </control>
+                                    <control type="label">
+                                        <top>120</top>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <shadowcolor>text_shadow</shadowcolor>
+                                        <textcolor>BB000000</textcolor>
+                                        <font>font32_title</font>
+                                    </control>
+                                    <control type="textbox">
+                                        <top>230</top>
+                                        <height>590</height>
+                                        <right>10</right>
+                                        <textcolor>aa000000</textcolor>
+                                        <label>$INFO[ListItem.Tagline,[B],[/B][CR]]$INFO[ListItem.Plot]</label>
+                                        <font>font25_narrow</font>
+                                    </control>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="1387" height="830">
+                                <control type="button">
+                                    <onfocus>SetProperty(SkinHelper.WidgetContainer,9500,Home)</onfocus>
+                                    <texturenofocus>-</texturenofocus>
+                                    <texturefocus>-</texturefocus>
+                                </control>
+                                <control type="image">
+                                    <width>100%</width>
+                                    <height>100%</height>
+                                    <texture colordiffuse="FFdddddd" diffuse="diffuse/roundedposter.png" background="true">colors/grey.png</texture>
+                                    <visible>!Control.HasFocus(9500)</visible>
+                                </control>
+                                <control type="image">
+                                    <width>100%</width>
+                                    <height>100%</height>
+                                    <texture colordiffuse="primary" diffuse="diffuse/roundedposter.png" background="true">colors/grey.png</texture>
+                                    <visible>Control.HasFocus(9500)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>553.33</width>
+                                    <height>100%</height>
+                                    <texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                                    <aspectratio>scale</aspectratio>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(9500)</visible>
+                                    <left>580</left>
+                                    <width>800</width>
+                                    <control type="label">
+                                        <top>50</top>
+                                        <label>$INFO[ListItem.Genre]</label>
+                                        <shadowcolor>text_shadow</shadowcolor>
+                                        <textcolor>BBffffff</textcolor>
+                                        <font>font28_title_upper</font>
+                                    </control>
+                                    <control type="label">
+                                        <top>120</top>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <shadowcolor>text_shadow</shadowcolor>
+                                        <textcolor>BBffffff</textcolor>
+                                        <font>font36_title</font>
+                                    </control>
+                                    <control type="textbox">
+                                        <top>230</top>
+                                        <height>590</height>
+                                        <right>10</right>
+                                        <textcolor>aaffffff</textcolor>
+                                        <label>$INFO[ListItem.Tagline,[B],[/B][CR]]$INFO[ListItem.Plot]</label>
+                                        <font>font13</font>
+                                    </control>
+                                </control>
+                                <control type="group">
+                                    <visible>!Control.HasFocus(9500)</visible>
+                                    <left>580</left>
+                                    <width>800</width>
+                                    <control type="label">
+                                        <top>50</top>
+                                        <label>$INFO[ListItem.Genre]</label>
+                                        <shadowcolor>text_shadow</shadowcolor>
+                                        <textcolor>BB000000</textcolor>
+                                        <font>font28_title_upper</font>
+                                    </control>
+                                    <control type="label">
+                                        <top>120</top>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <shadowcolor>text_shadow</shadowcolor>
+                                        <textcolor>BB000000</textcolor>
+                                        <font>font36_title</font>
+                                    </control>
+                                    <control type="textbox">
+                                        <top>230</top>
+                                        <height>590</height>
+                                        <right>10</right>
+                                        <textcolor>aa000000</textcolor>
+                                        <label>$INFO[ListItem.Tagline,[B],[/B][CR]]$INFO[ListItem.Plot]</label>
+                                        <font>font13</font>
+                                    </control>
+                                </control>
+                                <control type="image">
+                                    <centerleft>95%</centerleft>
+                                    <top>20</top>
+                                    <height>48</height>
+                                    <width>48</width>
+                                    <texture colordiffuse="BB000000">$VAR[ListWatchedIconVar]</texture>
+                                    <visible>!Control.HasFocus(9500)</visible>
+                                </control>
+                                <control type="image">
+                                    <centerleft>95%</centerleft>
+                                    <top>20</top>
+                                    <height>48</height>
+                                    <width>48</width>
+                                    <texture>$VAR[ListWatchedIconVar]</texture>
+                                    <visible>Control.HasFocus(9500)</visible>
+                                </control>
+                            </focusedlayout>
+                            <content target="$VAR[DefMovieHubWidgetTarget]">$VAR[DefMovieHubWidget]</content>
+                        </control>
+                    </control>
+
+                    <control type="group">
+                        <control type="list" id="9501">
+                            <left>-10</left>
+                            <top>0</top>
+                            <width>462</width>
+                            <bottom>0</bottom>
+                            <movement>6</movement>
+                            <focusposition>1</focusposition>
+                            <onright>9500</onright>
+                            <onup>700</onup>
+                            <ondown>9501</ondown>
+                            <scrolltime tween="cubic" easing="out">500</scrolltime>
+
+                            <animation effect="slide" start="-462" end="0" time="200" delay="100" tween="quadratic" easing="out">VisibleChange</animation>
+
+                            <focusedlayout height="95">
+                                <control type="button">
+                                    <onfocus>SetProperty(SkinHelper.WidgetContainer,9500,Home)</onfocus>
+                                    <texturenofocus>-</texturenofocus>
+                                    <texturefocus>-</texturefocus>
+                                </control>
+                                <control type="group">
+                                    <animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+                                    <control type="image">
+                                        <left>0</left>
+                                        <top>0</top>
+                                        <width>462</width>
+                                        <height>95</height>
+                                        <texture colordiffuse="button_focus">lists/focus.png</texture>
+                                        <animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9501) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
+                                    </control>
+                                    <control type="image">
+                                        <left>-3</left>
+                                        <top>1</top>
+                                        <width>95</width>
+                                        <height>95</height>
+                                        <texture colordiffuse="button_focus">$INFO[ListItem.Icon]</texture>
+                                        <animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+                                    </control>
+                                    <control type="image">
+                                        <left>0</left>
+                                        <top>0</top>
+                                        <width>95</width>
+                                        <height>95</height>
+                                        <texture colordiffuse="51FFFFFF">colors/black.png</texture>
+                                        <animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9501) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
+                                    </control>
+                                </control>
+                                <control type="image">
+                                    <left>-3</left>
+                                    <top>1</top>
+                                    <width>95</width>
+                                    <height>95</height>
+                                    <texture colordiffuse="secondary">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <left>104</left>
+                                    <top>0</top>
+                                    <height>95</height>
+                                    <width>560</width>
+                                    <aligny>center</aligny>
+                                    <font>font37</font>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <shadowcolor>text_shadow</shadowcolor>
+                                </control>
+                            </focusedlayout>
+                            <itemlayout height="95">
+                                <control type="image">
+                                    <left>-3</left>
+                                    <top>1</top>
+                                    <width>95</width>
+                                    <height>95</height>
+                                    <texture colordiffuse="44FFFFFF">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <left>104</left>
+                                    <top>0</top>
+                                    <height>95</height>
+                                    <width>560</width>
+                                    <aligny>center</aligny>
+                                    <font>font37</font>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <shadowcolor>text_shadow</shadowcolor>
+                                </control>
+                            </itemlayout>
+                            <content>
+                                <include>skinshortcuts-group-movieshub</include>
+                            </content>
+                        </control>
+                    </control>
+
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

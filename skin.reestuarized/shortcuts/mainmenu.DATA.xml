@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+<shortcuts>
+
+<shortcut>
+    <label>Home</label>
+    <label2>$INFO[Window(home).Property(Movies.Count)]$INFO[Window(home).Property(TVShows.Count), / ]</label2>
+    <defaultID>home</defaultID>
+    <icon>icons/sidemenu/home.png</icon>
+    <action>RunScript(script.skin.helper.service,action=videosearch)</action>
+</shortcut>
+<shortcut>
+    <label>Library</label>
+    <label2></label2>
+    <defaultID>library</defaultID>
+    <icon>icons/sidemenu/filebox.png</icon>
+    <action>ActivateWindow(1110)</action>
+</shortcut>
+
+</shortcuts>

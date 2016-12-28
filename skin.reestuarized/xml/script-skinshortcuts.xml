@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>90001</defaultcontrol>
+    <backgroundcolor>background</backgroundcolor>
+    <controls>
+        <include>DefaultBackground</include>
+        <control type="multiimage">
+            <depth>DepthBackground</depth>
+            <include>FullScreenDimensions</include>
+            <aspectratio>scale</aspectratio>
+            <fadetime>600</fadetime>
+            <animation effect="zoom" center="auto" end="102,102" time="0"
+                       condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional
+            </animation>
+            <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+            <animation effect="fade" time="400">VisibleChange</animation>
+            <imagepath background="true" colordiffuse="bg_overlay">
+                $INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]
+            </imagepath>
+            <visible>!Player.HasMedia + !String.IsEmpty(Skin.String(HomeFanart.path))</visible>
+        </control>
+        <control type="group">
+            <control type="group">
+                <depth>DepthContentPanel</depth>
+                <left>0</left>
+                <include>OpenClose_Left</include>
+                <include content="ContentPanel">
+                    <param name="width" value="530"/>
+                </include>
+                <control type="list" id="211">
+                    <left>0</left>
+                    <top>160</top>
+                    <width>470</width>
+                    <height>840</height>
+                    <onleft>10000</onleft>
+                    <onright>10000</onright>
+                    <onup>211</onup>
+                    <ondown>211</ondown>
+                    <itemlayout height="90" width="470">
+                        <control type="image">
+                            <left>5</left>
+                            <top>10</top>
+                            <width>70</width>
+                            <height>70</height>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="label">
+                            <textoffsetx>90</textoffsetx>
+                            <width>470</width>
+                            <height>90</height>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>font14</font>
+                            <aligny>center</aligny>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="90" width="470">
+                        <control type="image">
+                            <width>470</width>
+                            <height>90</height>
+                            <texture colordiffuse="button_focus">lists/focus.png</texture>
+                            <animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">
+                                Conditional
+                            </animation>
+                        </control>
+                        <control type="image">
+                            <left>5</left>
+                            <top>10</top>
+                            <width>70</width>
+                            <height>70</height>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="label">
+                            <textoffsetx>90</textoffsetx>
+                            <width>470</width>
+                            <height>90</height>
+                            <font>font14</font>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+            <control type="group" id="10000">
+                <left>470</left>
+                <include>OpenClose_Right</include>
+                <control type="grouplist" id="90001">
+                    <top>160</top>
+                    <left>0</left>
+                    <right>0</right>
+                    <bottom>60</bottom>
+                    <onleft>211</onleft>
+                    <onright>60</onright>
+                    <onup>90001</onup>
+                    <ondown>90001</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <control type="button" id="401">
+                        <description>Choose shortcut</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32048]</label>
+                        <label2>$INFO[Container(211).ListItem.Label]</label2>
+                    </control>
+                    <control type="button" id="307">
+                        <description>Change action</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32027]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+                    </control>
+                    <control type="button" id="305">
+                        <description>Change label</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32025]</label>
+                        <label2>$INFO[Container(211).ListItem.Label]</label2>
+                    </control>
+                    <control type="button" id="306">
+                        <description>Browse for thumbnail</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32026]</label>
+                        <label2>$INFO[Container(211).ListItem.Icon]</label2>
+                    </control>
+                    <control type="button" id="310">
+                        <description>Browse for background</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32045]</label>
+                        <label2>$VAR[Label_SkinSetting_Backgrounds]</label2>
+                    </control>
+                    <control type="button" id="405">
+                        <description>Edit submenu</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32072]</label>
+                        <visible>String.IsEqual(Window.Property(groupname),librarymenu)</visible>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),weather)</visible>
+                    </control>
+                    <control type="button" id="312">
+                        <description>Change widget 1</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 1</label>
+                        <label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
+                        <visible>false</visible>
+                    </control>
+
+                    <control type="button" id="1452">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 1</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.movies1)]</label2>
+                        <onclick>SetProperty(widgetID, movies1)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),movies)</visible>
+                    </control>
+                    <control type="button" id="1453">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 2</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.movies2)]</label2>
+                        <onclick>SetProperty(widgetID, movies2)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),movies)</visible>
+                    </control>
+                    <control type="button" id="1454">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 3</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.movies3)]</label2>
+                        <onclick>SetProperty(widgetID, movies3)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),movies)</visible>
+                    </control>
+                    <control type="button" id="1455">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 4</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.movies4)]</label2>
+                        <onclick>SetProperty(widgetID, movies4)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),movies)</visible>
+                    </control>
+                    <control type="button" id="1456">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 1</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.tvshows1)]</label2>
+                        <onclick>SetProperty(widgetID, tvshows1)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows)</visible>
+                    </control>
+                    <control type="button" id="1457">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 2</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.tvshows2)]</label2>
+                        <onclick>SetProperty(widgetID, tvshows2)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows)</visible>
+                    </control>
+                    <control type="button" id="1458">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 3</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.tvshows3)]</label2>
+                        <onclick>SetProperty(widgetID, tvshows3)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows)</visible>
+                    </control>
+                    <control type="button" id="1460">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 1</label>
+                        <label2 fallback="31187">$INFO[Container(211).Listitem.Property(widgetName.music1)]</label2>
+                        <onclick>SetProperty(widgetID, music1)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),music)</visible>
+                    </control>
+                    <control type="button" id="1461">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 2</label>
+                        <label2 fallback="31795">$INFO[Container(211).Listitem.Property(widgetName.music2)]</label2>
+                        <onclick>SetProperty(widgetID, music2)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),music)</visible>
+                    </control>
+                    <control type="button" id="1462">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 3</label>
+                        <label2 fallback="31189">$INFO[Container(211).Listitem.Property(widgetName.music3)]</label2>
+                        <onclick>SetProperty(widgetID, music3)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),music)</visible>
+                    </control>
+                    <control type="button" id="1463">
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] 4</label>
+                        <label2 fallback="31187">$INFO[Container(211).Listitem.Property(widgetName.music4)]</label2>
+                        <onclick>SetProperty(widgetID, music4)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),music)</visible>
+                    </control>
+
+                    <control type="button" id="303">
+                        <description>Move up</description>
+                        <label>$ADDON[script.skinshortcuts 32002]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                    </control>
+                    <control type="button" id="304">
+                        <description>Move down</description>
+                        <label>$ADDON[script.skinshortcuts 32003]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                    </control>
+                    <control type="button" id="302">
+                        <description>Delete shortcut</description>
+                        <label>$ADDON[script.skinshortcuts 32001]</label>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                    </control>
+                    <control type="button" id="301">
+                        <description>Add shortcut</description>
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32000]</label>
+                    </control>
+
+                    <!-- 404, for setting custom property -->
+                    <control type="button" id="404">
+                        <visible>False</visible>
+                        <left>-100000</left>
+                        <top>-100000</top>
+                        <width>1</width>
+                        <height>1</height>
+                        <onclick>noop</onclick>
+                    </control>
+                </control>
+                <control type="image">
+                    <description>Dialog Header image</description>
+                    <left>0</left>
+                    <top>157</top>
+                    <right>0</right>
+                    <height>3</height>
+                    <texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+                </control>
+            </control>
+        </control>
+
+        <include content="TopBar">
+            <param name="breadcrumbs_label" value="$LOCALIZE[20077] / $LOCALIZE[40038]"/>
+            <param name="breadcrumbs_icon" value="icons/settings/skin.png"/>
+        </include>
+        <include>BottomBar</include>
+    </controls>
+</window>

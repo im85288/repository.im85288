@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1113">
+	<defaultcontrol always="true">11000</defaultcontrol>
+	<controls>
+		<include>DefaultBackground</include>
+		<include content="TopBar">
+			<param name="breadcrumbs_label" value="$LOCALIZE[40031]      $LOCALIZE[40036]" />
+		</include>
+		<control type="multiimage">
+			<depth>DepthBackground</depth>
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<fadetime>600</fadetime>
+			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<animation effect="fade" time="400">VisibleChange</animation>
+			<imagepath background="true" colordiffuse="bg_overlay">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</imagepath>
+			<visible>!Player.HasMedia + !String.IsEmpty(Skin.String(HomeFanart.path))</visible>
+		</control>
+		<control type="group">
+			<left>20</left>
+			<height>900</height>
+			<top>160</top>
+			<width>1880</width>
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<control type="group" id="11000">
+				<left>0</left>
+				<control type="grouplist" id="11100">
+					<width>1880</width>
+					<height>800</height>
+					<itemgap>0</itemgap>
+					<onup>11100</onup>
+					<ondown>11100</ondown>
+					<orientation>vertical</orientation>
+					<control type="radiobutton" id="11101">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home1.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 1</label>
+						<label2>$VAR[DefWidgetHome1Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home1.name&amp;skinWidgetTarget=home1.target&amp;skinWidgetPath=home1.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11102">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home2.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 2</label>
+						<label2>$VAR[DefWidgetHome2Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home2.name&amp;skinWidgetTarget=home2.target&amp;skinWidgetPath=home2.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11103">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home3.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 3</label>
+						<label2>$VAR[DefWidgetHome3Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home3.name&amp;skinWidgetTarget=home3.target&amp;skinWidgetPath=home3.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11104">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home4.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 4</label>
+						<label2>$VAR[DefWidgetHome4Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home4.name&amp;skinWidgetTarget=home4.target&amp;skinWidgetPath=home4.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11105">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home5.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 5</label>
+						<label2>$VAR[DefWidgetHome5Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home5.name&amp;skinWidgetTarget=home5.target&amp;skinWidgetPath=home5.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11106">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home6.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 6</label>
+						<label2>$VAR[DefWidgetHome6Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home6.name&amp;skinWidgetTarget=home6.target&amp;skinWidgetPath=home6.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11107">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home7.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 7</label>
+						<label2>$VAR[DefWidgetHome7Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home7.name&amp;skinWidgetTarget=home7.target&amp;skinWidgetPath=home7.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11108">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home8.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 8</label>
+						<label2>$VAR[DefWidgetHome8Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home8.name&amp;skinWidgetTarget=home8.target&amp;skinWidgetPath=home8.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11109">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home9.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 9</label>
+						<label2>$VAR[DefWidgetHome9Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home9.name&amp;skinWidgetTarget=home9.target&amp;skinWidgetPath=home9.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11110">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home10.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 10</label>
+						<label2>$VAR[DefWidgetHome10Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home10.name&amp;skinWidgetTarget=home10.target&amp;skinWidgetPath=home10.path)</onclick>
+					</control>
+					<control type="radiobutton" id="11111">
+						<width>1880</width>
+						<textureradioonfocus colordiffuse="primary">buttons/status-on.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="primary">buttons/status-on.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="secondary">buttons/status-off.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="secondary">buttons/status-off.png</textureradiooffnofocus>
+						<selected>!String.IsEmpty(Skin.String(home11.path))</selected>
+						<include content="DefaultSettingButton">
+							<param name="textoffsetx" value="100" />
+						</include>
+						<label>$ADDON[script.skinshortcuts 32044] 11</label>
+						<label2>$VAR[DefWidgetHome11Label]</label2>
+						<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=True&amp;skinWidgetName=home11.name&amp;skinWidgetTarget=home11.target&amp;skinWidgetPath=home11.path)</onclick>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
