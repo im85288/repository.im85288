@@ -2,7 +2,7 @@
 <addons>
 <addon  id="plugin.video.emby"
         name="Emby"
-        version="2.3.33"
+        version="2.3.42"
         provider-name="Emby.media">
   <requires>
     <import addon="xbmc.python" version="2.19.0"/>
@@ -72,7 +72,7 @@
 	</extension>
 </addon>
 
-<addon id="script.tvguide.dvr" name="TV Guide DVR" version="0.0.24" provider-name="im85288">
+<addon id="script.tvguide.dvr" name="TV Guide DVR" version="0.0.25" provider-name="im85288">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
 		<import addon="script.module.simplejson" version="3.3.0"/>
