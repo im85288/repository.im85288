@@ -88,7 +88,7 @@
 							<top>-10</top>
 							<width>290</width>
 							<height>400</height>
-							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposter.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposter.png" background="true">$VAR[InfoWallThumbVar]</texture>
 							<aspectratio>scale</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
@@ -125,7 +125,7 @@
 							<top>-10</top>
 							<width>290</width>
 							<height>400</height>
-							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposter.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposter.png" background="true">$VAR[InfoWallThumbVar]</texture>
 							<aspectratio>scale</aspectratio>
 							<bordertexture border="11">overlays/shadow.png</bordertexture>
 							<bordersize>10</bordersize>
@@ -226,26 +226,28 @@
 							<top>-10</top>
 							<width>290</width>
 							<height>400</height>
-							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$VAR[InfoWallThumbVar]</texture>
 							<aspectratio>scale</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="group">
 							<left>300</left>
-							<control type="label">
+							<control type="textbox">
 								<top>30</top>
 								<label>$INFO[ListItem.Genre]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>BB000000</textcolor>
-								<font>font22_title_upper</font>
+								<font>font18_title_upper</font>
+								<height>45</height>
 							</control>
-							<control type="label">
+							<control type="textbox">
 								<top>75</top>
 								<label>$INFO[ListItem.Label]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>BB000000</textcolor>
 								<font>font32_title</font>
+								<height>100</height>
 							</control>
 							<control type="textbox">
 								<top>180</top>
@@ -286,26 +288,28 @@
 							<top>-10</top>
 							<width>290</width>
 							<height>400</height>
-							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$VAR[InfoWallThumbVar]</texture>
 							<aspectratio>scale</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="group">
 							<left>300</left>
-							<control type="label">
+							<control type="textbox">
 								<top>30</top>
 								<label>$INFO[ListItem.Genre]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>DDFFFFFF</textcolor>
-								<font>font22_title_upper</font>
+								<font>font18_title_upper</font>
+								<height>45</height>
 							</control>
-							<control type="label">
+							<control type="textbox">
 								<top>75</top>
 								<label>$INFO[ListItem.Label]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>DDFFFFFF</textcolor>
 								<font>font32_title</font>
+								<height>100</height>
 							</control>
 							<control type="textbox">
 								<top>180</top>
@@ -403,7 +407,7 @@
 							<top>-10</top>
 							<width>290</width>
 							<height>400</height>
-							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterrightonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+							<texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterrightonly.png" background="true">$VAR[InfoWallThumbVar]</texture>
 							<aspectratio>scale</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
@@ -424,12 +428,13 @@
 									<visible>String.IsEmpty(Skin.String(home6.path))</visible>
 								</control>
 							</control>
-							<control type="label">
+							<control type="textbox">
 								<top>95</top>
 								<label>$INFO[ListItem.Label]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>DDffffff</textcolor>
 								<font>font22_title_upper</font>
+								<height>100</height>
 							</control>
 							<control type="textbox">
 
@@ -551,19 +556,21 @@
 						</control>
 						<control type="group">
 							<left>410</left>
-							<control type="label">
+							<control type="textbox">
 								<top>30</top>
 								<label>$INFO[ListItem.Genre]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>BB000000</textcolor>
 								<font>font18_title_upper</font>
+								<height>45</height>
 							</control>
-							<control type="label">
+							<control type="textbox">
 								<top>75</top>
 								<label>$INFO[ListItem.Label]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>BB000000</textcolor>
 								<font>font32_title</font>
+								<height>100</height>
 							</control>
 							<control type="textbox">
 								<top>180</top>
@@ -609,19 +616,21 @@
 						</control>
 						<control type="group">
 							<left>410</left>
-							<control type="label">
+							<control type="textbox">
 								<top>30</top>
 								<label>$INFO[ListItem.Genre]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>DDFFFFFF</textcolor>
 								<font>font18_title_upper</font>
+								<height>45</height>
 							</control>
-							<control type="label">
+							<control type="textbox">
 								<top>75</top>
 								<label>$INFO[ListItem.Label]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>DDFFFFFF</textcolor>
 								<font>font32_title</font>
+								<height>100</height>
 							</control>
 							<control type="textbox">
 								<top>180</top>
@@ -741,12 +750,13 @@
 
 								</control>
 							</control>
-							<control type="label">
+							<control type="textbox">
 								<top>95</top>
 								<label>$INFO[ListItem.Label]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 								<textcolor>DDffffff</textcolor>
 								<font>font22_title_upper</font>
+								<height>85</height>
 							</control>
 							<control type="textbox">
 								<top>180</top>
@@ -1209,7 +1219,7 @@
 				</include>
 				<onup>700</onup>
 				<ondown
-						condition="!Skin.HasSetting(ShowHomeMenu) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),addons) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),weather) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),games) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),radio) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),music)  + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),movies) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),favorites + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),vidoes + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),pictures)">
+						condition="!Skin.HasSetting(ShowHomeMenu) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),addons) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),weather) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),games) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),radio) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),music)  + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),movies) + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),favorites + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),videos + !String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),pictures)">
 					18000
 				</ondown>
 				<ondown condition="!Skin.HasSetting(ShowHomeMenu) + String.IsEqual(Container($PARAM[list_id]).ListItem.Property(defaultID),addons)">8000</ondown>
@@ -1871,32 +1881,32 @@
 						<param name="content_path" value="$VAR[DefWidgetMovie1Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMovie1Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMovie1Target]"/>
-						<param name="list_id" value="5100"/>
+						<param name="list_id" value="51000"/>
 					</include>
 					<include content="WidgetListPoster">
 						<param name="content_path" value="$VAR[DefWidgetMovie2Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMovie2Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMovie2Target]"/>
-						<param name="list_id" value="5200"/>
+						<param name="list_id" value="52000"/>
 					</include>
 					<include content="WidgetListPoster">
 						<param name="content_path" value="$VAR[DefWidgetMovie3Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMovie3Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMovie3Target]"/>
-						<param name="list_id" value="5300"/>
+						<param name="list_id" value="53000"/>
 					</include>
 					<include content="WidgetListPoster">
 						<param name="content_path" value="$VAR[DefWidgetMovie4Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMovie4Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMovie4Target]"/>
-						<param name="list_id" value="5400"/>
+						<param name="list_id" value="54000"/>
 					</include>
 
 					<include content="WidgetListCategories" condition="Library.HasContent(movies)">
 						<param name="content_path" value="videodb://movies/genres/"/>
 						<param name="widget_header" value="$LOCALIZE[135]"/>
 						<param name="widget_target" value="videos"/>
-						<param name="list_id" value="5500"/>
+						<param name="list_id" value="55000"/>
 						<param name="icon" value="$VAR[WidgetGenreIconVar]"/>
 						<param name="icon_height" value="70"/>
 					</include>
@@ -1905,7 +1915,7 @@
 						<param name="widget_header" value="$LOCALIZE[31075]"/>
 						<param name="widget_target" value="videos"/>
 						<param name="sortby" value="random"/>
-						<param name="list_id" value="5600"/>
+						<param name="list_id" value="56000"/>
 					</include>
 				</control>
 				<include content="ImageWidget" condition="!Library.HasContent(movies)">
@@ -1938,7 +1948,7 @@
 						<param name="content_path" value="$VAR[DefWidgetTvShows1Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetTvShows1Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetTvShows1Target]"/>
-						<param name="list_id" value="6100"/>
+						<param name="list_id" value="61000"/>
 					</include>
 					<include content="WidgetListEpisodes" condition="Library.HasContent(tvshows)">
 						<param name="content_path" value="$VAR[DefWidgetTvShows2Content]"/>
@@ -1946,20 +1956,20 @@
 						<param name="widget_target" value="$VAR[DefWidgetTvShows2Target]"/>
 						<param name="item_image" value="$VAR[TVShowWidgetImageVar]"/>
 
-						<param name="list_id" value="6200"/>
+						<param name="list_id" value="62000"/>
 					</include>
 					<include content="WidgetListPoster" condition="Library.HasContent(tvshows)">
 						<param name="content_path" value="$VAR[DefWidgetTvShows3Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetTvShows3Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetTvShows3Target]"/>
-						<param name="list_id" value="6300"/>
+						<param name="list_id" value="63000"/>
 					</include>
 
 					<include content="WidgetListCategories" condition="Library.HasContent(tvshows)">
 						<param name="content_path" value="videodb://tvshows/genres/"/>
 						<param name="widget_header" value="$LOCALIZE[135]"/>
 						<param name="widget_target" value="videos"/>
-						<param name="list_id" value="6400"/>
+						<param name="list_id" value="64000"/>
 						<param name="icon" value="$VAR[WidgetGenreIconVar]"/>
 						<param name="icon_height" value="70"/>
 					</include>
@@ -1967,7 +1977,7 @@
 						<param name="content_path" value="videodb://tvshows/studios/"/>
 						<param name="widget_header" value="$LOCALIZE[20388]"/>
 						<param name="widget_target" value="videos"/>
-						<param name="list_id" value="6500"/>
+						<param name="list_id" value="65000"/>
 						<param name="icon" value="$INFO[ListItem.Label,resource://resource.images.studios.white/,.png]"/>
 						<param name="icon_height" value="70"/>
 					</include>
@@ -2000,28 +2010,28 @@
 						<param name="content_path" value="$VAR[DefWidgetMusic1Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMusic1Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMusic1Target]"/>
-						<param name="list_id" value="7100"/>
+						<param name="list_id" value="71000"/>
 						<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 					</include>
 					<include content="WidgetListSquare" condition="Library.HasContent(music)">
 						<param name="content_path" value="$VAR[DefWidgetMusic2Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMusic2Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMusic2Target]"/>
-						<param name="list_id" value="7200"/>
+						<param name="list_id" value="72000"/>
 						<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 					</include>
 					<include content="WidgetListSquare" condition="Library.HasContent(music)">
 						<param name="content_path" value="$VAR[DefWidgetMusic3Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMusic3Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMusic3Target]"/>
-						<param name="list_id" value="7300"/>
+						<param name="list_id" value="73000"/>
 						<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 					</include>
 					<include content="WidgetListSquare" condition="Library.HasContent(music)">
 						<param name="content_path" value="$VAR[DefWidgetMusic4Content]"/>
 						<param name="widget_header" value="$VAR[DefWidgetMusic4Label]"/>
 						<param name="widget_target" value="$VAR[DefWidgetMusic4Target]"/>
-						<param name="list_id" value="7400"/>
+						<param name="list_id" value="74000"/>
 						<param name="fallback_icon" value="DefaultMusicArtists.png"/>
 					</include>
 				</control>
@@ -2056,7 +2066,7 @@
 						<param name="widget_target" value="videos"/>
 						<param name="sortby" value="lastused"/>
 						<param name="sortorder" value="descending"/>
-						<param name="list_id" value="8100"/>
+						<param name="list_id" value="81000"/>
 						<param name="fallback_icon" value="DefaultAddon.png"/>
 					</include>
 					<include content="WidgetListSquare">
@@ -2065,7 +2075,7 @@
 						<param name="widget_target" value="music"/>
 						<param name="sortby" value="lastused"/>
 						<param name="sortorder" value="descending"/>
-						<param name="list_id" value="8200"/>
+						<param name="list_id" value="82000"/>
 						<param name="fallback_icon" value="DefaultAddon.png"/>
 					</include>
 					<include content="WidgetListSquare">
@@ -2074,7 +2084,7 @@
 						<param name="widget_target" value="games"/>
 						<param name="sortby" value="lastused"/>
 						<param name="sortorder" value="descending"/>
-						<param name="list_id" value="8700"/>
+						<param name="list_id" value="87000"/>
 						<param name="fallback_icon" value="DefaultAddon.png"/>
 						<param name="visible" value="System.GetBool(gamesgeneral.enable)"/>
 					</include>
@@ -2084,7 +2094,7 @@
 						<param name="widget_target" value="programs"/>
 						<param name="sortby" value="lastused"/>
 						<param name="sortorder" value="descending"/>
-						<param name="list_id" value="8300"/>
+						<param name="list_id" value="83000"/>
 						<param name="fallback_icon" value="DefaultAddon.png"/>
 					</include>
 					<include content="WidgetListSquare" condition="System.Platform.Android">
@@ -2093,7 +2103,7 @@
 						<param name="widget_target" value="programs"/>
 						<param name="sortby" value="lastused"/>
 						<param name="sortorder" value="descending"/>
-						<param name="list_id" value="8400"/>
+						<param name="list_id" value="84000"/>
 						<param name="fallback_icon" value="DefaultAddon.png"/>
 					</include>
 					<include content="WidgetListSquare">
@@ -2562,6 +2572,45 @@
                                     </control>
                                     -->
 			</control>
+			<control type="group" id="18000">
+				<visible>!String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)</visible>
+				<include content="Visible_Right_Delayed">
+					<param name="id" value="movies"/>
+				</include>
+				<control type="grouplist" id="18001">
+					<top>40</top>
+					<onup condition="Skin.HasSetting(ShowHomeMenu)">700</onup>
+					<onup condition="!Skin.HasSetting(ShowHomeMenu)">9100</onup>
+					<include>WidgetGroupListCommon</include>
+
+					<include content="WidgetListPoster">
+						<param name="content_path" value="$VAR[DefWidgetDefault1Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault1Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault1Target]"/>
+						<param name="list_id" value="181000"/>
+					</include>
+					<include content="WidgetListEpisodes">
+						<param name="content_path" value="$VAR[DefWidgetDefault2Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault2Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault2Target]"/>
+						<param name="item_image" value="$VAR[TVShowWidgetImageVar]"/>
+						<param name="list_id" value="182000"/>
+					</include>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="$VAR[DefWidgetDefault3Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault3Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault3Target]"/>
+						<param name="list_id" value="183000"/>
+					</include>
+					<include content="WidgetListEpisodes">
+						<param name="content_path" value="$VAR[DefWidgetDefault4Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault4Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault4Target]"/>
+						<param name="item_image" value="$VAR[TVShowWidgetImageVar]"/>
+						<param name="list_id" value="184000"/>
+					</include>
+				</control>
+			</control>
 		</control>
 		<control type="group">
 			<depth>DepthContentPanel</depth>
@@ -2576,7 +2625,7 @@
 				<focusposition>1</focusposition>
 				<onfocus>ClearProperty(listposition,home)</onfocus>
 				<onright
-						condition="!String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites + !String.IsEqual(Container(9000).ListItem.Property(defaultID),vidoes + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)">
+						condition="!String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)">
 					18000
 				</onright>
 				<onright condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),addons)">8000</onright>
@@ -2677,7 +2726,7 @@
 				<top>0</top>
 				<onup condition="Skin.HasSetting(ShowHomeMenu)">SetFocus(9000)</onup>
 				<onup
-						condition="!Skin.HasSetting(ShowHomeMenu) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites + !String.IsEqual(Container(9000).ListItem.Property(defaultID),vidoes + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)">
+						condition="!Skin.HasSetting(ShowHomeMenu) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)">
 					18000
 				</onup>
 				<onup condition="!Skin.HasSetting(ShowHomeMenu) + String.IsEqual(Container(9000).ListItem.Property(defaultID),addons)">8000</onup>
@@ -2698,7 +2747,7 @@
 
 
 				<!--    <ondown
-                            condition="!Skin.HasSetting(ShowHomeMenu) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites + !String.IsEqual(Container(9000).ListItem.Property(defaultID),vidoes + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)">
+                            condition="!Skin.HasSetting(ShowHomeMenu) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(9000).ListItem.Property(defaultID),pictures)">
                         18000
                     </ondown>
                     <ondown condition="!Skin.HasSetting(ShowHomeMenu) + String.IsEqual(Container(9000).ListItem.Property(defaultID),addons)">8000</ondown>
@@ -2799,7 +2848,7 @@
 						<param name="widget_header" value="$LOCALIZE[31148]"/>
 						<param name="widget_target" value="videos"/>
 						<param name="list_id" value="5900"/>
-						<param name="visible" value="Skin.HasSetting(ShowHomeMenu)"/>
+						<param name="visible" value="true"/>
 					</include>
 
 					<include content="WidgetListPoster">
@@ -2866,7 +2915,7 @@
 						<param name="widget_header" value="$LOCALIZE[31148]"/>
 						<param name="widget_target" value="videos"/>
 						<param name="list_id" value="6900"/>
-						<param name="visible" value="Skin.HasSetting(ShowHomeMenu)"/>
+						<param name="visible" value="true"/>
 					</include>
 
 					<include content="WidgetListPoster" condition="Library.HasContent(tvshows)">
@@ -3479,6 +3528,45 @@
                                     </control>
                                     -->
 			</control>
+			<control type="group" id="18000">
+				<visible>!String.IsEqual(Container(9100).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9100).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),pictures)</visible>
+				<include content="Visible_Right_Delayed">
+					<param name="id" value="movies"/>
+				</include>
+				<control type="grouplist" id="18001">
+					<top>40</top>
+					<onup condition="Skin.HasSetting(ShowHomeMenu)">700</onup>
+					<onup condition="!Skin.HasSetting(ShowHomeMenu)">9100</onup>
+					<include>WidgetGroupListCommon</include>
+
+					<include content="WidgetListPoster">
+						<param name="content_path" value="$VAR[DefWidgetDefault1Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault1Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault1Target]"/>
+						<param name="list_id" value="181000"/>
+					</include>
+					<include content="WidgetListEpisodes">
+						<param name="content_path" value="$VAR[DefWidgetDefault2Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault2Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault2Target]"/>
+						<param name="item_image" value="$VAR[TVShowWidgetImageVar]"/>
+						<param name="list_id" value="182000"/>
+					</include>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="$VAR[DefWidgetDefault3Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault3Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault3Target]"/>
+						<param name="list_id" value="183000"/>
+					</include>
+					<include content="WidgetListEpisodes">
+						<param name="content_path" value="$VAR[DefWidgetDefault4Content]"/>
+						<param name="widget_header" value="$VAR[DefWidgetDefault4Label]"/>
+						<param name="widget_target" value="$VAR[DefWidgetDefault4Target]"/>
+						<param name="item_image" value="$VAR[TVShowWidgetImageVar]"/>
+						<param name="list_id" value="184000"/>
+					</include>
+				</control>
+			</control>
 		</control>
 		<control type="group">
 			<depth>DepthContentPanel</depth>
@@ -3493,7 +3581,7 @@
 				<focusposition>1</focusposition>
 				<onup>700</onup>
 				<ondown
-						condition="!String.IsEqual(Container(9100).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9100).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),favorites + !String.IsEqual(Container(9100).ListItem.Property(defaultID),vidoes + !String.IsEqual(Container(9100).ListItem.Property(defaultID),pictures)">
+						condition="!String.IsEqual(Container(9100).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),games) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(9100).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(9100).ListItem.Property(defaultID),pictures)">
 					18000
 				</ondown>
 				<ondown condition="String.IsEqual(Container(9100).ListItem.Property(defaultID),addons)">8000</ondown>

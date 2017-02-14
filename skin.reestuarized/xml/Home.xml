@@ -64,8 +64,8 @@
 				</animation>
 				<include>OpenClose_Right</include>
 				<control type="group">
-					<visible>System.IdleTime(15) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus</visible>
-					<animation type="Conditional" condition="System.IdleTime(15) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus" reversible="false">
+					<visible>System.IdleTime(45) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus</visible>
+					<animation type="Conditional" condition="System.IdleTime(45) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus" reversible="false">
 						<!-- Broken Fade -->
 						<effect type="fade" start="10" end="100" time="3500" tween="quadratic"/>
 						<effect type="zoom" start="45" end="100" time="750" tween="elastic"/>
@@ -108,7 +108,7 @@
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="home"/>
 					</include>
-					<animation type="Conditional" condition="System.IdleTime(15) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus" reversible="false">
+					<animation type="Conditional" condition="System.IdleTime(45) + Skin.HasSetting(widgets.dim) + ControlGroup(7301).HasFocus" reversible="false">
 						<!-- Broken Fade -->
 						<effect type="fade" start="100" end="0" time="3500" tween="quadratic"/>
 						<effect type="zoom" start="100" end="90" time="750" tween="elastic"/>
@@ -168,13 +168,13 @@
 							<param name="list_id" value="7308"/>
 						</include>
 
-						<include content="WidgetListTVSquare">
+						<include content="WidgetListTVSquareInfo">
 							<param name="content_path" value="$VAR[DefWidgetHome8Content]"/>
 							<param name="widget_header" value="$VAR[DefWidgetHome8Label]"/>
 							<param name="widget_target" value="$VAR[DefWidgetHome8Target]"/>
 							<param name="list_id" value="7309"/>
 						</include>
-						<include content="WidgetListPosterRounded">
+						<include content="WidgetListPosterInfo">
 							<param name="content_path" value="$VAR[DefWidgetHome9Content]"/>
 							<param name="widget_header" value="$VAR[DefWidgetHome9Label]"/>
 							<param name="widget_target" value="$VAR[DefWidgetHome9Target]"/>

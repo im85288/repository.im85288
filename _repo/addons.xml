@@ -132,7 +132,7 @@
 	</extension>
 </addon>
 
-<addon id="skin.reestuarized" version="0.0.03" name="Re Estuarized" provider-name="im85288">
+<addon id="skin.reestuarized" version="0.0.04" name="Re Estuarized" provider-name="im85288">
 	<requires>
 		<import version="5.12.0" addon="xbmc.gui"/>
 		<import addon="script.skinshortcuts" version="0.6.5"/>
@@ -166,8 +166,10 @@
             <screenshot>resources/screenshot-09.jpg</screenshot>
         </assets>
          <news>
-        What's new in version 0.0.01 ?
-        - New skin!
+        What's new in version 0.0.04 ?
+             - Library menu now will show custom menu's
+             - Option to show animated posters
+             - Collection plots now shown
      </news>
 	</extension>
 </addon>

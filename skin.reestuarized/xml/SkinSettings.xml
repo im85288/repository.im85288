@@ -144,6 +144,12 @@
 					<onclick>Skin.ToggleSetting(no_fanart)</onclick>
 					<selected>!Skin.HasSetting(no_fanart)</selected>
 				</control>
+				<control type="radiobutton" id="6055">
+					<label>$LOCALIZE[40044]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
+					<selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
+				</control>
 				<control type="button" id="607">
 					<label>$LOCALIZE[31156]</label>
 					<label2>$VAR[BackgroundOverlayTypeVar]</label2>

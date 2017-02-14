@@ -185,6 +185,7 @@
 				<height>163</height>
 				<label>$PARAM[textbox_content]</label>
 				<shadowcolor>text_shadow</shadowcolor>
+				<autoscroll delay="2000" time="3000" repeat="10000"/>
 			</control>
 		</control>
 	</include>

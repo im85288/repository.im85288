@@ -895,3 +895,7 @@ msgstr ""
 msgctxt "#40043"
 msgid "Seconds"
 msgstr ""
+
+msgctxt "#40044"
+msgid "Show Animated Posters"
+msgstr ""

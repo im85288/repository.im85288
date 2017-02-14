@@ -257,6 +257,51 @@
                         <visible>String.IsEqual(Container(211).ListItem.Property(defaultID),music)</visible>
                     </control>
 
+                    <control type="button" id="1464">
+                        <!--set widget-->
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <label>$ADDON[script.skinshortcuts 32044] default 1</label>
+                        <label2 fallback="31134">$INFO[Container(211).Listitem.Property(widgetName.default1)]</label2>
+                        <onclick>SetProperty(widgetID, default1)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(211).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(211).ListItem.Property(defaultID),games) + !String.IsEqual(Container(211).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(211).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(211).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(211).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(211).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(211).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),pictures)</visible>
+                    </control>
+                    <control type="button" id="1465">
+                        <!--set widget 2-->
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>SetProperty(widgetID, default2)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <label>$ADDON[script.skinshortcuts 32044] default 2</label>
+                        <label2 fallback="31135">$INFO[Container(211).Listitem.Property(widgetName.default2)]</label2>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(211).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(211).ListItem.Property(defaultID),games) + !String.IsEqual(Container(211).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(211).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(211).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(211).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(211).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(211).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),pictures)</visible>
+                    </control>
+                    <control type="button" id="1466">
+                        <!--set widget 3-->
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>SetProperty(widgetID, default3)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <label>$ADDON[script.skinshortcuts 32044] default 3</label>
+                        <label2 fallback="31224">$INFO[Container(211).Listitem.Property(widgetName.default3)]</label2>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(211).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(211).ListItem.Property(defaultID),games) + !String.IsEqual(Container(211).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(211).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(211).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(211).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(211).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(211).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),pictures)</visible>
+                    </control>
+                    <control type="button" id="1467">
+                        <!--set widget 3-->
+                        <width>1256</width>
+                        <include>DefaultSettingButton</include>
+                        <onclick>SetProperty(widgetID, default4)</onclick>
+                        <onclick>SendClick(312)</onclick>
+                        <label>$ADDON[script.skinshortcuts 32044] default 4</label>
+                        <label2 fallback="31224">$INFO[Container(211).Listitem.Property(widgetName.default4)]</label2>
+                        <visible>StringCompare(Window.Property(groupname),librarymenu)</visible>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),addons) + !String.IsEqual(Container(211).ListItem.Property(defaultID),weather) + !String.IsEqual(Container(211).ListItem.Property(defaultID),games) + !String.IsEqual(Container(211).ListItem.Property(defaultID),livetv) + !String.IsEqual(Container(211).ListItem.Property(defaultID),radio) + !String.IsEqual(Container(211).ListItem.Property(defaultID),tvshows) + !String.IsEqual(Container(211).ListItem.Property(defaultID),music)  + !String.IsEqual(Container(211).ListItem.Property(defaultID),musicvideos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),movies) + !String.IsEqual(Container(211).ListItem.Property(defaultID),favorites) + !String.IsEqual(Container(211).ListItem.Property(defaultID),videos) + !String.IsEqual(Container(211).ListItem.Property(defaultID),pictures)</visible>
+                    </control>
+
                     <control type="button" id="303">
                         <description>Move up</description>
                         <label>$ADDON[script.skinshortcuts 32002]</label>

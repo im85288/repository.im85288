@@ -149,7 +149,7 @@
                                     <top>0</top>
                                     <width>553.33</width>
                                     <height>100%</height>
-                                    <texture fallback="DefaultTVShows.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                                    <texture fallback="DefaultTVShows.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$VAR[InfoWallThumbVar]</texture>
                                     <aspectratio>scale</aspectratio>
                                 </control>
                                 <control type="group">
@@ -202,7 +202,7 @@
                                     <top>0</top>
                                     <width>553.33</width>
                                     <height>100%</height>
-                                    <texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                                    <texture fallback="DefaultMovies.png" diffuse="diffuse/roundedposterleftonly.png" background="true">$VAR[InfoWallThumbVar]</texture>
                                     <aspectratio>scale</aspectratio>
                                 </control>
                                 <control type="group">

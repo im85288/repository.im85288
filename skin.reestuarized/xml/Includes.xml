@@ -1171,7 +1171,7 @@
 						<width>auto</width>
 						<aligny>center</aligny>
 						<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-						<visible>Weather.IsFetched + !String.IsEqual(Weather.FanartCode,na) + !Window.IsActive(DialogVideoInfo.xml)</visible>
+						<visible>Weather.IsFetched + !String.IsEqual(Weather.FanartCode,na) + !Window.IsActive(DialogVideoInfo.xml) + Skin.HasSetting(show_weatherinfo)</visible>
 					</control>
 					<control type="image">
 						<top>1</top>
@@ -1180,7 +1180,7 @@
 						<fadetime>300</fadetime>
 						<aspectratio aligny="center" align="left">keep</aspectratio>
 						<texture colordiffuse="primary">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
-						<visible>Weather.IsFetched + !String.IsEqual(Weather.FanartCode,na) + !Window.IsActive(DialogVideoInfo.xml)</visible>
+						<visible>Weather.IsFetched + !String.IsEqual(Weather.FanartCode,na) + !Window.IsActive(DialogVideoInfo.xml) + Skin.HasSetting(show_weatherinfo)</visible>
 					</control>
 					<control type="label">
 						<height>50</height>

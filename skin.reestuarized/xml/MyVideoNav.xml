@@ -49,8 +49,7 @@
 						<top>240</top>
 						<width>525</width>
 						<bottom>100</bottom>
-						<visible>!ListItem.IsCollection</visible>
-						<label>$INFO[ListItem.Tagline,[I],[/I][CR][CR]]$INFO[ListItem.Plot][CR][CR]</label>
+						<label>$INFO[ListItem.Tagline,[I],[/I][CR][CR]]$VAR[ListBoxInfoVar][CR][CR]</label>
 						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 					</control>
 					<control type="textbox">
@@ -65,7 +64,7 @@
 						<label>$LOCALIZE[19055]</label>
 						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
 					</control>
-					<control type="group">
+					<!-- <control type="group">
 						<left>20</left>
 						<top>245</top>
 						<visible>ListItem.IsCollection</visible>
@@ -76,7 +75,7 @@
 							<param name="sortorder" value="descending" />
 							<param name="font" value="font13" />
 						</include>
-					</control>
+					</control> -->
 				</control>
 			</control>
 			<include content="TopBar">
