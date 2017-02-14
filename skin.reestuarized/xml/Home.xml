@@ -117,6 +117,11 @@
 					<control type="grouplist" id="7301">
 						<onup>700</onup>
 						<include>WidgetGroupListCommon</include>
+						<include content="WidgetListHomeCategories" condition="Skin.HasSetting(home.topmenu)">
+							<param name="widget_header" value="$LOCALIZE[40010]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="7399"/>
+						</include>
 						<include content="WidgetListTVSquare">
 							<param name="content_path" value="$VAR[DefWidgetHome1Content]"/>
 							<param name="widget_header" value="$VAR[DefWidgetHome1Label]"/>
@@ -149,7 +154,7 @@
 							<param name="widget_target" value="$VAR[DefWidgetHome5Target]"/>
 							<param name="list_id" value="7306"/>
 						</include>
-						<include content="WidgetListHomeCategories">
+						<include content="WidgetListHomeCategories" condition="!Skin.HasSetting(home.topmenu)">
 							<param name="widget_header" value="$LOCALIZE[40010]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="7399"/>

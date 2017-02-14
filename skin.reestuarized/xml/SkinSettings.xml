@@ -68,9 +68,15 @@
 					<height>3</height>
 					<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
 				</control>
+				<control type="radiobutton" id="408">
+					<label>40045</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(home.topmenu)</onclick>
+					<selected>Skin.HasSetting(home.topmenu)</selected>
+				</control>
 				<control type="radiobutton" id="407" description="Fade widgets">
 					<include>DefaultSettingButton</include>
-					<label>40041</label>
+					<label>40046</label>
 					<selected>Skin.HasSetting(widgets.dim)</selected>
 					<onclick>Skin.ToggleSetting(widgets.dim)</onclick>
 				</control>

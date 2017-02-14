@@ -884,8 +884,8 @@ msgctxt "#40040"
 msgid "Fade home widget to show background images after 10 seconds"
 msgstr ""
 
-msgctxt "#40041"
-msgid "Fade home widget to show background images after focused for 15 secs"
+msgctxt "#40046"
+msgid "Fade home widget to show background images after focused for 45 secs"
 msgstr ""
 
 msgctxt "#40042"
@@ -898,4 +898,8 @@ msgstr ""
 
 msgctxt "#40044"
 msgid "Show Animated Posters"
+msgstr ""
+
+msgctxt "#40045"
+msgid "Show Home Categories at the top"
 msgstr ""
