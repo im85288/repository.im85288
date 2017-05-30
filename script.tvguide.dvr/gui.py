@@ -541,11 +541,6 @@ class TVGuide(xbmcgui.WindowXML):
             self.viewStartDate -= datetime.timedelta(minutes=self.viewStartDate.minute % 60, seconds=self.viewStartDate.second)
             self.currentProgram = self.database.getCurrentProgram(self.currentChannel)
             self.onRedrawEPG(self.channelIdx, self.viewStartDate)
-
-        elif action.getId() == ACTION_SHOW_INFO:
-            self.osdChannel = self.currentChannel
-            self.osdProgram = self.database.getCurrentProgram(self.osdChannel)
-            self._showOsd()
         elif action.getId() == REMOTE_0:
             self._playLastChannel()
         elif action.getId() == ACTION_RIGHT:
