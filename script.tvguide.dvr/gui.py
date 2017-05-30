@@ -1367,8 +1367,8 @@ class TVGuide(xbmcgui.WindowXML):
             else:
                 self.setControlImage(self.C_MAIN_BACKGROUND, "tvg-programs-back.png")
 
-            #if not self.osdEnabled and self.player.isPlaying():
-            #    self.player.stop()
+            if not self.osdEnabled and self.player.isPlaying():
+                self.player.stop()
 
     def _left(self, currentFocus):
         control = self._findControlOnLeft(currentFocus)
